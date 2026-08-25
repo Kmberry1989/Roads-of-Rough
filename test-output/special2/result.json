@@ -1,0 +1,39 @@
+{
+  "active": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 539,
+      "y": 560,
+      "health": 84,
+      "meter": 90,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [],
+    "wave": 1,
+    "score": 375,
+    "cameraX": 169,
+    "goSignal": false
+  },
+  "done": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 539,
+      "y": 560,
+      "health": 84,
+      "meter": 90,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [],
+    "wave": 1,
+    "score": 375,
+    "cameraX": 169,
+    "goSignal": false
+  },
+  "errors": []
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#080813" />
+    <title>Roads of Rough</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="Roads of Rough beat-em-up">
+      <canvas id="game" width="1280" height="720" aria-label="Roads of Rough game canvas"></canvas>
+      <div id="touch-controls" aria-label="Touch controls" hidden>
+        <div class="touch-dpad">
+          <button data-action="up" aria-label="Move up">▲</button>
+          <button data-action="left" aria-label="Move left">◀</button>
+          <button data-action="down" aria-label="Move down">▼</button>
+          <button data-action="right" aria-label="Move right">▶</button>
+        </div>
+        <div class="touch-actions">
+          <button class="touch-heavy" data-action="heavy" aria-label="Heavy attack">KICK</button>
+          <button class="touch-light" data-action="light" aria-label="Light attack">HIT</button>
+          <button class="touch-special" data-action="special" aria-label="Special attack">SPEC</button>
+          <button class="touch-dodge" data-action="dodge" aria-label="Dodge">DODGE</button>
+        </div>
+      </div>
+      <div class="audio-controls" id="audio-controls" aria-label="Audio controls">
+        <button id="audio-mute" type="button" aria-pressed="false">🔊 AUDIO</button>
+        <button id="audio-toggle" type="button" aria-expanded="false" aria-controls="audio-panel">MIX</button>
+        <div class="audio-panel" id="audio-panel" hidden>
+          <label for="audio-volume">VOL <input id="audio-volume" type="range" min="0" max="1" step="0.01" value="0.32" /></label>
+          <span id="audio-support" aria-live="polite">READY</span>
+        </div>
+      </div>
+      <p class="screen-reader" id="game-status" aria-live="polite"></p>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

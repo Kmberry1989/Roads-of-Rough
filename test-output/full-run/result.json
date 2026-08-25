@@ -1,0 +1,263 @@
+{
+  "snapshots": [
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 35,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [
+        {
+          "id": "1-0-ca78a55e407338",
+          "x": 724,
+          "y": 536,
+          "health": 32,
+          "type": "grunt",
+          "state": "walk"
+        },
+        {
+          "id": "1-1-af316ce1daadd",
+          "x": 806,
+          "y": 527,
+          "health": 24,
+          "type": "rusher",
+          "state": "walk"
+        },
+        {
+          "id": "1-2-fb47e9c41a8fe8",
+          "x": 924,
+          "y": 585,
+          "health": 32,
+          "type": "grunt",
+          "state": "walk"
+        }
+      ],
+      "wave": 1,
+      "score": 0,
+      "cameraX": 0,
+      "goSignal": true
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 55,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [
+        {
+          "id": "1-0-ca78a55e407338",
+          "x": 471,
+          "y": 536,
+          "health": 20,
+          "type": "grunt",
+          "state": "walk"
+        },
+        {
+          "id": "1-2-fb47e9c41a8fe8",
+          "x": 641,
+          "y": 585,
+          "health": 32,
+          "type": "grunt",
+          "state": "walk"
+        }
+      ],
+      "wave": 1,
+      "score": 125,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    },
+    {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 333,
+        "y": 562,
+        "health": 100,
+        "meter": 90,
+        "state": "light",
+        "action": "light"
+      },
+      "enemies": [],
+      "wave": 1,
+      "score": 375,
+      "cameraX": 0,
+      "goSignal": false
+    }
+  ],
+  "finalState": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 333,
+      "y": 562,
+      "health": 100,
+      "meter": 90,
+      "state": "light",
+      "action": "light"
+    },
+    "enemies": [],
+    "wave": 1,
+    "score": 375,
+    "cameraX": 0,
+    "goSignal": false
+  },
+  "errors": []
+}

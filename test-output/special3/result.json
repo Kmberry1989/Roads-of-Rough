@@ -1,0 +1,116 @@
+{
+  "found": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 1168,
+      "y": 567,
+      "health": 100,
+      "meter": 100,
+      "state": "walk",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "2-1-d87ea6f2fa371",
+        "x": 1249,
+        "y": 561,
+        "health": 14,
+        "type": "grunt",
+        "state": "attack"
+      },
+      {
+        "id": "2-2-74de4119397a2",
+        "x": 1493,
+        "y": 593,
+        "health": 45,
+        "type": "bruiser",
+        "state": "walk"
+      },
+      {
+        "id": "2-3-7ad3c1d4b4e7f8",
+        "x": 1417,
+        "y": 561,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 2,
+    "score": 525,
+    "cameraX": 779,
+    "goSignal": false
+  },
+  "active": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 1168,
+      "y": 567,
+      "health": 92,
+      "meter": 9,
+      "state": "hurt",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "2-1-d87ea6f2fa371",
+        "x": 1249,
+        "y": 561,
+        "health": 14,
+        "type": "grunt",
+        "state": "attack"
+      },
+      {
+        "id": "2-2-74de4119397a2",
+        "x": 1494,
+        "y": 593,
+        "health": 9,
+        "type": "bruiser",
+        "state": "hurt"
+      }
+    ],
+    "wave": 2,
+    "score": 975,
+    "cameraX": 795,
+    "goSignal": false
+  },
+  "done": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 1147,
+      "y": 567,
+      "health": 92,
+      "meter": 9,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "2-1-d87ea6f2fa371",
+        "x": 1214,
+        "y": 561,
+        "health": 14,
+        "type": "grunt",
+        "state": "idle"
+      },
+      {
+        "id": "2-2-74de4119397a2",
+        "x": 1484,
+        "y": 593,
+        "health": 9,
+        "type": "bruiser",
+        "state": "walk"
+      }
+    ],
+    "wave": 2,
+    "score": 975,
+    "cameraX": 777,
+    "goSignal": false
+  },
+  "errors": []
+}

@@ -1,0 +1,133 @@
+{
+  "visible": true,
+  "start": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 330,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "1-0-2df096d3127508",
+        "x": 738,
+        "y": 534,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-463f8b35a5f428",
+        "x": 826,
+        "y": 531,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-97674a53d83008",
+        "x": 938,
+        "y": 589,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": true
+  },
+  "moved": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 460,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "walk",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "1-0-2df096d3127508",
+        "x": 701,
+        "y": 534,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-463f8b35a5f428",
+        "x": 770,
+        "y": 534,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-97674a53d83008",
+        "x": 901,
+        "y": 586,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 60,
+    "goSignal": true
+  },
+  "attacked": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 460,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "light",
+      "action": "light"
+    },
+    "enemies": [
+      {
+        "id": "1-0-2df096d3127508",
+        "x": 693,
+        "y": 534,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-463f8b35a5f428",
+        "x": 759,
+        "y": 534,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-97674a53d83008",
+        "x": 893,
+        "y": 586,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 76,
+    "goSignal": true
+  },
+  "errors": []
+}

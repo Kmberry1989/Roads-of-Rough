@@ -1,0 +1,175 @@
+{
+  "active": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 330,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "1-0-2a5a1a3f02289",
+        "x": 734,
+        "y": 511,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-554bcfc89c5db8",
+        "x": 821,
+        "y": 543,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-65c4f4e8d1423",
+        "x": 934,
+        "y": 523,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": true
+  },
+  "done": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 330,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "1-0-2a5a1a3f02289",
+        "x": 668,
+        "y": 535,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-554bcfc89c5db8",
+        "x": 720,
+        "y": 543,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-65c4f4e8d1423",
+        "x": 868,
+        "y": 535,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": true
+  },
+  "paused": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "paused",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 330,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "1-0-2a5a1a3f02289",
+        "x": 668,
+        "y": 535,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-554bcfc89c5db8",
+        "x": 720,
+        "y": 543,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-65c4f4e8d1423",
+        "x": 868,
+        "y": 535,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": true
+  },
+  "resumed": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 330,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "idle",
+      "action": null
+    },
+    "enemies": [
+      {
+        "id": "1-0-2a5a1a3f02289",
+        "x": 653,
+        "y": 535,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      },
+      {
+        "id": "1-1-554bcfc89c5db8",
+        "x": 698,
+        "y": 543,
+        "health": 24,
+        "type": "rusher",
+        "state": "walk"
+      },
+      {
+        "id": "1-2-65c4f4e8d1423",
+        "x": 853,
+        "y": 535,
+        "health": 32,
+        "type": "grunt",
+        "state": "walk"
+      }
+    ],
+    "wave": 1,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": false
+  },
+  "errors": []
+}
