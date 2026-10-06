@@ -27,6 +27,12 @@
   ];
   const ENEMY_FILES = Array.from({ length: 10 }, (_, i) => `baddy${i + 1}.png`);
   const PATH = 'sprites/';
+  const ENEMY_ATTACKS = {
+    grunt: { windup: .36, active: .14, recovery: .28, range: 88, damage: 8, color: '#ff5f83', label: 'STRIKE' },
+    rusher: { windup: .24, active: .12, recovery: .22, range: 102, damage: 8, color: '#5de7ff', label: 'RUSH' },
+    bruiser: { windup: .58, active: .18, recovery: .42, range: 118, damage: 14, color: '#ffc247', label: 'HEAVY' },
+    boss: { windup: .78, active: .22, recovery: .55, range: 148, damage: 20, color: '#ff315f', label: 'BOSS BREAK' },
+  };
 
   const assets = { images: {}, ready: false, failed: 0 };
   const keys = new Set();
@@ -206,6 +212,8 @@
     spawnIndex: 0,
     waveSpawnX: 0,
     shake: 0,
+    hitStop: 0,
+    lastImpact: null,
     message: '',
     messageTimer: 0,
     time: 0,
@@ -398,7 +406,7 @@
     return {
       x: 330, y: 560, vx: 0, vy: 0, facing: 1, speed: hero.speed, health: hero.maxHealth, maxHealth: hero.maxHealth,
       meter: hero.meterStart, maxMeter: 100, state: 'idle', action: '', actionTime: 0, actionTotal: 0,
-      actionHit: false, combo: 0, comboTimer: 0, hurtTimer: 0, invuln: 0, anim: 0,
+      actionHit: false, combo: 0, comboTimer: 0, hurtTimer: 0, flashTimer: 0, invuln: 0, anim: 0,
       dodgeTime: 0, dodgeCooldown: 0, dodgeVx: 0, hero,
     };
   }
@@ -412,7 +420,7 @@
       x, y, vx: 0, facing: -1, type, boss, sheet: ENEMY_FILES[(index + state.wave * 2) % ENEMY_FILES.length],
       health: boss ? 180 : bruiser ? 45 : rusher ? 24 : 32, maxHealth: boss ? 180 : bruiser ? 45 : rusher ? 24 : 32,
       speed: boss ? 44 : bruiser ? 52 : rusher ? 112 : 74, state: 'idle', actionTime: 0, actionHit: false,
-      hurtTimer: 0, invuln: 0, anim: Math.random() * 3, attackCooldown: boss ? .7 : .35 + Math.random(),
+      hurtTimer: 0, flashTimer: 0, invuln: 0, anim: Math.random() * 3, attackCooldown: boss ? .7 : .35 + Math.random(),
       dead: false, deathTimer: 0,
     };
   }
@@ -425,6 +433,8 @@
     state.particles = [];
     state.cameraX = 0;
     state.score = 0;
+    state.hitStop = 0;
+    state.lastImpact = null;
     state.wave = 0;
     state.bossDefeated = false;
     state.nextWaveAt = 260;
@@ -565,9 +575,24 @@
     return { x: player.x + player.facing * (special ? 160 : player.action === 'heavy' ? 88 : 68), y: player.y - 88, radius: special ? 190 : player.action === 'heavy' ? 85 : 67 };
   }
 
-  function hitEnemy(enemy, damage, knockback, special = false) {
+  function addImpact(x, y, kind, color) {
+    const profiles = {
+      light: { count: 10, stop: .035, size: 32 },
+      heavy: { count: 17, stop: .065, size: 48 },
+      special: { count: 26, stop: .09, size: 68 },
+    };
+    const profile = profiles[kind] || profiles.light;
+    state.hitStop = Math.max(state.hitStop, profile.stop);
+    state.lastImpact = { kind, x: Math.round(x), y: Math.round(y), time: state.time };
+    state.effects.push({ type: 'impact', kind, x, y, time: .22, max: .22, color, size: profile.size });
+    burst(x, y, color, profile.count, kind);
+  }
+
+  function hitEnemy(enemy, damage, knockback, attackKind = 'light') {
+    const special = attackKind === 'special';
     enemy.health -= damage;
     enemy.hurtTimer = special ? .42 : .25;
+    enemy.flashTimer = attackKind === 'heavy' ? .14 : special ? .2 : .09;
     enemy.invuln = .18;
     enemy.vx = knockback;
     enemy.state = enemy.health <= 0 ? 'defeat' : 'hurt';
@@ -583,8 +608,8 @@
     } else {
       state.player.meter = clamp(state.player.meter + 5, 0, 100);
     }
-    state.shake = special ? .22 : .1;
-    burst(enemy.x, enemy.y - 100, special ? '#ffd764' : '#ff68d3', special ? 18 : 8);
+    state.shake = special ? .22 : attackKind === 'heavy' ? .16 : .1;
+    addImpact(enemy.x, enemy.y - 100, attackKind, special ? '#ffd764' : attackKind === 'heavy' ? '#ff9f43' : '#ff68d3');
     if (!special) audio.play('hit');
   }
 
@@ -593,12 +618,13 @@
     if (player.invuln > 0 || player.hurtTimer > 0 || state.mode !== 'play') return;
     player.health = clamp(player.health - amount, 0, player.maxHealth);
     player.hurtTimer = .42;
+    player.flashTimer = .16;
     player.invuln = .8;
     player.action = '';
     player.state = player.health <= 0 ? 'defeat' : 'hurt';
     player.vx = source.x < player.x ? 180 : -180;
     state.shake = .16;
-    burst(player.x, player.y - 100, '#ff4f58', 10);
+    addImpact(player.x, player.y - 100, amount >= 14 ? 'heavy' : 'light', '#ff4f58');
     audio.play('hit');
     if (player.health <= 0) {
       state.message = 'DOWN FOR THE COUNT';
@@ -613,6 +639,7 @@
     player.anim += dt * (player.state === 'walk' ? 10 : player.state === 'idle' ? 2.8 : 6);
     player.invuln = Math.max(0, player.invuln - dt);
     player.hurtTimer = Math.max(0, player.hurtTimer - dt);
+    player.flashTimer = Math.max(0, player.flashTimer - dt);
     player.dodgeCooldown = Math.max(0, player.dodgeCooldown - dt);
     player.comboTimer = Math.max(0, player.comboTimer - dt);
     if (player.comboTimer === 0) player.combo = 0;
@@ -662,7 +689,7 @@
             const baseDamage = player.action === 'special' ? 36 : player.action === 'heavy' ? 20 : 12 + player.combo * 2;
             const damage = baseDamage * player.hero.damage;
             const knockback = enemy.boss ? 75 : (player.action === 'special' ? 290 : player.action === 'heavy' ? 180 : 120);
-            hitEnemy(enemy, damage, player.facing * knockback, player.action === 'special');
+            hitEnemy(enemy, damage, player.facing * knockback, player.action);
           }
         });
       }
@@ -681,6 +708,7 @@
     enemy.anim += dt * (enemy.state === 'walk' ? 10 : 6);
     enemy.invuln = Math.max(0, enemy.invuln - dt);
     enemy.hurtTimer = Math.max(0, enemy.hurtTimer - dt);
+    enemy.flashTimer = Math.max(0, enemy.flashTimer - dt);
     if (enemy.dead) {
       enemy.deathTimer -= dt;
       enemy.vx *= .9;
@@ -696,20 +724,30 @@
     const player = state.player;
     const dx = player.x - enemy.x;
     const dy = player.y - enemy.y;
-    const closeEnough = Math.abs(dx) < (enemy.boss ? 140 : enemy.type === 'bruiser' ? 110 : 86) && Math.abs(dy) < 38;
+    const attack = ENEMY_ATTACKS[enemy.type];
+    const closeEnough = Math.abs(dx) < attack.range && Math.abs(dy) < 38;
+    if (enemy.state === 'windup') {
+      enemy.actionTime += dt;
+      enemy.facing = dx < 0 ? -1 : 1;
+      if (enemy.actionTime >= attack.windup) {
+        enemy.state = 'attack'; enemy.actionTime = 0; enemy.actionHit = false;
+        if (enemy.type === 'rusher') enemy.x += enemy.facing * 18;
+      }
+      return;
+    }
     if (enemy.state === 'attack') {
       enemy.actionTime += dt;
-      if (!enemy.actionHit && enemy.actionTime > .27 && enemy.actionTime < .43) {
+      if (!enemy.actionHit && enemy.actionTime <= attack.active) {
         enemy.actionHit = true;
-        if (closeEnough) damagePlayer(enemy.boss ? 20 : enemy.type === 'bruiser' ? 14 : 8, enemy);
+        if (Math.abs(player.x - enemy.x) < attack.range && Math.abs(player.y - enemy.y) < 38) damagePlayer(attack.damage, enemy);
       }
-      if (enemy.actionTime > (enemy.boss ? 1.1 : enemy.type === 'bruiser' ? .86 : .62)) {
+      if (enemy.actionTime > attack.active + attack.recovery) {
         enemy.state = 'idle'; enemy.attackCooldown = enemy.boss ? 1.35 : enemy.type === 'rusher' ? .7 : 1.1; enemy.actionTime = 0;
       }
       return;
     }
     if (closeEnough && enemy.attackCooldown <= 0) {
-      enemy.state = 'attack'; enemy.actionTime = 0; enemy.actionHit = false; enemy.vx = 0;
+      enemy.state = 'windup'; enemy.actionTime = 0; enemy.actionHit = false; enemy.vx = 0;
       return;
     }
     const xStep = Math.abs(dx) > 68 ? Math.sign(dx) : 0;
@@ -721,9 +759,11 @@
     enemy.state = Math.abs(enemy.vx) > 2 || Math.abs(yStep) > 0 ? 'walk' : 'idle';
   }
 
-  function burst(x, y, color, count) {
+  function burst(x, y, color, count, kind = 'light') {
     for (let i = 0; i < count; i += 1) {
-      state.particles.push({ x, y, vx: (Math.random() - .5) * 220, vy: (Math.random() - .7) * 180, life: .35 + Math.random() * .35, max: .7, color, size: 2 + Math.random() * 5 });
+      const force = kind === 'special' ? 390 : kind === 'heavy' ? 300 : 220;
+      const life = .24 + Math.random() * (kind === 'special' ? .5 : .32);
+      state.particles.push({ x, y, vx: (Math.random() - .5) * force, vy: (Math.random() - .72) * force * .72, life, max: life, color, size: 2 + Math.random() * (kind === 'special' ? 8 : kind === 'heavy' ? 6 : 4), kind });
     }
   }
 
@@ -735,6 +775,10 @@
   }
 
   function updateGame(dt) {
+    if (state.hitStop > 0) {
+      state.hitStop = Math.max(0, state.hitStop - dt);
+      return;
+    }
     state.time += dt;
     state.shake = Math.max(0, state.shake - dt);
     if (state.messageTimer > 0 && state.messageTimer < 900) state.messageTimer -= dt;
@@ -767,10 +811,13 @@
     let frames = heroFrames[animationState] || heroFrames.idle;
     let sheet = image(hero.base);
     if (player.state === 'special') { frames = specialFrames; sheet = image(hero.special); }
-    const alpha = player.invuln > 0 && Math.floor(player.invuln * 18) % 2 === 0 ? .42 : 1;
+    const alpha = player.invuln > 0 && player.hurtTimer <= 0 && Math.floor(player.invuln * 18) % 2 === 0 ? .42 : 1;
     const action = ['light', 'heavy', 'special'].includes(player.state);
     const progress = action ? (player.actionTime / Math.max(.001, player.actionTotal)) * (frames.length - .001) : player.anim;
+    ctx.save();
+    if (player.flashTimer > 0) { ctx.filter = 'brightness(3.6) saturate(0)'; ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 18; }
     drawAnimatedSprite(sheet, frames, progress, player.x - state.cameraX, player.y, player.state === 'special' ? 230 : 210, player.facing, alpha, !action);
+    ctx.restore();
   }
 
   function drawEnemy(enemy) {
@@ -779,6 +826,20 @@
     ctx.save();
     ctx.globalAlpha = alpha;
     const height = enemy.boss ? 290 : enemy.type === 'bruiser' ? 235 : 205;
+    if (enemy.state === 'windup') {
+      const attack = ENEMY_ATTACKS[enemy.type];
+      const charge = clamp(enemy.actionTime / attack.windup, 0, 1);
+      const screenX = enemy.x - state.cameraX;
+      ctx.save();
+      ctx.globalAlpha = .24 + charge * .5;
+      ctx.strokeStyle = attack.color;
+      ctx.fillStyle = `${attack.color}33`;
+      ctx.lineWidth = enemy.boss ? 7 : 4;
+      ctx.beginPath(); ctx.ellipse(screenX + enemy.facing * attack.range * .45, enemy.y - 3, attack.range * .62, 18 + charge * 8, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.globalAlpha = .72 + Math.sin(state.time * 24) * .22;
+      drawText(attack.label, screenX, enemy.y - height - (enemy.boss ? 54 : 24), enemy.boss ? 18 : 13, attack.color, 'center');
+      ctx.restore();
+    }
     if (enemy.boss) {
       ctx.save();
       ctx.globalAlpha = .22 + Math.sin(state.time * 5) * .08;
@@ -786,8 +847,9 @@
       ctx.beginPath(); ctx.arc(enemy.x - state.cameraX, enemy.y - 125, 78, 0, Math.PI * 2); ctx.fill();
       ctx.restore();
     }
-    const attackTotal = enemy.boss ? 1.1 : enemy.type === 'bruiser' ? .86 : .62;
+    const attackTotal = ENEMY_ATTACKS[enemy.type].active + ENEMY_ATTACKS[enemy.type].recovery;
     const progress = enemy.dead ? (1 - enemy.deathTimer) * (frameSet.length - .001) : enemy.state === 'attack' ? (enemy.actionTime / attackTotal) * (frameSet.length - .001) : enemy.anim;
+    if (enemy.flashTimer > 0) { ctx.filter = 'brightness(4) saturate(0)'; ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 20; }
     drawAnimatedSprite(image(enemy.sheet), frameSet, progress, enemy.x - state.cameraX, enemy.y, height, enemy.facing, 1, !enemy.dead && enemy.state !== 'attack');
     if (!enemy.dead && enemy.boss) drawText('STREET BOSS', enemy.x - state.cameraX, enemy.y - 320, 17, '#ff6a87', 'center');
     ctx.restore();
@@ -853,6 +915,24 @@
       if (thing.isPlayer) drawPlayer(); else drawEnemy(thing);
     });
     state.effects.forEach((effect) => {
+      if (effect.type === 'impact') {
+        const progress = 1 - effect.time / effect.max;
+        ctx.save();
+        ctx.globalAlpha = effect.time / effect.max;
+        ctx.strokeStyle = effect.color; ctx.lineWidth = effect.kind === 'special' ? 8 : effect.kind === 'heavy' ? 6 : 4;
+        ctx.shadowColor = effect.color; ctx.shadowBlur = 16;
+        ctx.beginPath(); ctx.arc(effect.x - state.cameraX, effect.y, effect.size * (.35 + progress), 0, Math.PI * 2); ctx.stroke();
+        const rays = effect.kind === 'special' ? 10 : effect.kind === 'heavy' ? 8 : 6;
+        for (let i = 0; i < rays; i += 1) {
+          const angle = i / rays * Math.PI * 2;
+          ctx.beginPath();
+          ctx.moveTo(effect.x - state.cameraX + Math.cos(angle) * effect.size * .35, effect.y + Math.sin(angle) * effect.size * .35);
+          ctx.lineTo(effect.x - state.cameraX + Math.cos(angle) * effect.size * (1 + progress * .5), effect.y + Math.sin(angle) * effect.size * (1 + progress * .5));
+          ctx.stroke();
+        }
+        ctx.restore();
+        return;
+      }
       if (effect.type !== 'special') return;
       const progress = 1 - effect.time / effect.max;
       ctx.save(); ctx.globalAlpha = effect.time / effect.max;
@@ -1013,7 +1093,7 @@
       mode: state.mode,
       selectedHero: HEROES[state.selectedHero]?.name || null,
       player: player ? { x: Math.round(player.x), y: Math.round(player.y), health: Math.round(player.health), meter: Math.round(player.meter), state: player.state, action: player.action || null, dodgeCooldown: Number(player.dodgeCooldown.toFixed(2)) } : null,
-      enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, state: enemy.state })),
+      enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, state: enemy.state, tell: enemy.state === 'windup' ? { label: ENEMY_ATTACKS[enemy.type].label, remaining: Number(Math.max(0, ENEMY_ATTACKS[enemy.type].windup - enemy.actionTime).toFixed(2)) } : null })),
       wave: state.wave,
       queuedEnemies: state.spawnQueue.length,
       spawnCap: state.spawnBatchSize,
@@ -1021,6 +1101,8 @@
       cameraX: Math.round(state.cameraX),
       goSignal: state.goTimer > 0,
       bossDefeated: state.bossDefeated,
+      hitStop: Number(state.hitStop.toFixed(3)),
+      lastImpact: state.lastImpact,
       audio: { supported: audio.supported, muted: audio.muted, volume: Number(audio.volume.toFixed(2)) },
     });
   }
