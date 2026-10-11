@@ -1,0 +1,917 @@
+{
+  "errors": [],
+  "checks": {
+    "resize": [
+      {
+        "x": 5.5625,
+        "y": 0,
+        "width": 888.875,
+        "height": 500,
+        "viewport": [
+          900,
+          500
+        ]
+      },
+      {
+        "x": 373.328125,
+        "y": 0,
+        "width": 533.328125,
+        "height": 300,
+        "viewport": [
+          1280,
+          300
+        ]
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "viewport": [
+          1280,
+          720
+        ]
+      }
+    ],
+    "fullscreen": {
+      "entered": true,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "viewport": [
+          1280,
+          720
+        ]
+      },
+      "exited": true
+    },
+    "blur": {
+      "before": {
+        "x": 395,
+        "y": 560,
+        "health": 100,
+        "meter": 35,
+        "state": "walk",
+        "action": null,
+        "dodgeCooldown": 0
+      },
+      "paused": {
+        "x": 395,
+        "y": 560,
+        "health": 100,
+        "meter": 35,
+        "state": "walk",
+        "action": null,
+        "dodgeCooldown": 0
+      },
+      "resumed": {
+        "x": 395,
+        "y": 560,
+        "health": 100,
+        "meter": 35,
+        "state": "idle",
+        "action": null,
+        "dodgeCooldown": 0
+      }
+    },
+    "audioKeyboard": {
+      "volumeBefore": "0.32",
+      "volumeAfter": "0.33",
+      "playerX": 395
+    },
+    "rotation": [
+      {
+        "x": 0,
+        "y": 312.3125,
+        "width": 390,
+        "height": 219.375,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      {
+        "x": 75.328125,
+        "y": 0,
+        "width": 693.328125,
+        "height": 390,
+        "viewport": [
+          844,
+          390
+        ]
+      },
+      {
+        "x": 0,
+        "y": 194,
+        "width": 320,
+        "height": 180,
+        "viewport": [
+          320,
+          568
+        ]
+      },
+      {
+        "x": 0,
+        "y": 312.3125,
+        "width": 390,
+        "height": 219.375,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    ],
+    "multiTouch": {
+      "state": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KRISTEN",
+        "player": {
+          "x": 335,
+          "y": 560,
+          "health": 85,
+          "meter": 45,
+          "state": "light",
+          "action": "light",
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-9adc606d1d438",
+            "x": 751,
+            "y": 534,
+            "health": 32,
+            "type": "grunt",
+            "boss": false,
+            "state": "walk",
+            "tell": null
+          },
+          {
+            "id": "1-1-90a5f86ea7b9d8",
+            "x": 847,
+            "y": 534,
+            "health": 24,
+            "type": "rusher",
+            "boss": false,
+            "state": "walk",
+            "tell": null
+          }
+        ],
+        "wave": 1,
+        "queuedEnemies": 1,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": true,
+        "bossDefeated": false,
+        "hitStop": 0,
+        "lastImpact": null,
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "held": [
+        "right",
+        "light"
+      ]
+    },
+    "drawing": {
+      "loops": [
+        {
+          "progress": 0,
+          "draws": [
+            {
+              "sourceX": 15,
+              "alpha": 1,
+              "centre": 330
+            }
+          ]
+        },
+        {
+          "progress": 1,
+          "draws": [
+            {
+              "sourceX": 200,
+              "alpha": 1,
+              "centre": 330
+            }
+          ]
+        },
+        {
+          "progress": 2,
+          "draws": [
+            {
+              "sourceX": 15,
+              "alpha": 1,
+              "centre": 330
+            }
+          ]
+        },
+        {
+          "progress": 3,
+          "draws": [
+            {
+              "sourceX": 200,
+              "alpha": 1,
+              "centre": 330
+            }
+          ]
+        },
+        {
+          "progress": 4,
+          "draws": [
+            {
+              "sourceX": 15,
+              "alpha": 1,
+              "centre": 330
+            }
+          ]
+        },
+        {
+          "progress": 8,
+          "draws": [
+            {
+              "sourceX": 15,
+              "alpha": 1,
+              "centre": 330
+            }
+          ]
+        },
+        {
+          "progress": 8.5,
+          "draws": [
+            {
+              "sourceX": 15,
+              "alpha": 0.5,
+              "centre": 330
+            },
+            {
+              "sourceX": 200,
+              "alpha": 0.5,
+              "centre": 330
+            }
+          ]
+        }
+      ],
+      "anchors": [
+        [
+          {
+            "sourceX": 15,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 15,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 200,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 200,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 375,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 375,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 670,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 670,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 960,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 960,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 15,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 15,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 200,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 200,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 490,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 490,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 780,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 780,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 15,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 15,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 200,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 200,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 440,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 440,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 870,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 870,
+            "alpha": 1,
+            "centre": 330
+          }
+        ]
+      ],
+      "nonLoop": [
+        {
+          "sourceX": 780,
+          "alpha": 1,
+          "centre": 330
+        }
+      ]
+    },
+    "combos": {
+      "hits": [
+        {
+          "combo": 1,
+          "damage": 14
+        },
+        {
+          "combo": 2,
+          "damage": 16
+        },
+        {
+          "combo": 3,
+          "damage": 18
+        }
+      ],
+      "expired": 0,
+      "nextDamage": 14
+    },
+    "hitVolumes": [
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": 0,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": 20,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": 68,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": 100,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": -20,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": 400,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "light",
+        "distance": 68,
+        "lane": 60,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": 0,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": 20,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": 68,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": 100,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": -20,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": 400,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "heavy",
+        "distance": 68,
+        "lane": 60,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": 0,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": 20,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": 68,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": 100,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": -20,
+        "lane": 0,
+        "damage": 0,
+        "meter": 0
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": 400,
+        "lane": 0,
+        "damage": 0,
+        "meter": 0
+      },
+      {
+        "facing": 1,
+        "attack": "special",
+        "distance": 68,
+        "lane": 60,
+        "damage": 0,
+        "meter": 0
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": 0,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": 20,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": 68,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": 100,
+        "lane": 0,
+        "damage": 14,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": -20,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": 400,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "light",
+        "distance": 68,
+        "lane": 60,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": 0,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": 20,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": 68,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": 100,
+        "lane": 0,
+        "damage": 20,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": -20,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": 400,
+        "lane": 0,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "heavy",
+        "distance": 68,
+        "lane": 60,
+        "damage": 0,
+        "meter": 100
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": 0,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": 20,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": 68,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": 100,
+        "lane": 0,
+        "damage": 36,
+        "meter": 5
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": -20,
+        "lane": 0,
+        "damage": 0,
+        "meter": 0
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": 400,
+        "lane": 0,
+        "damage": 0,
+        "meter": 0
+      },
+      {
+        "facing": -1,
+        "attack": "special",
+        "distance": 68,
+        "lane": 60,
+        "damage": 0,
+        "meter": 0
+      }
+    ],
+    "gamepad": {
+      "selection": "ERIC",
+      "start": true,
+      "light": true,
+      "heavy": true,
+      "special": true,
+      "dodge": true,
+      "pauseResume": true,
+      "restart": true,
+      "defeatConfirm": true,
+      "victoryConfirm": true,
+      "sourceIsolation": true,
+      "disconnect": true
+    },
+    "desktopRoute": {
+      "ticks": 505,
+      "state": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "victory",
+        "selectedHero": "ERIC",
+        "player": {
+          "x": 5102,
+          "y": 560,
+          "health": 85,
+          "meter": 79,
+          "state": "walk",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [],
+        "wave": 4,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 4725,
+        "cameraX": 4320,
+        "goSignal": false,
+        "bossDefeated": true,
+        "hitStop": 0,
+        "lastImpact": {
+          "kind": "heavy",
+          "x": 4627,
+          "y": 446,
+          "time": 45.2949666666773
+        },
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "waves": [
+        {
+          "wave": 1,
+          "health": 125,
+          "score": 0
+        },
+        {
+          "wave": 2,
+          "health": 125,
+          "score": 375
+        },
+        {
+          "wave": 3,
+          "health": 117,
+          "score": 1275
+        },
+        {
+          "wave": 4,
+          "health": 101,
+          "score": 1975
+        }
+      ]
+    },
+    "defeatRestart": true,
+    "touchRoute": {
+      "ticks": 547,
+      "state": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "victory",
+        "selectedHero": "ERIC",
+        "player": {
+          "x": 5101,
+          "y": 524,
+          "health": 85,
+          "meter": 98,
+          "state": "walk",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [],
+        "wave": 4,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 4675,
+        "cameraX": 4320,
+        "goSignal": false,
+        "bossDefeated": true,
+        "hitStop": 0,
+        "lastImpact": {
+          "kind": "heavy",
+          "x": 4590,
+          "y": 429,
+          "time": 49.176666666689
+        },
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "waves": [
+        {
+          "wave": 1,
+          "health": 125,
+          "score": 0
+        },
+        {
+          "wave": 2,
+          "health": 125,
+          "score": 375
+        },
+        {
+          "wave": 3,
+          "health": 117,
+          "score": 975
+        },
+        {
+          "wave": 4,
+          "health": 101,
+          "score": 1675
+        }
+      ]
+    }
+  },
+  "passed": true
+}

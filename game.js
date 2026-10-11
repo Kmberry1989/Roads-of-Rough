@@ -38,6 +38,9 @@
   const keys = new Set();
   const heldActions = new Set();
   const pressedActions = new Set();
+  let previousGamepadButtons = new Set();
+  let gamepadSelectDirection = 0;
+  let inputSuspended = false;
   function isTouchCapable() {
     return Boolean(window.matchMedia?.('(pointer: coarse)').matches || navigator.maxTouchPoints > 0);
   }
@@ -313,7 +316,7 @@
     ctx.save();
     ctx.globalAlpha = alpha;
     if (facing < 0) {
-      ctx.translate(x + width / 2, 0);
+      ctx.translate(x, 0);
       ctx.scale(-1, 1);
       ctx.drawImage(sheet, frame.x, frame.y, frame.w, frame.h, -width / 2, baseline - height, width, height);
     } else {
@@ -325,7 +328,7 @@
   function drawAnimatedSprite(sheet, frames, progress, x, baseline, height, facing = 1, alpha = 1, loop = true) {
     if (!sheet || !frames?.length) return;
     const last = frames.length - 1;
-    const safeProgress = loop ? Math.max(0, progress) : clamp(progress, 0, last);
+    const safeProgress = loop ? Math.max(0, progress) % frames.length : clamp(progress, 0, last);
     const index = Math.min(last, Math.floor(safeProgress));
     const blend = loop ? safeProgress - index : Math.min(0.28, safeProgress - index);
     const nextIndex = loop ? (index + 1) % frames.length : Math.min(last, index + 1);
@@ -426,6 +429,7 @@
   }
 
   function beginRun() {
+    clearInput();
     state.mode = 'play';
     state.player = createPlayer();
     state.enemies = [];
@@ -488,12 +492,13 @@
   function activeEnemies() { return state.enemies.filter((enemy) => !enemy.dead); }
 
   function inputAxis() {
+    if (inputSuspended || document.hidden || isInteractiveTarget(document.activeElement)) return { x: 0, y: 0 };
     let dx = 0; let dy = 0;
     if (keys.has('ArrowLeft') || keys.has('a') || heldActions.has('left')) dx -= 1;
     if (keys.has('ArrowRight') || keys.has('d') || heldActions.has('right')) dx += 1;
     if (keys.has('ArrowUp') || keys.has('w') || heldActions.has('up')) dy -= 1;
     if (keys.has('ArrowDown') || keys.has('s') || heldActions.has('down')) dy += 1;
-    const pad = navigator.getGamepads ? navigator.getGamepads()[0] : null;
+    const pad = getGamepad();
     if (pad) {
       const px = Math.abs(pad.axes[0] || 0) > .2 ? pad.axes[0] : 0;
       const py = Math.abs(pad.axes[1] || 0) > .2 ? pad.axes[1] : 0;
@@ -508,11 +513,47 @@
   }
 
   function pollGamepad() {
-    const pad = navigator.getGamepads ? navigator.getGamepads()[0] : null;
-    if (!pad) return;
-    if (pad.buttons[0]?.pressed || pad.buttons[2]?.pressed) heldActions.add('light'); else heldActions.delete('light');
-    if (pad.buttons[1]?.pressed || pad.buttons[3]?.pressed) heldActions.add('heavy'); else heldActions.delete('heavy');
-    if (pad.buttons[5]?.pressed || pad.buttons[4]?.pressed) heldActions.add('special'); else heldActions.delete('special');
+    const pad = getGamepad();
+    if (!pad) {
+      previousGamepadButtons.clear();
+      gamepadSelectDirection = 0;
+      return;
+    }
+    const buttons = new Set(pad.buttons.flatMap((button, index) => button.pressed ? [index] : []));
+    const newlyPressed = new Set([...buttons].filter((index) => !previousGamepadButtons.has(index)));
+    const pressed = (...indices) => indices.some((index) => newlyPressed.has(index));
+    const direction = pad.buttons[14]?.pressed || pad.axes[0] < -.5 ? -1 : pad.buttons[15]?.pressed || pad.axes[0] > .5 ? 1 : 0;
+    const selectMoved = direction !== 0 && direction !== gamepadSelectDirection;
+    previousGamepadButtons = buttons;
+    gamepadSelectDirection = direction;
+    if (inputSuspended || document.hidden || isInteractiveTarget(document.activeElement)) return;
+    if (state.mode === 'select') {
+      if (selectMoved) {
+        state.selectedHero = (state.selectedHero + direction + HEROES.length) % HEROES.length;
+        audio.play('select');
+      }
+      if (pressed(0, 2, 9)) beginFromInput();
+      return;
+    }
+    if (state.mode === 'loading') return;
+    if (pressed(8)) { restartFromInput(); return; }
+    if (state.mode === 'victory' || state.player?.health <= 0) {
+      if (pressed(0, 2, 9)) beginFromInput();
+      return;
+    }
+    if (pressed(9)) { setPaused(state.mode !== 'paused'); return; }
+    if (state.mode === 'paused') {
+      if (pressed(0, 2)) beginFromInput();
+      return;
+    }
+    if (pressed(0, 2)) pressedActions.add('light');
+    if (pressed(1, 3)) pressedActions.add('heavy');
+    if (pressed(4, 5)) pressedActions.add('special');
+    if (pressed(6)) pressedActions.add('dodge');
+  }
+
+  function getGamepad() {
+    return navigator.getGamepads ? Array.from(navigator.getGamepads()).find((pad) => pad) : null;
   }
 
   function actionPressed(name) {
@@ -527,6 +568,7 @@
     if (type === 'special') {
       if (player.meter < 100 || player.action) return;
       player.action = 'special'; player.actionTime = 0; player.actionTotal = .95; player.actionHit = false; player.state = 'special';
+      player.combo = 0; player.comboTimer = 0;
       player.meter = 0;
       state.effects.push({ type: 'special', x: player.x + player.facing * 160, y: player.y - 105, time: .55, max: .55, color: player.hero.color });
       audio.play('special');
@@ -535,6 +577,7 @@
     if (player.action) {
       if (type === 'light' && player.action === 'light' && player.actionTime > .2 && player.actionTime < .42) {
         player.combo = clamp(player.combo + 1, 1, 3);
+        player.comboTimer = .65;
         player.actionTime = 0; player.actionTotal = .42; player.actionHit = false;
         return;
       }
@@ -545,6 +588,7 @@
     player.actionTotal = type === 'heavy' ? .62 : .42;
     player.actionHit = false;
     player.combo = type === 'light' ? clamp(player.combo + 1, 1, 3) : 0;
+    player.comboTimer = type === 'light' ? .65 : 0;
     player.state = type;
     if (type === 'heavy') audio.play('heavy');
   }
@@ -621,6 +665,7 @@
     player.flashTimer = .16;
     player.invuln = .8;
     player.action = '';
+    player.combo = 0; player.comboTimer = 0;
     player.state = player.health <= 0 ? 'defeat' : 'hurt';
     player.vx = source.x < player.x ? 180 : -180;
     state.shake = .16;
@@ -641,8 +686,10 @@
     player.hurtTimer = Math.max(0, player.hurtTimer - dt);
     player.flashTimer = Math.max(0, player.flashTimer - dt);
     player.dodgeCooldown = Math.max(0, player.dodgeCooldown - dt);
-    player.comboTimer = Math.max(0, player.comboTimer - dt);
-    if (player.comboTimer === 0) player.combo = 0;
+    if (player.action !== 'light') {
+      player.comboTimer = Math.max(0, player.comboTimer - dt);
+      if (player.comboTimer === 0) player.combo = 0;
+    }
     if (player.hurtTimer > 0) {
       player.x = clamp(player.x + player.vx * dt, 40, WORLD_WIDTH - 100);
       player.vx *= .86;
@@ -661,7 +708,6 @@
       if (player.dodgeTime <= 0) { player.state = 'idle'; player.dodgeVx = 0; }
       return;
     }
-    pollGamepad();
     const axis = inputAxis();
     if (!player.action) {
       player.vx = axis.x * player.speed;
@@ -684,8 +730,9 @@
         player.actionHit = true;
         const range = attackRange(player);
         activeEnemies().forEach((enemy) => {
-          const horizontal = (enemy.x - range.x) * player.facing;
-          if (horizontal > -35 && horizontal < range.radius && Math.abs(enemy.y - player.y) < 42 && enemy.invuln <= 0) {
+          const horizontal = (enemy.x - player.x) * player.facing;
+          const reach = (range.x - player.x) * player.facing + range.radius;
+          if (horizontal >= 0 && horizontal < reach && Math.abs(enemy.y - player.y) < 42 && enemy.invuln <= 0) {
             const baseDamage = player.action === 'special' ? 36 : player.action === 'heavy' ? 20 : 12 + player.combo * 2;
             const damage = baseDamage * player.hero.damage;
             const knockback = enemy.boss ? 75 : (player.action === 'special' ? 290 : player.action === 'heavy' ? 180 : 120);
@@ -775,6 +822,8 @@
   }
 
   function updateGame(dt) {
+    pollGamepad();
+    if (state.mode === 'paused') return;
     if (state.hitStop > 0) {
       state.hitStop = Math.max(0, state.hitStop - dt);
       return;
@@ -785,9 +834,6 @@
     if (state.goTimer > 0) state.goTimer -= dt;
     state.spawnTimer = Math.max(0, state.spawnTimer - dt);
     if (state.mode !== 'play') { updateParticles(dt); return; }
-    if (keys.has('p') || pressedActions.has('pause')) {
-      state.mode = 'paused'; pressedActions.delete('pause'); return;
-    }
     updatePlayer(dt);
     state.enemies.forEach((enemy) => updateEnemy(enemy, dt));
     state.enemies = state.enemies.filter((enemy) => !enemy.dead || enemy.deathTimer > 0);
@@ -974,7 +1020,7 @@
     drawText('CHOOSE YOUR ROUGH ONE', W / 2, 545, 14, '#a8a2bf', 'center');
     drawText('← → / A D TO CHOOSE    ENTER / SPACE TO START', W / 2, 594, 17, '#fff', 'center');
     drawText('J / X HIT     K / C KICK     L / V SPECIAL     SHIFT DODGE     F FULLSCREEN', W / 2, 625, 12, '#bcb5d7', 'center');
-    drawText('TOUCH AND GAMEPAD READY', W / 2, 667, 12, '#ff65d8', 'center');
+    drawText('GAMEPAD: A/X HIT · B/Y KICK · LB/RB SPECIAL · LT DODGE · START PAUSE · BACK RESTART', W / 2, 667, 12, '#ff65d8', 'center');
   }
 
   function drawOverlay(title, subtitle, color) {
@@ -1002,27 +1048,52 @@
     ctx.restore();
   }
 
-  function resizeCanvas() {
-    const rect = canvas.getBoundingClientRect();
-    canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
+  function isInteractiveTarget(target) {
+    return target instanceof Element && Boolean(target.closest('button, input, select, textarea, a, [contenteditable="true"]'));
+  }
+
+  function clearInput() {
+    keys.clear();
+    heldActions.clear();
+    pressedActions.clear();
+    for (const action of ['light', 'heavy', 'special', 'dodge']) state[`last${action}`] = false;
+    touchControls.querySelectorAll('.is-held').forEach((button) => button.classList.remove('is-held'));
+  }
+
+  function setPaused(paused) {
+    if (state.mode !== 'play' && state.mode !== 'paused') return;
+    clearInput();
+    state.mode = paused ? 'paused' : 'play';
+    updateStatus(paused ? 'Paused. Press P, gamepad Start, or tap the game to resume.' : 'Back in the fight.');
+  }
+
+  function suspendInput() {
+    inputSuspended = true;
+    clearInput();
+    setPaused(true);
+    audio.collapse();
+  }
+
+  function restartFromInput() {
+    if (state.mode === 'select' || state.player) beginRun();
   }
 
   function beginFromInput() {
     if (state.mode === 'select') beginRun();
     else if (state.mode === 'victory' || (state.mode === 'play' && state.player.health <= 0)) beginRun();
-    else if (state.mode === 'paused') state.mode = 'play';
+    else if (state.mode === 'paused') setPaused(false);
   }
 
   function handleKeyDown(event) {
+    if (inputSuspended || document.hidden || isInteractiveTarget(event.target)) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'Enter'].includes(event.key) || ['w', 'a', 's', 'd', 'j', 'x', 'k', 'c', 'l', 'v', 'b', 'p', 'r', 'f'].includes(key)) event.preventDefault();
+    if (event.repeat && ['f', 'r', 'p', 'Enter', ' '].includes(key)) return;
     if (key === 'f') { toggleFullscreen(); return; }
     if (key === 'Escape' && document.fullscreenElement) { document.exitFullscreen(); return; }
-    if (key === 'r') { beginFromInput(); return; }
+    if (key === 'r') { restartFromInput(); return; }
     if (key === 'p' && (state.mode === 'play' || state.mode === 'paused')) {
-      state.mode = state.mode === 'play' ? 'paused' : 'play';
-      updateStatus(state.mode === 'paused' ? 'Paused. Press P or tap the game to resume.' : 'Back in the fight.');
+      setPaused(state.mode !== 'paused');
       return;
     }
     if (state.mode === 'select' && (key === 'ArrowLeft' || key === 'a' || key === 'ArrowRight' || key === 'd')) {
@@ -1058,6 +1129,7 @@
     const action = button.dataset.action;
     const down = (event) => {
       event.preventDefault();
+      canvas.focus({ preventScroll: true });
       button.classList.add('is-held'); heldActions.add(action);
       if (['light', 'heavy', 'special'].includes(action)) pressedActions.add(action);
       if (state.mode === 'select' || state.mode === 'victory' || state.player?.health <= 0) beginFromInput();
@@ -1073,6 +1145,7 @@
 
   function handleCanvasPointer(event) {
     if (event.type === 'pointerdown') {
+      canvas.focus({ preventScroll: true });
       if (state.mode === 'select') {
         const rect = canvas.getBoundingClientRect();
         const x = (event.clientX - rect.left) * W / rect.width;
@@ -1141,10 +1214,14 @@
   document.addEventListener('pointerdown', (event) => {
     if (!audioControls.contains(event.target)) audio.collapse();
   }, { passive: true });
-  window.addEventListener('blur', () => audio.collapse());
-  window.addEventListener('resize', resizeCanvas);
-  document.addEventListener('fullscreenchange', resizeCanvas);
-  resizeCanvas();
+  window.addEventListener('blur', suspendInput);
+  window.addEventListener('focus', () => { inputSuspended = false; });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) suspendInput(); else inputSuspended = false;
+  });
+  document.addEventListener('focusin', (event) => {
+    if (isInteractiveTarget(event.target)) clearInput();
+  });
   audio.init();
 
   function loop(now) {

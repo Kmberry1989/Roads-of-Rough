@@ -17,13 +17,16 @@ html, body {
   touch-action: none;
 }
 
-body { display: grid; place-items: center; }
+body { display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; }
 
 .game-shell {
   position: relative;
-  width: min(100vw, 1280px);
-  height: min(100vh, 720px);
+  width: min(100vw, 177.777778vh, 1280px);
+  height: min(56.25vw, 100vh, 720px);
+  width: min(100vw, 177.777778dvh, 1280px);
+  height: min(56.25vw, 100dvh, 720px);
   aspect-ratio: 16 / 9;
+  container-type: inline-size;
   display: grid;
   place-items: center;
 }
@@ -141,10 +144,12 @@ body { display: grid; place-items: center; }
   border: 0;
 }
 
-@media (max-width: 720px) {
-  .game-shell { width: 100vw; height: auto; }
-  #game { width: 100vw; height: 56.25vw; }
+@container (max-width: 720px) {
   #touch-controls { transform: scale(0.82); transform-origin: bottom left; inset-inline: 2px; }
   .touch-actions { transform-origin: bottom right; }
-  .audio-controls { top: 42px; right: 8px; transform: scale(0.82); transform-origin: top right; }
+  .audio-controls { top: max(42px, 8.6cqw); right: 8px; transform: scale(0.82); transform-origin: top right; }
+}
+
+@container (max-width: 380px) {
+  .touch-actions { grid-template-columns: repeat(2, 68px); }
 }

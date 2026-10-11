@@ -1,0 +1,201 @@
+{
+  "errors": [],
+  "route": {
+    "ticks": 513,
+    "state": {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "victory",
+      "selectedHero": "ERIC",
+      "player": {
+        "x": 5100,
+        "y": 514,
+        "health": 93,
+        "meter": 79,
+        "state": "walk",
+        "action": null,
+        "dodgeCooldown": 0
+      },
+      "enemies": [],
+      "wave": 4,
+      "queuedEnemies": 0,
+      "spawnCap": 2,
+      "score": 4725,
+      "cameraX": 4320,
+      "goSignal": false,
+      "bossDefeated": true,
+      "hitStop": 0,
+      "lastImpact": {
+        "kind": "heavy",
+        "x": 4662,
+        "y": 425,
+        "time": 46.42009999995096
+      },
+      "audio": {
+        "supported": true,
+        "muted": false,
+        "volume": 0.32
+      }
+    },
+    "waves": [
+      {
+        "wave": 1,
+        "health": 125,
+        "score": 0
+      },
+      {
+        "wave": 2,
+        "health": 125,
+        "score": 375
+      },
+      {
+        "wave": 3,
+        "health": 117,
+        "score": 1275
+      },
+      {
+        "wave": 4,
+        "health": 101,
+        "score": 1975
+      }
+    ],
+    "hitKinds": [
+      "heavy",
+      "light",
+      "special"
+    ]
+  },
+  "touchControls": {
+    "moved": {
+      "x": 391,
+      "y": 560,
+      "health": 85,
+      "meter": 45,
+      "state": "walk",
+      "action": null,
+      "dodgeCooldown": 0
+    },
+    "dodged": {
+      "x": 456,
+      "y": 560,
+      "health": 85,
+      "meter": 45,
+      "state": "dodge",
+      "action": null,
+      "dodgeCooldown": 0.49
+    },
+    "attacked": {
+      "x": 330,
+      "y": 560,
+      "health": 85,
+      "meter": 45,
+      "state": "light",
+      "action": "light",
+      "dodgeCooldown": 0
+    }
+  },
+  "defeat": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 459,
+      "y": 560,
+      "health": 0,
+      "meter": 35,
+      "state": "defeat",
+      "action": null,
+      "dodgeCooldown": 0
+    },
+    "enemies": [
+      {
+        "id": "1-0-dafdcc917dcff8",
+        "x": 391,
+        "y": 534,
+        "health": 32,
+        "type": "grunt",
+        "boss": false,
+        "state": "idle",
+        "tell": null
+      },
+      {
+        "id": "1-1-7505e76c755fe",
+        "x": 392,
+        "y": 585,
+        "health": 24,
+        "type": "rusher",
+        "boss": false,
+        "state": "idle",
+        "tell": null
+      }
+    ],
+    "wave": 1,
+    "queuedEnemies": 1,
+    "spawnCap": 2,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": false,
+    "bossDefeated": false,
+    "hitStop": 0,
+    "lastImpact": {
+      "kind": "light",
+      "x": 438,
+      "y": 460,
+      "time": 57.65113333331942
+    },
+    "audio": {
+      "supported": true,
+      "muted": false,
+      "volume": 0.32
+    }
+  },
+  "restart": {
+    "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+    "mode": "play",
+    "selectedHero": "KYLE",
+    "player": {
+      "x": 330,
+      "y": 560,
+      "health": 100,
+      "meter": 35,
+      "state": "idle",
+      "action": null,
+      "dodgeCooldown": 0
+    },
+    "enemies": [
+      {
+        "id": "1-0-fc4827f2fa06b8",
+        "x": 759,
+        "y": 510,
+        "health": 32,
+        "type": "grunt",
+        "boss": false,
+        "state": "walk",
+        "tell": null
+      },
+      {
+        "id": "1-1-5f841d864f825",
+        "x": 858,
+        "y": 594,
+        "health": 24,
+        "type": "rusher",
+        "boss": false,
+        "state": "walk",
+        "tell": null
+      }
+    ],
+    "wave": 1,
+    "queuedEnemies": 1,
+    "spawnCap": 2,
+    "score": 0,
+    "cameraX": 0,
+    "goSignal": true,
+    "bossDefeated": false,
+    "hitStop": 0,
+    "lastImpact": null,
+    "audio": {
+      "supported": true,
+      "muted": false,
+      "volume": 0.32
+    }
+  }
+}
