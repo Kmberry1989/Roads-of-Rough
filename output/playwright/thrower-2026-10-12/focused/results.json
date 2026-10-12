@@ -1,0 +1,636 @@
+{
+  "checks": {
+    "keyboardHit": {
+      "initial": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KYLE",
+        "player": {
+          "x": 330,
+          "y": 560,
+          "health": 100,
+          "meter": 35,
+          "state": "idle",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-324141ca05e0e",
+            "x": 690,
+            "y": 560,
+            "health": 32,
+            "type": "thrower",
+            "boss": false,
+            "state": "windup",
+            "tell": {
+              "label": "BOTTLE • MOVE!",
+              "target": {
+                "x": 330,
+                "y": 560
+              },
+              "remaining": 0.95
+            }
+          }
+        ],
+        "projectiles": [],
+        "lastProjectileImpact": null,
+        "wave": 1,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": false,
+        "bossDefeated": false,
+        "hitStop": 0,
+        "lastImpact": null,
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "flying": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KYLE",
+        "player": {
+          "x": 330,
+          "y": 560,
+          "health": 100,
+          "meter": 35,
+          "state": "idle",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-324141ca05e0e",
+            "x": 690,
+            "y": 560,
+            "health": 32,
+            "type": "thrower",
+            "boss": false,
+            "state": "attack",
+            "tell": null
+          }
+        ],
+        "projectiles": [
+          {
+            "type": "bottle",
+            "x": 522,
+            "y": 560,
+            "target": {
+              "x": 330,
+              "y": 560
+            },
+            "remaining": 0.43,
+            "hitRadius": {
+              "x": 46,
+              "y": 26
+            }
+          }
+        ],
+        "lastProjectileImpact": null,
+        "wave": 1,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": false,
+        "bossDefeated": false,
+        "hitStop": 0,
+        "lastImpact": null,
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "hit": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KYLE",
+        "player": {
+          "x": 330,
+          "y": 560,
+          "health": 88,
+          "meter": 35,
+          "state": "hurt",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-324141ca05e0e",
+            "x": 690,
+            "y": 560,
+            "health": 32,
+            "type": "thrower",
+            "boss": false,
+            "state": "attack",
+            "tell": null
+          }
+        ],
+        "projectiles": [],
+        "lastProjectileImpact": {
+          "x": 330,
+          "y": 560,
+          "outcome": "hit",
+          "time": 1.9666999999999981
+        },
+        "wave": 1,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": false,
+        "bossDefeated": false,
+        "hitStop": 0.018,
+        "lastImpact": {
+          "kind": "bottle",
+          "x": 330,
+          "y": 548,
+          "time": 1.9666999999999981
+        },
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      }
+    },
+    "keyboardLaneEscape": {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 330,
+        "y": 470,
+        "health": 100,
+        "meter": 35,
+        "state": "idle",
+        "action": null,
+        "dodgeCooldown": 0
+      },
+      "enemies": [
+        {
+          "id": "1-0-7c7d456e81f0a",
+          "x": 690,
+          "y": 556,
+          "health": 32,
+          "type": "thrower",
+          "boss": false,
+          "state": "walk",
+          "tell": null
+        }
+      ],
+      "projectiles": [],
+      "lastProjectileImpact": {
+        "x": 330,
+        "y": 560,
+        "outcome": "miss",
+        "time": 3.6166999999999923
+      },
+      "wave": 1,
+      "queuedEnemies": 0,
+      "spawnCap": 2,
+      "score": 0,
+      "cameraX": 0,
+      "goSignal": false,
+      "bossDefeated": false,
+      "hitStop": 0,
+      "lastImpact": {
+        "kind": "bottle",
+        "x": 330,
+        "y": 548,
+        "time": 3.6166999999999923
+      },
+      "audio": {
+        "supported": true,
+        "muted": false,
+        "volume": 0.32
+      }
+    },
+    "keyboardDodge": {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 330,
+        "y": 560,
+        "health": 100,
+        "meter": 35,
+        "state": "dodge",
+        "action": null,
+        "dodgeCooldown": 0.4
+      },
+      "enemies": [
+        {
+          "id": "1-0-24a8a5be81997",
+          "x": 690,
+          "y": 560,
+          "health": 32,
+          "type": "thrower",
+          "boss": false,
+          "state": "attack",
+          "tell": null
+        }
+      ],
+      "projectiles": [],
+      "lastProjectileImpact": {
+        "x": 330,
+        "y": 560,
+        "outcome": "dodged",
+        "time": 5.583366666666652
+      },
+      "wave": 1,
+      "queuedEnemies": 0,
+      "spawnCap": 2,
+      "score": 0,
+      "cameraX": 0,
+      "goSignal": false,
+      "bossDefeated": false,
+      "hitStop": 0.002,
+      "lastImpact": {
+        "kind": "bottle",
+        "x": 330,
+        "y": 548,
+        "time": 5.583366666666652
+      },
+      "audio": {
+        "supported": true,
+        "muted": false,
+        "volume": 0.32
+      }
+    },
+    "keyboardLifecycle": true,
+    "assetsAndWaves": {
+      "dimensions": [
+        3200,
+        1280
+      ],
+      "transparent": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "waves": [
+        [
+          "grunt",
+          "rusher",
+          "grunt",
+          "rusher",
+          "grunt"
+        ],
+        [
+          "grunt",
+          "rusher",
+          "thrower",
+          "rusher",
+          "bruiser",
+          "grunt"
+        ],
+        [
+          "grunt",
+          "rusher",
+          "grunt",
+          "thrower",
+          "rusher",
+          "bruiser"
+        ],
+        [
+          "grunt",
+          "rusher",
+          "thrower",
+          "bruiser",
+          "grunt",
+          "bruiser",
+          "rusher",
+          "boss"
+        ]
+      ],
+      "offscreen": "walk"
+    },
+    "gamepadDodge": {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 330,
+        "y": 560,
+        "health": 100,
+        "meter": 35,
+        "state": "dodge",
+        "action": null,
+        "dodgeCooldown": 0.4
+      },
+      "enemies": [
+        {
+          "id": "1-0-fcba625797aea",
+          "x": 690,
+          "y": 560,
+          "health": 32,
+          "type": "thrower",
+          "boss": false,
+          "state": "attack",
+          "tell": null
+        }
+      ],
+      "projectiles": [],
+      "lastProjectileImpact": {
+        "x": 330,
+        "y": 560,
+        "outcome": "dodged",
+        "time": 12.083366666666848
+      },
+      "wave": 1,
+      "queuedEnemies": 0,
+      "spawnCap": 2,
+      "score": 0,
+      "cameraX": 0,
+      "goSignal": false,
+      "bossDefeated": false,
+      "hitStop": 0.002,
+      "lastImpact": {
+        "kind": "bottle",
+        "x": 330,
+        "y": 548,
+        "time": 12.083366666666848
+      },
+      "audio": {
+        "supported": true,
+        "muted": false,
+        "volume": 0.32
+      }
+    },
+    "touchHit": {
+      "initial": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KYLE",
+        "player": {
+          "x": 330,
+          "y": 560,
+          "health": 100,
+          "meter": 35,
+          "state": "idle",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-4af9bdc2ee0838",
+            "x": 690,
+            "y": 560,
+            "health": 32,
+            "type": "thrower",
+            "boss": false,
+            "state": "windup",
+            "tell": {
+              "label": "BOTTLE • MOVE!",
+              "target": {
+                "x": 330,
+                "y": 560
+              },
+              "remaining": 0.95
+            }
+          }
+        ],
+        "projectiles": [],
+        "lastProjectileImpact": null,
+        "wave": 1,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": false,
+        "bossDefeated": false,
+        "hitStop": 0,
+        "lastImpact": null,
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "flying": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KYLE",
+        "player": {
+          "x": 330,
+          "y": 560,
+          "health": 100,
+          "meter": 35,
+          "state": "idle",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-4af9bdc2ee0838",
+            "x": 690,
+            "y": 560,
+            "health": 32,
+            "type": "thrower",
+            "boss": false,
+            "state": "attack",
+            "tell": null
+          }
+        ],
+        "projectiles": [
+          {
+            "type": "bottle",
+            "x": 522,
+            "y": 560,
+            "target": {
+              "x": 330,
+              "y": 560
+            },
+            "remaining": 0.43,
+            "hitRadius": {
+              "x": 46,
+              "y": 26
+            }
+          }
+        ],
+        "lastProjectileImpact": null,
+        "wave": 1,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": false,
+        "bossDefeated": false,
+        "hitStop": 0,
+        "lastImpact": null,
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "hit": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "play",
+        "selectedHero": "KYLE",
+        "player": {
+          "x": 330,
+          "y": 560,
+          "health": 88,
+          "meter": 35,
+          "state": "hurt",
+          "action": null,
+          "dodgeCooldown": 0
+        },
+        "enemies": [
+          {
+            "id": "1-0-4af9bdc2ee0838",
+            "x": 690,
+            "y": 560,
+            "health": 32,
+            "type": "thrower",
+            "boss": false,
+            "state": "attack",
+            "tell": null
+          }
+        ],
+        "projectiles": [],
+        "lastProjectileImpact": {
+          "x": 330,
+          "y": 560,
+          "outcome": "hit",
+          "time": 1.9433999999999283
+        },
+        "wave": 1,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 0,
+        "cameraX": 0,
+        "goSignal": false,
+        "bossDefeated": false,
+        "hitStop": 0.018,
+        "lastImpact": {
+          "kind": "bottle",
+          "x": 330,
+          "y": 548,
+          "time": 1.9433999999999283
+        },
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      }
+    },
+    "touchLaneEscape": {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 330,
+        "y": 470,
+        "health": 100,
+        "meter": 35,
+        "state": "idle",
+        "action": null,
+        "dodgeCooldown": 0
+      },
+      "enemies": [
+        {
+          "id": "1-0-71ff8bcf1ab28",
+          "x": 690,
+          "y": 556,
+          "health": 32,
+          "type": "thrower",
+          "boss": false,
+          "state": "walk",
+          "tell": null
+        }
+      ],
+      "projectiles": [],
+      "lastProjectileImpact": {
+        "x": 330,
+        "y": 560,
+        "outcome": "miss",
+        "time": 3.5933999999999227
+      },
+      "wave": 1,
+      "queuedEnemies": 0,
+      "spawnCap": 2,
+      "score": 0,
+      "cameraX": 0,
+      "goSignal": false,
+      "bossDefeated": false,
+      "hitStop": 0,
+      "lastImpact": {
+        "kind": "bottle",
+        "x": 330,
+        "y": 548,
+        "time": 3.5933999999999227
+      },
+      "audio": {
+        "supported": true,
+        "muted": false,
+        "volume": 0.32
+      }
+    },
+    "touchDodge": {
+      "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+      "mode": "play",
+      "selectedHero": "KYLE",
+      "player": {
+        "x": 330,
+        "y": 560,
+        "health": 100,
+        "meter": 35,
+        "state": "dodge",
+        "action": null,
+        "dodgeCooldown": 0.4
+      },
+      "enemies": [
+        {
+          "id": "1-0-d69e1a00e445f8",
+          "x": 690,
+          "y": 560,
+          "health": 32,
+          "type": "thrower",
+          "boss": false,
+          "state": "attack",
+          "tell": null
+        }
+      ],
+      "projectiles": [],
+      "lastProjectileImpact": {
+        "x": 330,
+        "y": 560,
+        "outcome": "dodged",
+        "time": 5.560066666666582
+      },
+      "wave": 1,
+      "queuedEnemies": 0,
+      "spawnCap": 2,
+      "score": 0,
+      "cameraX": 0,
+      "goSignal": false,
+      "bossDefeated": false,
+      "hitStop": 0.002,
+      "lastImpact": {
+        "kind": "bottle",
+        "x": 330,
+        "y": 548,
+        "time": 5.560066666666582
+      },
+      "audio": {
+        "supported": true,
+        "muted": false,
+        "volume": 0.32
+      }
+    },
+    "touchLifecycle": true
+  },
+  "errors": [],
+  "passed": true
+}

@@ -27,11 +27,21 @@
   ];
   const ENEMY_FILES = Array.from({ length: 10 }, (_, i) => `baddy${i + 1}.png`);
   const PATH = 'sprites/';
+  const THROWER_SHEET = 'expansion/runtime/enemy-thrower.png';
+  // Measured source cells and derived bounds: runtime/enemy-thrower-frames.json.
+  const throwerFrame = (i) => ({ x: (i % 5) * 640, y: Math.floor(i / 5) * 320, w: 640, h: 320 });
+  const throwerFrames = {
+    idle: [throwerFrame(0), throwerFrame(2)], walk: [throwerFrame(1), throwerFrame(6)],
+    windup: [throwerFrame(2), throwerFrame(3)], attack: [throwerFrame(4), throwerFrame(5)],
+    hurt: [throwerFrame(8)], defeat: [throwerFrame(9), throwerFrame(10)],
+    bottle: [14, 15, 16, 17].map(throwerFrame),
+  };
   const ENEMY_ATTACKS = {
     grunt: { windup: .36, active: .14, recovery: .28, range: 88, damage: 8, color: '#ff5f83', label: 'STRIKE' },
     rusher: { windup: .24, active: .12, recovery: .22, range: 102, damage: 8, color: '#5de7ff', label: 'RUSH' },
     bruiser: { windup: .58, active: .18, recovery: .42, range: 118, damage: 14, color: '#ffc247', label: 'HEAVY' },
     boss: { windup: .78, active: .22, recovery: .55, range: 148, damage: 20, color: '#ff315f', label: 'BOSS BREAK' },
+    thrower: { windup: .95, active: .16, recovery: .75, range: 540, damage: 12, color: '#a7ff67', label: 'BOTTLE • MOVE!' },
   };
 
   const assets = { images: {}, ready: false, failed: 0 };
@@ -201,6 +211,7 @@
     selectedHero: 0,
     player: null,
     enemies: [],
+    projectiles: [],
     effects: [],
     particles: [],
     cameraX: 0,
@@ -217,6 +228,7 @@
     shake: 0,
     hitStop: 0,
     lastImpact: null,
+    lastProjectileImpact: null,
     message: '',
     messageTimer: 0,
     time: 0,
@@ -294,6 +306,7 @@
       ['ground_city.png', false], ['ground_city2.png', false], ['interface.png', true],
       ...HEROES.flatMap((hero) => [[hero.base, true], [hero.special, true]]),
       ...ENEMY_FILES.map((file) => [file, true]),
+      [THROWER_SHEET, false],
     ];
     await Promise.all(names.map(async ([name, keyed]) => { assets.images[name] = await loadImage(name, keyed); }));
     assets.ready = true;
@@ -420,11 +433,12 @@
     const rusher = type === 'rusher';
     return {
       id: `${state.wave}-${index}-${Math.random().toString(16).slice(2)}`,
-      x, y, vx: 0, facing: -1, type, boss, sheet: ENEMY_FILES[(index + state.wave * 2) % ENEMY_FILES.length],
+      x, y, vx: 0, facing: -1, type, boss, sheet: type === 'thrower' ? THROWER_SHEET : ENEMY_FILES[(index + state.wave * 2) % ENEMY_FILES.length],
       health: boss ? 180 : bruiser ? 45 : rusher ? 24 : 32, maxHealth: boss ? 180 : bruiser ? 45 : rusher ? 24 : 32,
       speed: boss ? 44 : bruiser ? 52 : rusher ? 112 : 74, state: 'idle', actionTime: 0, actionHit: false,
       hurtTimer: 0, flashTimer: 0, invuln: 0, anim: Math.random() * 3, attackCooldown: boss ? .7 : .35 + Math.random(),
       dead: false, deathTimer: 0,
+      target: null,
     };
   }
 
@@ -433,12 +447,14 @@
     state.mode = 'play';
     state.player = createPlayer();
     state.enemies = [];
+    state.projectiles = [];
     state.effects = [];
     state.particles = [];
     state.cameraX = 0;
     state.score = 0;
     state.hitStop = 0;
     state.lastImpact = null;
+    state.lastProjectileImpact = null;
     state.wave = 0;
     state.bossDefeated = false;
     state.nextWaveAt = 260;
@@ -460,9 +476,9 @@
     state.wave = index + 1;
     const recipes = [
       ['grunt', 'rusher', 'grunt'],
-      ['rusher', 'grunt', 'bruiser', 'grunt'],
-      ['grunt', 'rusher', 'rusher', 'bruiser'],
-      ['bruiser', 'rusher', 'grunt', 'bruiser', 'rusher', 'boss'],
+      ['thrower', 'rusher', 'bruiser', 'grunt'],
+      ['grunt', 'thrower', 'rusher', 'bruiser'],
+      ['thrower', 'bruiser', 'grunt', 'bruiser', 'rusher', 'boss'],
     ];
     const recipe = recipes[index] || recipes[recipes.length - 1];
     state.spawnQueue = [...recipe];
@@ -640,6 +656,8 @@
     enemy.invuln = .18;
     enemy.vx = knockback;
     enemy.state = enemy.health <= 0 ? 'defeat' : 'hurt';
+    enemy.target = null;
+    if (enemy.type === 'thrower') enemy.attackCooldown = Math.max(enemy.attackCooldown, 1.2);
     if (enemy.health <= 0) {
       enemy.dead = true;
       enemy.deathTimer = 1.1;
@@ -772,12 +790,16 @@
     const dx = player.x - enemy.x;
     const dy = player.y - enemy.y;
     const attack = ENEMY_ATTACKS[enemy.type];
-    const closeEnough = Math.abs(dx) < attack.range && Math.abs(dy) < 38;
+    const ranged = enemy.type === 'thrower';
+    const closeEnough = ranged
+      ? Math.abs(dx) < attack.range && enemy.x > state.cameraX + 45 && enemy.x < state.cameraX + W - 45
+      : Math.abs(dx) < attack.range && Math.abs(dy) < 38;
     if (enemy.state === 'windup') {
       enemy.actionTime += dt;
-      enemy.facing = dx < 0 ? -1 : 1;
+      if (!ranged) enemy.facing = dx < 0 ? -1 : 1;
       if (enemy.actionTime >= attack.windup) {
         enemy.state = 'attack'; enemy.actionTime = 0; enemy.actionHit = false;
+        if (ranged) { launchBottle(enemy); enemy.actionHit = true; }
         if (enemy.type === 'rusher') enemy.x += enemy.facing * 18;
       }
       return;
@@ -789,21 +811,53 @@
         if (Math.abs(player.x - enemy.x) < attack.range && Math.abs(player.y - enemy.y) < 38) damagePlayer(attack.damage, enemy);
       }
       if (enemy.actionTime > attack.active + attack.recovery) {
-        enemy.state = 'idle'; enemy.attackCooldown = enemy.boss ? 1.35 : enemy.type === 'rusher' ? .7 : 1.1; enemy.actionTime = 0;
+        enemy.state = 'idle'; enemy.attackCooldown = ranged ? 2.1 : enemy.boss ? 1.35 : enemy.type === 'rusher' ? .7 : 1.1; enemy.actionTime = 0;
       }
       return;
     }
     if (closeEnough && enemy.attackCooldown <= 0) {
       enemy.state = 'windup'; enemy.actionTime = 0; enemy.actionHit = false; enemy.vx = 0;
+      enemy.facing = dx < 0 ? -1 : 1;
+      if (ranged) enemy.target = { x: player.x, y: player.y };
       return;
     }
-    const xStep = Math.abs(dx) > 68 ? Math.sign(dx) : 0;
-    const yStep = Math.abs(dy) > 26 ? Math.sign(dy) : 0;
+    // Slow retreat gives a ranged identity without endlessly kiting melee heroes.
+    const xStep = ranged ? Math.abs(dx) > 390 ? Math.sign(dx) : Math.abs(dx) < 140 ? -Math.sign(dx) * .45 : 0 : Math.abs(dx) > 68 ? Math.sign(dx) : 0;
+    const yStep = Math.abs(dy) > (ranged ? 70 : 26) ? Math.sign(dy) : 0;
     enemy.vx = xStep * enemy.speed;
     enemy.x = clamp(enemy.x + enemy.vx * dt, 30, WORLD_WIDTH - 40);
     enemy.y = clamp(enemy.y + yStep * enemy.speed * .6 * dt, FLOOR_TOP + 35, FLOOR_BOTTOM);
     enemy.facing = dx < 0 ? -1 : 1;
     enemy.state = Math.abs(enemy.vx) > 2 || Math.abs(yStep) > 0 ? 'walk' : 'idle';
+  }
+
+  function launchBottle(enemy) {
+    if (!enemy.target || state.player.health <= 0) return;
+    const startX = enemy.x + enemy.facing * 48;
+    const duration = clamp(Math.hypot(enemy.target.x - startX, enemy.target.y - enemy.y) / 450, .65, 1.05);
+    state.projectiles.push({ startX, startY: enemy.y, x: startX, y: enemy.y,
+      target: { ...enemy.target }, elapsed: 0, duration, facing: enemy.facing });
+    enemy.target = null;
+  }
+
+  function updateProjectiles(dt) {
+    if (state.player.health <= 0) { state.projectiles = []; return; }
+    state.projectiles = state.projectiles.filter((bottle) => {
+      bottle.elapsed += dt;
+      const t = clamp(bottle.elapsed / bottle.duration, 0, 1);
+      bottle.x = lerp(bottle.startX, bottle.target.x, t);
+      bottle.y = lerp(bottle.startY, bottle.target.y, t);
+      if (t < 1) return true;
+      const player = state.player;
+      const inRange = Math.abs(player.x - bottle.target.x) < 46 && Math.abs(player.y - bottle.target.y) < 26;
+      const before = player.health;
+      if (inRange) damagePlayer(ENEMY_ATTACKS.thrower.damage, { x: bottle.startX });
+      const outcome = player.health < before ? 'hit' : inRange ? 'dodged' : 'miss';
+      state.lastProjectileImpact = { ...bottle.target, outcome, time: state.time };
+      addImpact(bottle.target.x, bottle.target.y - 12, 'bottle', '#b8ff83');
+      state.effects.push({ type: 'bottle-feedback', x: bottle.target.x, y: bottle.target.y - 55, outcome, time: .65, max: .65 });
+      return false;
+    });
   }
 
   function burst(x, y, color, count, kind = 'light') {
@@ -836,13 +890,14 @@
     if (state.mode !== 'play') { updateParticles(dt); return; }
     updatePlayer(dt);
     state.enemies.forEach((enemy) => updateEnemy(enemy, dt));
+    updateProjectiles(dt);
     state.enemies = state.enemies.filter((enemy) => !enemy.dead || enemy.deathTimer > 0);
     updateParticles(dt);
     if (state.player.health <= 0) return;
     spawnQueuedEnemies();
     const living = activeEnemies().length;
-    if (living === 0 && state.spawnQueue.length === 0 && state.wave < 4 && state.player.x > state.nextWaveAt - 780 && state.goTimer <= 0) spawnWave(state.wave);
-    if (living === 0 && state.spawnQueue.length === 0 && state.wave === 4 && state.player.x > WORLD_WIDTH - 500 && state.goTimer <= 0) {
+    if (living === 0 && state.spawnQueue.length === 0 && state.projectiles.length === 0 && state.wave < 4 && state.player.x > state.nextWaveAt - 780 && state.goTimer <= 0) spawnWave(state.wave);
+    if (living === 0 && state.spawnQueue.length === 0 && state.projectiles.length === 0 && state.wave === 4 && state.player.x > WORLD_WIDTH - 500 && state.goTimer <= 0) {
       state.mode = 'victory'; state.message = 'STREET CLEARED'; state.messageTimer = 999; touchControls.hidden = true;
       updateStatus('Street cleared. Press R or tap the screen to play again.'); audio.play('victory');
     }
@@ -867,11 +922,13 @@
   }
 
   function drawEnemy(enemy) {
-    const frameSet = enemy.dead ? enemyFrames.defeat : enemyFrames[enemy.state] || enemyFrames.idle;
+    const ranged = enemy.type === 'thrower';
+    const clips = ranged ? throwerFrames : enemyFrames;
+    const frameSet = enemy.dead ? clips.defeat : clips[enemy.state] || clips.idle;
     const alpha = enemy.dead ? clamp(enemy.deathTimer * 2, 0, 1) : 1;
     ctx.save();
     ctx.globalAlpha = alpha;
-    const height = enemy.boss ? 290 : enemy.type === 'bruiser' ? 235 : 205;
+    const height = enemy.boss ? 290 : enemy.type === 'bruiser' || ranged ? 235 : 205;
     if (enemy.state === 'windup') {
       const attack = ENEMY_ATTACKS[enemy.type];
       const charge = clamp(enemy.actionTime / attack.windup, 0, 1);
@@ -881,9 +938,16 @@
       ctx.strokeStyle = attack.color;
       ctx.fillStyle = `${attack.color}33`;
       ctx.lineWidth = enemy.boss ? 7 : 4;
-      ctx.beginPath(); ctx.ellipse(screenX + enemy.facing * attack.range * .45, enemy.y - 3, attack.range * .62, 18 + charge * 8, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      if (ranged && enemy.target) {
+        ctx.setLineDash([10, 8]);
+        ctx.beginPath(); ctx.moveTo(screenX, enemy.y); ctx.lineTo(enemy.target.x - state.cameraX, enemy.target.y); ctx.stroke();
+        ctx.setLineDash([]);
+        drawBottleTarget(enemy.target, charge);
+      } else {
+        ctx.beginPath(); ctx.ellipse(screenX + enemy.facing * attack.range * .45, enemy.y - 3, attack.range * .62, 18 + charge * 8, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      }
       ctx.globalAlpha = .72 + Math.sin(state.time * 24) * .22;
-      drawText(attack.label, screenX, enemy.y - height - (enemy.boss ? 54 : 24), enemy.boss ? 18 : 13, attack.color, 'center');
+      drawText(attack.label, screenX, enemy.y - height - (enemy.boss ? 54 : 24), ranged ? 20 : enemy.boss ? 18 : 13, attack.color, 'center');
       ctx.restore();
     }
     if (enemy.boss) {
@@ -894,9 +958,15 @@
       ctx.restore();
     }
     const attackTotal = ENEMY_ATTACKS[enemy.type].active + ENEMY_ATTACKS[enemy.type].recovery;
-    const progress = enemy.dead ? (1 - enemy.deathTimer) * (frameSet.length - .001) : enemy.state === 'attack' ? (enemy.actionTime / attackTotal) * (frameSet.length - .001) : enemy.anim;
+    const progress = enemy.dead ? (1 - enemy.deathTimer) * (frameSet.length - .001) : enemy.state === 'attack' ? (enemy.actionTime / attackTotal) * (frameSet.length - .001) : ranged && enemy.state === 'windup' ? enemy.actionTime / ENEMY_ATTACKS.thrower.windup * (frameSet.length - .001) : enemy.anim;
     if (enemy.flashTimer > 0) { ctx.filter = 'brightness(4) saturate(0)'; ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 20; }
-    drawAnimatedSprite(image(enemy.sheet), frameSet, progress, enemy.x - state.cameraX, enemy.y, height, enemy.facing, 1, !enemy.dead && enemy.state !== 'attack');
+    if (ranged) {
+      const looping = !enemy.dead && !['attack', 'windup'].includes(enemy.state);
+      const index = looping ? Math.floor(Math.max(0, progress)) % frameSet.length : Math.floor(clamp(progress, 0, frameSet.length - 1));
+      drawSprite(image(enemy.sheet), frameSet[index], enemy.x - state.cameraX, enemy.y + 20 * height / 320, height, enemy.facing);
+    } else {
+      drawAnimatedSprite(image(enemy.sheet), frameSet, progress, enemy.x - state.cameraX, enemy.y, height, enemy.facing, 1, !enemy.dead && enemy.state !== 'attack');
+    }
     if (!enemy.dead && enemy.boss) drawText('STREET BOSS', enemy.x - state.cameraX, enemy.y - 320, 17, '#ff6a87', 'center');
     ctx.restore();
     if (!enemy.dead && enemy.health < enemy.maxHealth) {
@@ -905,6 +975,33 @@
       ctx.fillStyle = 'rgba(0,0,0,.65)'; ctx.fillRect(enemy.x - state.cameraX - barW / 2, barY, barW, enemy.boss ? 10 : 7);
       ctx.fillStyle = enemy.boss ? '#ff3e68' : enemy.type === 'bruiser' ? '#ffbf3c' : '#ff5d7d'; ctx.fillRect(enemy.x - state.cameraX - barW / 2, barY, barW * clamp(enemy.health / enemy.maxHealth, 0, 1), enemy.boss ? 10 : 7);
     }
+  }
+
+  function drawBottleTarget(target, charge) {
+    const x = target.x - state.cameraX;
+    ctx.save(); ctx.globalAlpha = .85;
+    ctx.fillStyle = 'rgba(167,255,103,.16)'; ctx.strokeStyle = '#a7ff67'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.ellipse(x, target.y, 46, 26, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.ellipse(x, target.y, 52, 31, 0, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * Math.max(.02, charge)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x - 8, target.y); ctx.lineTo(x + 8, target.y); ctx.moveTo(x, target.y - 8); ctx.lineTo(x, target.y + 8); ctx.stroke();
+    // An elevated beacon stays visible above the existing touch pad.
+    ctx.fillStyle = '#182817'; ctx.strokeStyle = '#a7ff67'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(x, target.y - 107); ctx.lineTo(x + 19, target.y - 78); ctx.lineTo(x - 19, target.y - 78); ctx.closePath(); ctx.fill(); ctx.stroke();
+    drawText('!', x, target.y - 90, 23, '#ffffff', 'center');
+    ctx.restore();
+  }
+
+  function drawProjectiles() {
+    state.projectiles.forEach((bottle) => {
+      const t = clamp(bottle.elapsed / bottle.duration, 0, 1);
+      drawBottleTarget(bottle.target, t);
+      const z = (1 - t) * 150 + Math.sin(t * Math.PI) * 95;
+      ctx.save(); ctx.shadowColor = '#a7ff67'; ctx.shadowBlur = 12;
+      // Discrete authored rotation poses remain crisp; no ghosted frame blend.
+      drawSprite(image(THROWER_SHEET), frameFor(throwerFrames.bottle, Math.floor(t * 12)), bottle.x - state.cameraX, bottle.y - z + 64, 128, bottle.facing);
+      ctx.restore();
+    });
   }
 
   function drawParticles() {
@@ -960,7 +1057,13 @@
       ctx.beginPath(); ctx.ellipse(thing.x - state.cameraX, thing.y + 3, thing.isPlayer ? 35 : 31, 9, 0, 0, Math.PI * 2); ctx.fill();
       if (thing.isPlayer) drawPlayer(); else drawEnemy(thing);
     });
+    drawProjectiles();
     state.effects.forEach((effect) => {
+      if (effect.type === 'bottle-feedback') {
+        ctx.save(); ctx.globalAlpha = effect.time / effect.max;
+        drawText(effect.outcome === 'hit' ? 'BOTTLE HIT!' : effect.outcome === 'dodged' ? 'DODGED!' : 'GLASS BREAK', effect.x - state.cameraX, effect.y - (1 - effect.time / effect.max) * 20, 22, effect.outcome === 'hit' ? '#ff727a' : '#b8ff83', 'center');
+        ctx.restore(); return;
+      }
       if (effect.type === 'impact') {
         const progress = 1 - effect.time / effect.max;
         ctx.save();
@@ -1166,7 +1269,9 @@
       mode: state.mode,
       selectedHero: HEROES[state.selectedHero]?.name || null,
       player: player ? { x: Math.round(player.x), y: Math.round(player.y), health: Math.round(player.health), meter: Math.round(player.meter), state: player.state, action: player.action || null, dodgeCooldown: Number(player.dodgeCooldown.toFixed(2)) } : null,
-      enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, state: enemy.state, tell: enemy.state === 'windup' ? { label: ENEMY_ATTACKS[enemy.type].label, remaining: Number(Math.max(0, ENEMY_ATTACKS[enemy.type].windup - enemy.actionTime).toFixed(2)) } : null })),
+      enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, state: enemy.state, tell: enemy.state === 'windup' ? { label: ENEMY_ATTACKS[enemy.type].label, target: enemy.target, remaining: Number(Math.max(0, ENEMY_ATTACKS[enemy.type].windup - enemy.actionTime).toFixed(2)) } : null })),
+      projectiles: state.projectiles.map(bottle => ({ type: 'bottle', x: Math.round(bottle.x), y: Math.round(bottle.y), target: bottle.target, remaining: Number(Math.max(0, bottle.duration - bottle.elapsed).toFixed(2)), hitRadius: { x: 46, y: 26 } })),
+      lastProjectileImpact: state.lastProjectileImpact,
       wave: state.wave,
       queuedEnemies: state.spawnQueue.length,
       spawnCap: state.spawnBatchSize,
