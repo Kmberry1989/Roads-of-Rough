@@ -2,14 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#080813" />
     <title>Roads of Rough</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="game-shell" aria-label="Roads of Rough beat-em-up">
+      <header id="portrait-hud" class="portrait-ui portrait-hud" hidden>
+        <strong id="portrait-hero"></strong>
+        <span id="portrait-wave"></span>
+        <label><span id="portrait-health-text">HP</span><progress id="portrait-health" max="100" value="100" aria-label="Health"></progress></label>
+        <label><span id="portrait-meter-text">SP</span><progress id="portrait-meter" max="100" value="35" aria-label="Special meter"></progress></label>
+        <button id="portrait-pause" type="button">PAUSE</button>
+      </header>
+      <div id="game-stage" class="game-stage">
       <canvas id="game" width="1280" height="720" tabindex="0" aria-label="Roads of Rough game canvas"></canvas>
+        <section id="portrait-overlay" class="portrait-ui portrait-overlay" aria-live="polite" hidden>
+          <h2 id="portrait-overlay-title"></h2><p id="portrait-overlay-copy"></p><strong id="portrait-overlay-score"></strong>
+          <button id="portrait-resume" type="button">RESUME</button><button id="portrait-restart" type="button">RESTART</button>
+        </section>
+      </div>
+      <section id="portrait-select" class="portrait-ui portrait-select" hidden>
+        <h1>ROADS OF ROUGH</h1><p>Choose your fighter · tap to start</p>
+        <div id="portrait-roster"></div>
+        <p class="portrait-hint">Move between lanes to avoid bottles.<br>HIT and KICK build your special meter.</p>
+      </section>
       <div id="touch-controls" aria-label="Touch controls" hidden>
         <div class="touch-dpad">
           <button data-action="up" aria-label="Move up">▲</button>
@@ -34,6 +52,7 @@
       </div>
       <p class="screen-reader" id="game-status" aria-live="polite"></p>
     </main>
+    <script src="sprite-catalog.js"></script>
     <script src="game.js"></script>
   </body>
 </html>

@@ -41,6 +41,10 @@ body { display: grid; place-items: center; min-height: 100vh; min-height: 100dvh
   box-shadow: 0 0 42px rgba(241, 61, 208, 0.2);
 }
 
+.game-stage { width: 100%; height: 100%; position: relative; display: grid; place-items: center; min-height: 0; min-width: 0; }
+.portrait-ui { display: none; }
+.portrait-ui[hidden] { display: none !important; }
+
 #touch-controls {
   position: absolute;
   inset: auto 16px 14px;
@@ -73,6 +77,7 @@ body { display: grid; place-items: center; min-height: 100vh; min-height: 100dvh
 }
 
 .audio-controls.is-expanded { padding-right: 10px; }
+.audio-controls[hidden] { display: none; }
 .audio-controls [hidden] { display: none; }
 .audio-panel { display: flex; align-items: center; gap: 9px; }
 
@@ -153,3 +158,45 @@ body { display: grid; place-items: center; min-height: 100vh; min-height: 100dvh
 @container (max-width: 380px) {
   .touch-actions { grid-template-columns: repeat(2, 68px); }
 }
+
+body.portrait .game-shell {
+  width: 100vw; height: 100dvh; max-width: 720px; aspect-ratio: auto;
+  padding: 10px; gap: 8px; grid-template-rows: 92px minmax(0, 1fr) 112px;
+}
+body.portrait .game-stage { grid-row: 2; }
+body.portrait #game { height: auto; width: 100%; max-height: 100%; box-shadow: 0 0 24px rgba(241,61,208,.12); }
+body.portrait .portrait-hud { display: grid; grid-row: 1; width: 100%; align-content: start; gap: 4px; padding: 0 4px; }
+.portrait-hud strong { font-size: 17px; line-height: 22px; color: var(--ink); }
+#portrait-wave { font-size: 12px; line-height: 16px; color: #ff9ee7; }
+.portrait-hud label { display: grid; grid-template-columns: 86px 1fr; align-items: center; font-size: 12px; line-height: 17px; }
+.portrait-hud progress { width: 100%; height: 10px; accent-color: #42e56a; }
+#portrait-meter { accent-color: #ffc82f; }
+body.portrait .audio-controls { top: 8px; right: 10px; transform: none; min-height: 34px; padding: 2px 5px; gap: 5px; }
+body.portrait .audio-controls button { min-height: 44px; }
+body.portrait .audio-panel { position: absolute; top: 54px; right: 0; min-height: 40px; padding: 5px 8px; border: 1px solid #62e8ff; border-radius: 6px; background: #100c24; }
+#portrait-pause { position: absolute; right: 10px; top: 62px; height: 44px; font-size: 11px; padding: 0 10px; }
+body.portrait .portrait-hud label { padding-right: 80px; }
+body.portrait #touch-controls { position: static; grid-row: 3; width: 100%; transform: none; align-self: end; align-items: end; gap: 8px; }
+body.portrait .touch-dpad { gap: 4px; grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 44px); }
+body.portrait .touch-actions { gap: 6px; grid-template-columns: repeat(2, minmax(0, 1fr)); flex: 1; }
+body.portrait #touch-controls button { min-height: 44px; border-radius: 8px; font-size: 12px; padding-inline: 2px; }
+.portrait-ui button, #portrait-pause { border: 1px solid #62e8ff; color: var(--ink); background: #151027; border-radius: 7px; font-family: inherit; font-weight: 900; cursor: pointer; touch-action: manipulation; }
+.portrait-ui button:focus-visible, #portrait-pause:focus-visible { outline: 3px solid #ffd447; outline-offset: 2px; }
+body.portrait .portrait-select { display: flex; position: absolute; inset: 0; z-index: 5; flex-direction: column; justify-content: center; gap: 12px; padding: 16px; background: #090718; }
+.portrait-select h1 { margin: 0; color: #ff62dc; font-family: Impact, sans-serif; font-size: clamp(28px, 7vw, 42px); }
+.portrait-select p { margin: 0; font-size: 14px; line-height: 1.45; }
+#portrait-roster { display: grid; gap: 7px; }
+#portrait-roster button { display: flex; align-items: center; gap: 12px; text-align: left; min-height: 64px; padding: 3px 8px; border-color: #55516b; }
+#portrait-roster button[aria-pressed="true"] { border: 2px solid #62e8ff; background: #221032; }
+#portrait-roster img { width: 56px; height: 56px; image-rendering: pixelated; object-fit: contain; }
+#portrait-roster button > span { display: grid; gap: 2px; }
+#portrait-roster strong { font-size: 16px; color: #fff; }
+#portrait-roster span span { font-size: 12px; color: #ffe45d; }
+#portrait-roster small { font-size: 11px; color: #cbc5dd; }
+.portrait-select .portrait-hint { color: #bdb6d1; font-size: 12px; }
+body.portrait .portrait-overlay { display: flex; position: absolute; inset: 0; z-index: 3; align-items: center; justify-content: center; flex-direction: column; gap: 14px; padding: 24px; background: rgba(8,5,24,.94); border: 2px solid var(--overlay-accent); text-align: center; }
+.portrait-overlay h2 { margin: 0; font: 32px Impact, sans-serif; color: var(--overlay-accent); }
+.portrait-overlay p { margin: 0; font-size: 15px; line-height: 1.4; }
+.portrait-overlay strong { font-size: 16px; color: #ffd447; }
+.portrait-overlay button { min-height: 44px; width: min(100%, 220px); font-size: 15px; }
+.portrait-overlay button[hidden] { display: none; }

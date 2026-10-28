@@ -11,7 +11,13 @@
   const audioPanel = document.getElementById('audio-panel');
   const audioVolume = document.getElementById('audio-volume');
   const audioSupport = document.getElementById('audio-support');
-  const W = canvas.width;
+  let W = canvas.width;
+  let portrait = false;
+  let screenScale = 1;
+  const stage = document.getElementById('game-stage');
+  const portraitHud = document.getElementById('portrait-hud');
+  const portraitSelect = document.getElementById('portrait-select');
+  const portraitOverlay = document.getElementById('portrait-overlay');
   const H = canvas.height;
   const WORLD_WIDTH = 5600;
   const FLOOR_TOP = 430;
@@ -29,13 +35,7 @@
   const PATH = 'sprites/';
   const THROWER_SHEET = 'expansion/runtime/enemy-thrower.png';
   // Measured source cells and derived bounds: runtime/enemy-thrower-frames.json.
-  const throwerFrame = (i) => ({ x: (i % 5) * 640, y: Math.floor(i / 5) * 320, w: 640, h: 320 });
-  const throwerFrames = {
-    idle: [throwerFrame(0), throwerFrame(2)], walk: [throwerFrame(1), throwerFrame(6)],
-    windup: [throwerFrame(2), throwerFrame(3)], attack: [throwerFrame(4), throwerFrame(5)],
-    hurt: [throwerFrame(8)], defeat: [throwerFrame(9), throwerFrame(10)],
-    bottle: [14, 15, 16, 17].map(throwerFrame),
-  };
+  const {throwerFrames} = window.RoughSprites;
   const ENEMY_ATTACKS = {
     grunt: { windup: .36, active: .14, recovery: .28, range: 88, damage: 8, color: '#ff5f83', label: 'STRIKE' },
     rusher: { windup: .24, active: .12, recovery: .22, range: 102, damage: 8, color: '#5de7ff', label: 'RUSH' },
@@ -235,47 +235,14 @@
     bossDefeated: false,
   };
 
-  const heroFrames = {
-    idle: [
-      { x: 15, y: 15, w: 185, h: 235 }, { x: 200, y: 15, w: 185, h: 235 },
-    ],
-    walk: [
-      { x: 15, y: 505, w: 180, h: 235 }, { x: 195, y: 505, w: 180, h: 235 },
-      { x: 375, y: 505, w: 180, h: 235 }, { x: 555, y: 505, w: 180, h: 235 },
-      { x: 735, y: 505, w: 200, h: 235 }, { x: 935, y: 505, w: 225, h: 235 },
-    ],
-    punch: [
-      { x: 375, y: 10, w: 295, h: 245 }, { x: 670, y: 10, w: 295, h: 245 }, { x: 960, y: 10, w: 295, h: 245 },
-    ],
-    kick: [
-      { x: 15, y: 260, w: 185, h: 230 }, { x: 200, y: 260, w: 290, h: 230 },
-      { x: 490, y: 260, w: 290, h: 230 }, { x: 780, y: 260, w: 290, h: 230 },
-    ],
-    hurt: [
-      { x: 15, y: 755, w: 230, h: 245 }, { x: 250, y: 755, w: 280, h: 245 },
-    ],
-    defeat: [{ x: 530, y: 755, w: 300, h: 245 }],
-    victory: [
-      { x: 845, y: 755, w: 230, h: 245 }, { x: 1075, y: 755, w: 230, h: 245 },
-    ],
-  };
-  const specialFrames = [
-    { x: 15, y: 55, w: 185, h: 260 }, { x: 200, y: 55, w: 240, h: 260 },
-    { x: 440, y: 55, w: 430, h: 260 }, { x: 870, y: 55, w: 300, h: 260 },
-  ];
-  const enemyFrames = {
-    idle: [{ x: 25, y: 20, w: 260, h: 340 }, { x: 285, y: 20, w: 260, h: 340 }, { x: 545, y: 20, w: 260, h: 340 }],
-    attack: [{ x: 805, y: 20, w: 300, h: 340 }, { x: 1100, y: 20, w: 380, h: 340 }],
-    walk: [{ x: 20, y: 370, w: 275, h: 335 }, { x: 295, y: 370, w: 275, h: 335 }, { x: 570, y: 370, w: 275, h: 335 }],
-    hurt: [{ x: 845, y: 370, w: 270, h: 335 }, { x: 1115, y: 370, w: 310, h: 335 }],
-    defeat: [{ x: 20, y: 720, w: 420, h: 295 }, { x: 440, y: 720, w: 430, h: 295 }, { x: 870, y: 720, w: 430, h: 295 }],
-  };
+  // Source rectangles and per-hero body anchors: sprites/runtime/hero-frames.json.
+  const {heroFrames, specialFrames, enemyFrames} = window.RoughSprites;
 
   function loadImage(name, keyed = false) {
     return new Promise((resolve) => {
       const image = new Image();
       image.onload = () => {
-        if (!keyed) return resolve(image);
+        if (!keyed || HEROES.some(hero => hero.base === name || hero.special === name)) return resolve(image);
         const surface = document.createElement('canvas');
         surface.width = image.naturalWidth;
         surface.height = image.naturalHeight;
@@ -288,7 +255,7 @@
           const b = pixels.data[i + 2];
           // The supplied sheets use both hot pink fills and darker magenta guide lines.
           // Key the whole magenta family while leaving warm skin/yellow highlight pixels intact.
-          const isPink = r > 70 && b > 45 && r > g * 1.45 && b > g * 1.18 && Math.abs(r - b) < 175;
+          const isPink = window.RoughSprites.isPink(r,g,b);
           const isBlackPanel = name === 'interface.png' && r < 14 && g < 14 && b < 22;
           if (isPink || isBlackPanel) pixels.data[i + 3] = 0;
         }
@@ -296,7 +263,7 @@
         resolve(surface);
       };
       image.onerror = () => { assets.failed += 1; resolve(null); };
-      image.src = PATH + name;
+      image.src = PATH + (HEROES.some(hero => hero.base === name || hero.special === name) ? 'runtime/' : '') + name;
     });
   }
 
@@ -322,31 +289,15 @@
   function randomLane() { return 490 + Math.random() * 125; }
 
   function frameFor(frames, index) { return frames[index % frames.length]; }
-  function drawSprite(sheet, frame, x, baseline, height, facing = 1, alpha = 1) {
-    if (!sheet || !frame) return;
-    const scale = height / frame.h;
-    const width = frame.w * scale;
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    if (facing < 0) {
-      ctx.translate(x, 0);
-      ctx.scale(-1, 1);
-      ctx.drawImage(sheet, frame.x, frame.y, frame.w, frame.h, -width / 2, baseline - height, width, height);
-    } else {
-      ctx.drawImage(sheet, frame.x, frame.y, frame.w, frame.h, x - width / 2, baseline - height, width, height);
-    }
-    ctx.restore();
-  }
+  function drawSprite(...args) { window.RoughSprites.drawSprite(ctx, ...args); }
 
   function drawAnimatedSprite(sheet, frames, progress, x, baseline, height, facing = 1, alpha = 1, loop = true) {
     if (!sheet || !frames?.length) return;
     const last = frames.length - 1;
     const safeProgress = loop ? Math.max(0, progress) % frames.length : clamp(progress, 0, last);
     const index = Math.min(last, Math.floor(safeProgress));
-    const blend = loop ? safeProgress - index : Math.min(0.28, safeProgress - index);
-    const nextIndex = loop ? (index + 1) % frames.length : Math.min(last, index + 1);
-    drawSprite(sheet, frames[index], x, baseline, height, facing, alpha * (1 - blend));
-    if (blend > 0.001 && nextIndex !== index) drawSprite(sheet, frames[nextIndex], x, baseline, height, facing, alpha * blend);
+    // Authored pixel poses use one opaque frame; crossfading doubles silhouettes.
+    drawSprite(sheet, frames[index], x, baseline, height, facing, alpha);
   }
 
   function drawPanel(x, y, w, h, stroke = '#9ca5bb', fill = 'rgba(12,12,26,.82)') {
@@ -364,7 +315,12 @@
 
   function drawText(text, x, y, size = 20, color = '#fff', align = 'left', font = '900 20px Trebuchet MS') {
     ctx.save();
+    if (portrait) size = Math.max(size, 12 / Math.max(.1, screenScale));
     ctx.font = font.replace(/\d+px/, `${size}px`);
+    if (portrait && align === 'center') {
+      const half = Math.min(W / 2 - 8, ctx.measureText(text).width / 2);
+      x = clamp(x, half + 8, W - half - 8);
+    }
     ctx.textAlign = align;
     ctx.textBaseline = 'middle';
     ctx.lineJoin = 'round';
@@ -377,6 +333,7 @@
   }
 
   function drawBackground() {
+    const tileWidth = 1280;
     const city = image('backdrop_city.png');
     const city2 = image('backdrop_city2.png');
     const skyline = image('backdrop_skyline.png');
@@ -384,29 +341,29 @@
     const ground2 = image('ground_city2.png');
     ctx.fillStyle = '#09091b';
     ctx.fillRect(0, 0, W, H);
-    if (skyline) ctx.drawImage(skyline, -((state.cameraX * 0.08) % W), 0, W, H * 0.82);
+    if (skyline) ctx.drawImage(skyline, -((state.cameraX * 0.08) % tileWidth), 0, tileWidth, H * 0.82);
     if (city2) {
-      const offset = -((state.cameraX * 0.16) % W);
-      ctx.drawImage(city2, offset, 0, W, H * 0.82);
-      ctx.drawImage(city2, offset + W, 0, W, H * 0.82);
+      const offset = -((state.cameraX * 0.16) % tileWidth);
+      ctx.drawImage(city2, offset, 0, tileWidth, H * 0.82);
+      ctx.drawImage(city2, offset + tileWidth, 0, tileWidth, H * 0.82);
     }
     if (city) {
-      const offset = -((state.cameraX * 0.28) % W);
-      ctx.drawImage(city, offset, 0, W, H * 0.86);
-      ctx.drawImage(city, offset + W, 0, W, H * 0.86);
+      const offset = -((state.cameraX * 0.28) % tileWidth);
+      ctx.drawImage(city, offset, 0, tileWidth, H * 0.86);
+      ctx.drawImage(city, offset + tileWidth, 0, tileWidth, H * 0.86);
     }
     ctx.fillStyle = 'rgba(9, 5, 23, .18)';
     ctx.fillRect(0, 0, W, FLOOR_TOP);
     if (ground) {
-      const offset = -((state.cameraX * 0.7) % W);
-      ctx.drawImage(ground, offset, 345, W, 390);
-      ctx.drawImage(ground, offset + W, 345, W, 390);
+      const offset = -((state.cameraX * 0.7) % tileWidth);
+      ctx.drawImage(ground, offset, 345, tileWidth, 390);
+      ctx.drawImage(ground, offset + tileWidth, 345, tileWidth, 390);
     }
     if (ground2) {
-      const offset = -((state.cameraX * 0.9) % W);
+      const offset = -((state.cameraX * 0.9) % tileWidth);
       ctx.globalAlpha = .28;
-      ctx.drawImage(ground2, offset, 405, W, 315);
-      ctx.drawImage(ground2, offset + W, 405, W, 315);
+      ctx.drawImage(ground2, offset, 405, tileWidth, 315);
+      ctx.drawImage(ground2, offset + tileWidth, 405, tileWidth, 315);
       ctx.globalAlpha = 1;
     }
     const grade = ctx.createLinearGradient(0, 0, 0, H);
@@ -470,6 +427,7 @@
     touchControls.hidden = !isTouchCapable();
     updateStatus('Fight through the street. Move with arrows or WASD, attack with J and K, dodge with Shift, special with L.');
     audio.play('select');
+    syncPortraitUi();
   }
 
   function spawnWave(index) {
@@ -901,7 +859,7 @@
       state.mode = 'victory'; state.message = 'STREET CLEARED'; state.messageTimer = 999; touchControls.hidden = true;
       updateStatus('Street cleared. Press R or tap the screen to play again.'); audio.play('victory');
     }
-    state.cameraX = clamp(lerp(state.cameraX, state.player.x - 370, .12), 0, WORLD_WIDTH - W);
+    state.cameraX = clamp(lerp(state.cameraX, state.player.x - (portrait ? W * .32 : 370), .12), 0, WORLD_WIDTH - W);
   }
 
   function drawPlayer() {
@@ -917,7 +875,7 @@
     const progress = action ? (player.actionTime / Math.max(.001, player.actionTotal)) * (frames.length - .001) : player.anim;
     ctx.save();
     if (player.flashTimer > 0) { ctx.filter = 'brightness(3.6) saturate(0)'; ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 18; }
-    drawAnimatedSprite(sheet, frames, progress, player.x - state.cameraX, player.y, player.state === 'special' ? 230 : 210, player.facing, alpha, !action);
+    drawAnimatedSprite(sheet, frames, progress, player.x - state.cameraX, player.y + 12 * 245 / 256, 245, player.facing, alpha, !action);
     ctx.restore();
   }
 
@@ -1092,7 +1050,7 @@
       ctx.restore();
     });
     drawParticles();
-    drawHud();
+    if (!portrait) drawHud();
     drawGoSignal();
     if (state.messageTimer > 0 && state.goTimer <= 0) {
       const alpha = clamp(Math.min(state.messageTimer * 2, 1), 0, 1);
@@ -1113,12 +1071,12 @@
     HEROES.forEach((hero, index) => {
       const x = startX + index * 224;
       const selected = index === state.selectedHero;
-      drawPanel(x, 215, cardW, 286, selected ? hero.color : '#53536f', selected ? 'rgba(36,12,50,.95)' : 'rgba(12,10,28,.88)');
-      if (selected) { ctx.strokeStyle = hero.color; ctx.lineWidth = 2; ctx.strokeRect(x - 6, 209, cardW + 12, 298); }
-      drawSprite(image(hero.base), heroFrames.idle[0], x + cardW / 2, 452, 195, 1, 1);
-      drawText(hero.name, x + cardW / 2, 476, 18, selected ? hero.color : '#f7edf9', 'center');
-      drawText(hero.role, x + cardW / 2, 498, 11, selected ? '#ffe45d' : '#aaa4c0', 'center');
-      drawText(hero.specialName, x + cardW / 2, 518, 10, selected ? '#f7edf9' : '#8d87a6', 'center');
+      drawPanel(x, 215, cardW, 306, selected ? hero.color : '#53536f', selected ? 'rgba(36,12,50,.95)' : 'rgba(12,10,28,.88)');
+      if (selected) { ctx.strokeStyle = hero.color; ctx.lineWidth = 2; ctx.strokeRect(x - 6, 209, cardW + 12, 318); }
+      drawSprite(image(hero.base), heroFrames.idle[0], x + cardW / 2, 452, 225, 1, 1);
+      drawText(hero.name, x + cardW / 2, 465, 18, selected ? hero.color : '#f7edf9', 'center');
+      drawText(hero.role, x + cardW / 2, 486, 11, selected ? '#ffe45d' : '#aaa4c0', 'center');
+      drawText(hero.specialName, x + cardW / 2, 506, 10, selected ? '#f7edf9' : '#8d87a6', 'center');
     });
     drawText('CHOOSE YOUR ROUGH ONE', W / 2, 545, 14, '#a8a2bf', 'center');
     drawText('← → / A D TO CHOOSE    ENTER / SPACE TO START', W / 2, 594, 17, '#fff', 'center');
@@ -1132,21 +1090,22 @@
     drawText(title, W / 2, 278, 48, color, 'center', '900 48px Impact');
     drawText(subtitle, W / 2, 330, 19, '#f9edf8', 'center');
     drawText(`SCORE  ${String(state.score).padStart(6, '0')}`, W / 2, 374, 22, '#ffd65b', 'center');
-    drawText('PRESS R OR TAP TO RESTART', W / 2, 422, 17, '#fff', 'center');
+    drawText(state.mode === 'paused' ? 'P / START OR TAP TO RESUME · R TO RESTART' : 'PRESS R OR TAP TO RESTART', W / 2, 422, 15, '#fff', 'center');
   }
 
   function render() {
+    syncPortraitUi();
     ctx.save();
     if (state.shake > 0) ctx.translate((Math.random() - .5) * 12 * state.shake / .2, (Math.random() - .5) * 8 * state.shake / .2);
     if (!assets.ready) {
       ctx.fillStyle = '#09091b'; ctx.fillRect(0, 0, W, H);
       drawText('LOADING THE STREET…', W / 2, H / 2, 26, '#ff65d8', 'center');
-    } else if (state.mode === 'select') drawSelect();
+    } else if (state.mode === 'select') { if (portrait) drawBackground(); else drawSelect(); }
     else if (state.mode === 'play' || state.mode === 'paused') {
       drawStage();
-      if (state.mode === 'paused') drawOverlay('PAUSED', 'The street waits.', '#62e8ff');
+      if (state.mode === 'paused' && !portrait) drawOverlay('PAUSED', 'The street waits.', '#62e8ff');
     } else if (state.mode === 'victory') {
-      drawStage(); drawOverlay('STREET CLEARED', 'You made it through the rough side of town.', '#ffd65b');
+      drawStage(); if (!portrait) drawOverlay('STREET CLEARED', 'You made it through the rough side of town.', '#ffd65b');
     }
     ctx.restore();
   }
@@ -1167,6 +1126,7 @@
     if (state.mode !== 'play' && state.mode !== 'paused') return;
     clearInput();
     state.mode = paused ? 'paused' : 'play';
+    syncPortraitUi();
     updateStatus(paused ? 'Paused. Press P, gamepad Start, or tap the game to resume.' : 'Back in the fight.');
   }
 
@@ -1232,6 +1192,7 @@
     const action = button.dataset.action;
     const down = (event) => {
       event.preventDefault();
+      if (state.mode === 'paused') return;
       canvas.focus({ preventScroll: true });
       button.classList.add('is-held'); heldActions.add(action);
       if (['light', 'heavy', 'special'].includes(action)) pressedActions.add(action);
@@ -1262,11 +1223,72 @@
 
   function updateStatus(text) { statusNode.textContent = text; }
 
+  function updateLayout() {
+    portrait = window.matchMedia('(max-width: 720px) and (orientation: portrait)').matches;
+    document.body.classList.toggle('portrait', portrait);
+    const box = stage.getBoundingClientRect();
+    const width = portrait ? Math.max(520, Math.ceil(H * box.width / Math.max(1, box.height))) : 1280;
+    if (W !== width) { W = width; canvas.width = W; }
+    canvas.style.aspectRatio = `${W} / ${H}`;
+    screenScale = box.width / W;
+    ctx.imageSmoothingEnabled = false;
+    if (state.player) state.cameraX = clamp(state.player.x - (portrait ? W * .32 : 370), 0, WORLD_WIDTH - W);
+  }
+
+  const portraitRoster = document.getElementById('portrait-roster');
+  HEROES.forEach((hero, index) => {
+    const button = document.createElement('button');
+    button.type = 'button'; button.dataset.hero = index;
+    const picture = document.createElement('img');
+    picture.src = `${PATH}runtime/player_${hero.name.toLowerCase()}-portrait.png`; picture.alt = '';
+    const details = document.createElement('span');
+    const name = document.createElement('strong'); name.textContent = hero.name;
+    const role = document.createElement('span'); role.textContent = hero.role;
+    const special = document.createElement('small'); special.textContent = hero.specialName;
+    details.append(name, role, special); button.append(picture, details);
+    button.addEventListener('click', () => { state.selectedHero = index; beginRun(); canvas.focus({ preventScroll: true }); });
+    portraitRoster.append(button);
+  });
+  document.getElementById('portrait-pause').addEventListener('click', () => { setPaused(true); canvas.focus({ preventScroll: true }); });
+  document.getElementById('portrait-resume').addEventListener('click', () => { setPaused(false); canvas.focus({ preventScroll: true }); });
+  document.getElementById('portrait-restart').addEventListener('click', () => { beginRun(); canvas.focus({ preventScroll: true }); });
+  portraitOverlay.addEventListener('pointerdown', (event) => {
+    if (!isInteractiveTarget(event.target)) { beginFromInput(); canvas.focus({ preventScroll: true }); }
+  });
+
+  function syncPortraitUi() {
+    const player = state.player;
+    const dead = player && player.health <= 0;
+    portraitSelect.hidden = !portrait || state.mode !== 'select';
+    audioControls.hidden = portrait && state.mode === 'select';
+    portraitHud.hidden = !portrait || !player || state.mode === 'select';
+    portraitOverlay.hidden = !portrait || !(state.mode === 'paused' || state.mode === 'victory' || dead);
+    touchControls.hidden = !isTouchCapable() || state.mode !== 'play' || dead;
+    touchControls.querySelectorAll('button').forEach(button => { button.disabled = state.mode === 'paused'; });
+    portraitRoster.querySelectorAll('button').forEach((button, i) => { button.setAttribute('aria-pressed', String(i === state.selectedHero)); });
+    if (!portrait || !player) return;
+    const setText = (id, value) => { const node = document.getElementById(id); if (node.textContent !== value) node.textContent = value; };
+    setText('portrait-hero', player.hero.name);
+    setText('portrait-wave', `${state.waveLabel} · ${String(state.score).padStart(6, '0')}`);
+    setText('portrait-health-text', `HP ${Math.ceil(player.health)}/${player.maxHealth}`);
+    setText('portrait-meter-text', `SP ${Math.floor(player.meter)}/100`);
+    const health = document.getElementById('portrait-health'); health.max = player.maxHealth; health.value = player.health;
+    document.getElementById('portrait-meter').value = player.meter;
+    const paused = state.mode === 'paused';
+    document.getElementById('portrait-pause').disabled = state.mode !== 'play' || dead;
+    document.getElementById('portrait-resume').hidden = !paused;
+    setText('portrait-overlay-title', paused ? 'PAUSED' : dead ? 'DOWN FOR THE COUNT' : 'STREET CLEARED');
+    setText('portrait-overlay-copy', paused ? 'Tap RESUME or the street to continue.' : dead ? 'Choose RESTART for another run.' : 'You made it through the rough side of town.');
+    setText('portrait-overlay-score', `SCORE ${String(state.score).padStart(6, '0')}`);
+    portraitOverlay.style.setProperty('--overlay-accent', paused ? '#62e8ff' : dead ? '#ff727a' : '#ffd447');
+  }
+
   function renderGameToText() {
     const player = state.player;
     return JSON.stringify({
       coordinateSystem: 'origin is the upper-left; x increases right, y increases down; player y is the ground contact point',
       mode: state.mode,
+      view: { portrait, width: W, height: H },
       selectedHero: HEROES[state.selectedHero]?.name || null,
       player: player ? { x: Math.round(player.x), y: Math.round(player.y), health: Math.round(player.health), meter: Math.round(player.meter), state: player.state, action: player.action || null, dodgeCooldown: Number(player.dodgeCooldown.toFixed(2)) } : null,
       enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, state: enemy.state, tell: enemy.state === 'windup' ? { label: ENEMY_ATTACKS[enemy.type].label, target: enemy.target, remaining: Number(Math.max(0, ENEMY_ATTACKS[enemy.type].windup - enemy.actionTime).toFixed(2)) } : null })),
@@ -1328,6 +1350,9 @@
     if (isInteractiveTarget(event.target)) clearInput();
   });
   audio.init();
+  updateLayout();
+  new ResizeObserver(updateLayout).observe(stage);
+  window.addEventListener('resize', updateLayout);
 
   function loop(now) {
     const dt = Math.min(.05, Math.max(0, (now - lastTime) / 1000));

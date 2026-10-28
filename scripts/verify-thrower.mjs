@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
-const out = path.resolve('output/playwright/thrower-2026-10-12/focused');
+const out = path.resolve(process.env.QA_OUTPUT || 'output/playwright/thrower-2026-10-12/focused');
 await fs.mkdir(out, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const results = { checks: {}, errors: [] };
@@ -24,7 +24,9 @@ try {
     const setup = async () => page.evaluate(() => {
       const a = window.__qa; a.beginRun(); const s = a.state;
       s.spawnQueue = []; s.goTimer = 0; s.messageTimer = 0;
-      s.enemies = [a.createEnemy(0, 690, 560, 'thrower')]; s.enemies[0].attackCooldown = 0;
+      const view = JSON.parse(window.render_game_to_text()).view;
+      s.cameraX = Math.max(0, s.player.x - (view.portrait ? view.width * .32 : 370));
+      s.enemies = [a.createEnemy(0, 330 + Math.min(360, view.width * .5), 560, 'thrower')]; s.enemies[0].attackCooldown = 0;
       window.advanceTime(1000 / 60);
     });
     await setup();

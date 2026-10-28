@@ -27,12 +27,13 @@ const read = page => page.evaluate(() => JSON.parse(window.render_game_to_text()
 const step = (page, ms) => page.evaluate(ms => window.advanceTime(ms), ms);
 async function start(page) { await page.keyboard.press('Enter'); await step(page, 1000 / 60); }
 async function checkLayout(page) {
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   const rect = await page.evaluate(() => {
     const r = document.querySelector('#game').getBoundingClientRect();
-    return { x: r.x, y: r.y, width: r.width, height: r.height, viewport: [innerWidth, innerHeight] };
+    return { x: r.x, y: r.y, width: r.width, height: r.height, viewport: [innerWidth, innerHeight], intrinsic: [game.width, game.height] };
   });
   assert.ok(rect.x >= -1 && rect.y >= -1 && rect.x + rect.width <= rect.viewport[0] + 1 && rect.y + rect.height <= rect.viewport[1] + 1, 'canvas must fit viewport');
-  assert.ok(Math.abs(rect.width / rect.height - 16 / 9) < .001, 'canvas must preserve aspect ratio');
+  assert.ok(Math.abs(rect.width / rect.height - rect.intrinsic[0] / rect.intrinsic[1]) < .001, 'canvas must preserve its intrinsic aspect ratio');
   return rect;
 }
 try {
@@ -66,7 +67,7 @@ try {
   }
   {
     const { page, context } = await make({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, true);
-    const r = await page.locator('#game').boundingBox(); await page.touchscreen.tap(r.x + r.width * .5, r.y + r.height * .5); await step(page, 1000 / 60);
+    await page.locator('[data-hero="2"]').tap(); await step(page, 1000 / 60);
     assert.equal((await read(page)).selectedHero, 'KRISTEN'); results.checks.rotation = [await checkLayout(page)];
     await page.screenshot({ path: path.join(out, 'touch-portrait.png') });
     for (const size of [{ width: 844, height: 390 }, { width: 320, height: 568 }, { width: 390, height: 844 }]) {
@@ -105,9 +106,9 @@ try {
     });
     const loops = results.checks.drawing.loops;
     assert.deepEqual(loops[0].draws, loops[2].draws); assert.deepEqual(loops[1].draws, loops[3].draws); assert.deepEqual(loops[0].draws, loops[5].draws);
-    assert.equal(loops[6].draws.length, 2); assert.deepEqual(loops[6].draws.map(d => d.alpha), [.5, .5]);
+    assert.equal(loops[6].draws.length, 1); assert.deepEqual(loops[6].draws.map(d => d.alpha), [1]);
     for (const pair of results.checks.drawing.anchors) for (const draw of pair) assert.ok(Math.abs(draw.centre - 330) < .001);
-    assert.equal(results.checks.drawing.nonLoop.length, 1); assert.equal(results.checks.drawing.nonLoop[0].sourceX, 780);
+    assert.equal(results.checks.drawing.nonLoop.length, 1); assert.equal(results.checks.drawing.nonLoop[0].sourceX, 640);
     results.checks.combos = await page.evaluate(() => {
       const a = window.__audit, s = a.state, p = s.player, e = a.createEnemy(0, 398, 560); s.enemies = [e]; s.spawnQueue = [];
       p.x = 330; p.y = 560; p.invuln = 10; e.health = 1000; e.maxHealth = 1000; e.speed = 0; e.attackCooldown = 99;
@@ -162,7 +163,7 @@ try {
   // Full routes use the normal keyboard/touch handlers, without diagnostic access or state mutation.
   for (const touch of [false, true]) {
     const { page, context } = await make(touch ? { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } : {});
-    if (touch) { const r = await page.locator('#game').boundingBox(); await page.touchscreen.tap(r.x + r.width * .32, r.y + r.height * .5); }
+    if (touch) { await page.locator('[data-hero="1"]').tap(); }
     else { await page.keyboard.press('ArrowRight'); await start(page); }
     const route = await page.evaluate(touch => {
       const read = () => JSON.parse(window.render_game_to_text());

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Roads of Rough · Animation lab</title><link rel="stylesheet" href="animations.css"></head>
+<body><main>
+<header><div><p class="eyebrow">ROADS OF ROUGH · DEV TOOL</p><h1>Animation lab</h1><p>Reproduce any runtime clip, inspect each pose, and compare anchors.</p></div><a href="../index.html">Back to game ↗</a></header>
+<section class="toolbar" aria-label="Animation selection">
+<label>Actor<select id="actor"></select></label><label>Animation<select id="clip"></select></label>
+<label>Facing<select id="facing"><option value="1">Right →</option><option value="-1">← Left</option></select></label>
+<label>Speed<select id="speed"><option value="0.25">¼×</option><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+<label>Zoom<select id="zoom"><option value="0.75">75%</option><option value="1" selected>100%</option><option value="1.5">150%</option><option value="2">200%</option></select></label>
+<label>Background<select id="background"><option value="checker">Checkerboard</option><option value="dark">Street dark</option><option value="light">Light</option></select></label>
+</section>
+<section class="workspace"><div class="preview"><canvas id="preview" width="1000" height="520" aria-label="Selected animation preview"></canvas><p id="status" role="status">Loading sprite catalog…</p></div><aside>
+<h2>Playback</h2><div class="buttons"><button id="play" disabled>Play</button><button id="restart" disabled>Replay</button><button id="previous" disabled aria-label="Previous frame">← Frame</button><button id="next" disabled aria-label="Next frame">Frame →</button></div>
+<label>Frame <output id="frame-label"></output><input id="frame" type="range" min="0" max="0" value="0" step="1"></label>
+<label class="check"><input id="loop" type="checkbox" checked> Loop clip</label><label class="check"><input id="sequence" type="checkbox"> Cycle all clips for this actor</label><label class="check"><input id="guides" type="checkbox" checked> Anchor and crop guides</label><label class="check"><input id="onion" type="checkbox"> Previous pose overlay</label><label class="check"><input id="source" type="checkbox"> Original source crop beside runtime</label>
+<button id="share">Copy reproduction link</button><p id="share-status" role="status"></p>
+<h2>Measured frame</h2><pre id="details"></pre><p class="hint">Space: play / pause · ← / →: step · R: replay. Inspection playback uses 8 poses/sec; thrower windup uses .95 seconds. Combat state timing is separate. Selecting a frame pauses playback. Guide cross marks the render anchor; yellow box marks the crop. Zoom can intentionally overflow it.</p>
+</aside></section>
+<section><h2>Every frame in this clip</h2><p>Click a pose to reproduce it instantly.</p><div id="strip" class="strip"></div></section>
+<section><h2>Hero alignment comparison</h2><p id="comparison-note">The selected base clip on all five heroes, at identical scale and anchor. Special clips use their own sheets.</p><div id="roster" class="roster"></div></section>
+<footer>Uses the game’s shared runtime crops and renderer. Original sheets remain untouched. Unused authored poses are labeled separately.</footer>
+</main><script src="../sprite-catalog.js"></script><script src="animations.js"></script></body></html>

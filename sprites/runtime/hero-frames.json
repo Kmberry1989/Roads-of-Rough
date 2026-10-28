@@ -1,0 +1,2570 @@
+{
+  "cell": {
+    "w": 640,
+    "h": 256,
+    "anchorX": 320,
+    "baseline": 244
+  },
+  "heroes": {
+    "kyle": {
+      "source": "sprites/player_kyle.png",
+      "frames": [
+        {
+          "index": 0,
+          "name": "idle0",
+          "source": {
+            "x": 22,
+            "y": 18,
+            "w": 178,
+            "h": 228
+          },
+          "anchorX": 103.5,
+          "baseline": 237,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "idle1",
+          "source": {
+            "x": 204,
+            "y": 18,
+            "w": 187,
+            "h": 228
+          },
+          "anchorX": 287,
+          "baseline": 237,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "punch0",
+          "source": {
+            "x": 395,
+            "y": 18,
+            "w": 277,
+            "h": 228
+          },
+          "anchorX": 492.5,
+          "baseline": 237,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "punch1",
+          "source": {
+            "x": 676,
+            "y": 18,
+            "w": 274,
+            "h": 228
+          },
+          "anchorX": 773.5,
+          "baseline": 237,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "punch2",
+          "source": {
+            "x": 954,
+            "y": 18,
+            "w": 284,
+            "h": 228
+          },
+          "anchorX": 1059.5,
+          "baseline": 237,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "punch3",
+          "source": {
+            "x": 1242,
+            "y": 18,
+            "w": 268,
+            "h": 228
+          },
+          "anchorX": 1328.5,
+          "baseline": 237,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "ready0",
+          "source": {
+            "x": 22,
+            "y": 263,
+            "w": 229,
+            "h": 221
+          },
+          "anchorX": 126.5,
+          "baseline": 476,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "kick0",
+          "source": {
+            "x": 255,
+            "y": 263,
+            "w": 260,
+            "h": 221
+          },
+          "anchorX": 349,
+          "baseline": 475,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 8,
+          "name": "ready1",
+          "source": {
+            "x": 519,
+            "y": 263,
+            "w": 256,
+            "h": 221
+          },
+          "anchorX": 627,
+          "baseline": 475,
+          "runtime": {
+            "x": 1920,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 9,
+          "name": "kick1",
+          "source": {
+            "x": 779,
+            "y": 263,
+            "w": 232,
+            "h": 221
+          },
+          "anchorX": 833.5,
+          "baseline": 475,
+          "runtime": {
+            "x": 2560,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 10,
+          "name": "kick2",
+          "source": {
+            "x": 1015,
+            "y": 263,
+            "w": 251,
+            "h": 221
+          },
+          "anchorX": 1091.5,
+          "baseline": 476,
+          "runtime": {
+            "x": 0,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 11,
+          "name": "kick3",
+          "source": {
+            "x": 1270,
+            "y": 263,
+            "w": 240,
+            "h": 221
+          },
+          "anchorX": 1364.5,
+          "baseline": 476,
+          "runtime": {
+            "x": 640,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 12,
+          "name": "walk0",
+          "source": {
+            "x": 22,
+            "y": 502,
+            "w": 184,
+            "h": 220
+          },
+          "anchorX": 106.5,
+          "baseline": 711,
+          "runtime": {
+            "x": 1280,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 13,
+          "name": "walk1",
+          "source": {
+            "x": 210,
+            "y": 502,
+            "w": 162,
+            "h": 220
+          },
+          "anchorX": 282.5,
+          "baseline": 711,
+          "runtime": {
+            "x": 1920,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 14,
+          "name": "walk2",
+          "source": {
+            "x": 376,
+            "y": 502,
+            "w": 182,
+            "h": 220
+          },
+          "anchorX": 454.5,
+          "baseline": 711,
+          "runtime": {
+            "x": 2560,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 15,
+          "name": "run0",
+          "source": {
+            "x": 562,
+            "y": 502,
+            "w": 213,
+            "h": 220
+          },
+          "anchorX": 663.5,
+          "baseline": 705,
+          "runtime": {
+            "x": 0,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 16,
+          "name": "run1",
+          "source": {
+            "x": 779,
+            "y": 502,
+            "w": 209,
+            "h": 220
+          },
+          "anchorX": 922.5,
+          "baseline": 706,
+          "runtime": {
+            "x": 640,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 17,
+          "name": "jump",
+          "source": {
+            "x": 992,
+            "y": 486,
+            "w": 169,
+            "h": 236
+          },
+          "anchorX": 1066.5,
+          "baseline": 692,
+          "runtime": {
+            "x": 1280,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 18,
+          "name": "crouch",
+          "source": {
+            "x": 1165,
+            "y": 502,
+            "w": 175,
+            "h": 220
+          },
+          "anchorX": 1238.5,
+          "baseline": 711,
+          "runtime": {
+            "x": 1920,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 19,
+          "name": "guard",
+          "source": {
+            "x": 1344,
+            "y": 502,
+            "w": 166,
+            "h": 220
+          },
+          "anchorX": 1414,
+          "baseline": 711,
+          "runtime": {
+            "x": 2560,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 20,
+          "name": "hurt",
+          "source": {
+            "x": 22,
+            "y": 740,
+            "w": 235,
+            "h": 232
+          },
+          "anchorX": 151,
+          "baseline": 959,
+          "runtime": {
+            "x": 0,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 21,
+          "name": "launched",
+          "source": {
+            "x": 261,
+            "y": 740,
+            "w": 289,
+            "h": 232
+          },
+          "anchorX": 445.5,
+          "baseline": 944,
+          "runtime": {
+            "x": 640,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 22,
+          "name": "defeat",
+          "source": {
+            "x": 554,
+            "y": 740,
+            "w": 312,
+            "h": 232
+          },
+          "anchorX": 710,
+          "baseline": 953,
+          "runtime": {
+            "x": 1280,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 23,
+          "name": "victory0",
+          "source": {
+            "x": 870,
+            "y": 740,
+            "w": 194,
+            "h": 232
+          },
+          "anchorX": 971.5,
+          "baseline": 961,
+          "runtime": {
+            "x": 1920,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 24,
+          "name": "victory1",
+          "source": {
+            "x": 1068,
+            "y": 740,
+            "w": 274,
+            "h": 232
+          },
+          "anchorX": 1190.5,
+          "baseline": 961,
+          "runtime": {
+            "x": 2560,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ],
+      "specialSource": "sprites/player_kyle-special.png",
+      "specialFrames": [
+        {
+          "index": 0,
+          "name": "special-ready",
+          "source": {
+            "x": 24,
+            "y": 68,
+            "w": 174,
+            "h": 244
+          },
+          "anchorX": 103,
+          "baseline": 287,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "special-windup",
+          "source": {
+            "x": 202,
+            "y": 68,
+            "w": 197,
+            "h": 244
+          },
+          "anchorX": 282.5,
+          "baseline": 287,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "special-release",
+          "source": {
+            "x": 403,
+            "y": 68,
+            "w": 245,
+            "h": 244
+          },
+          "anchorX": 478,
+          "baseline": 287,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ]
+    },
+    "eric": {
+      "source": "sprites/player_eric.png",
+      "frames": [
+        {
+          "index": 0,
+          "name": "idle0",
+          "source": {
+            "x": 20,
+            "y": 15,
+            "w": 194,
+            "h": 226
+          },
+          "anchorX": 97.5,
+          "baseline": 230,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "idle1",
+          "source": {
+            "x": 218,
+            "y": 15,
+            "w": 194,
+            "h": 226
+          },
+          "anchorX": 301.5,
+          "baseline": 230,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "punch0",
+          "source": {
+            "x": 416,
+            "y": 15,
+            "w": 281,
+            "h": 226
+          },
+          "anchorX": 519.5,
+          "baseline": 230,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "punch1",
+          "source": {
+            "x": 701,
+            "y": 15,
+            "w": 278,
+            "h": 226
+          },
+          "anchorX": 802,
+          "baseline": 230,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "punch2",
+          "source": {
+            "x": 983,
+            "y": 15,
+            "w": 279,
+            "h": 226
+          },
+          "anchorX": 1086,
+          "baseline": 230,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "punch3",
+          "source": {
+            "x": 1266,
+            "y": 15,
+            "w": 250,
+            "h": 226
+          },
+          "anchorX": 1355,
+          "baseline": 230,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "ready0",
+          "source": {
+            "x": 20,
+            "y": 255,
+            "w": 227,
+            "h": 221
+          },
+          "anchorX": 116.5,
+          "baseline": 467,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "kick0",
+          "source": {
+            "x": 251,
+            "y": 255,
+            "w": 265,
+            "h": 221
+          },
+          "anchorX": 346,
+          "baseline": 467,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 8,
+          "name": "ready1",
+          "source": {
+            "x": 520,
+            "y": 255,
+            "w": 252,
+            "h": 221
+          },
+          "anchorX": 631,
+          "baseline": 467,
+          "runtime": {
+            "x": 1920,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 9,
+          "name": "kick1",
+          "source": {
+            "x": 776,
+            "y": 255,
+            "w": 236,
+            "h": 221
+          },
+          "anchorX": 841,
+          "baseline": 467,
+          "runtime": {
+            "x": 2560,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 10,
+          "name": "kick2",
+          "source": {
+            "x": 1016,
+            "y": 255,
+            "w": 252,
+            "h": 221
+          },
+          "anchorX": 1094.5,
+          "baseline": 467,
+          "runtime": {
+            "x": 0,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 11,
+          "name": "kick3",
+          "source": {
+            "x": 1272,
+            "y": 255,
+            "w": 244,
+            "h": 221
+          },
+          "anchorX": 1359,
+          "baseline": 467,
+          "runtime": {
+            "x": 640,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 12,
+          "name": "walk0",
+          "source": {
+            "x": 20,
+            "y": 490,
+            "w": 172,
+            "h": 220
+          },
+          "anchorX": 101.5,
+          "baseline": 699,
+          "runtime": {
+            "x": 1280,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 13,
+          "name": "walk1",
+          "source": {
+            "x": 196,
+            "y": 490,
+            "w": 167,
+            "h": 220
+          },
+          "anchorX": 271.5,
+          "baseline": 699,
+          "runtime": {
+            "x": 1920,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 14,
+          "name": "walk2",
+          "source": {
+            "x": 367,
+            "y": 490,
+            "w": 166,
+            "h": 220
+          },
+          "anchorX": 436.5,
+          "baseline": 699,
+          "runtime": {
+            "x": 2560,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 15,
+          "name": "run0",
+          "source": {
+            "x": 537,
+            "y": 490,
+            "w": 235,
+            "h": 220
+          },
+          "anchorX": 640.5,
+          "baseline": 693,
+          "runtime": {
+            "x": 0,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 16,
+          "name": "run1",
+          "source": {
+            "x": 776,
+            "y": 490,
+            "w": 201,
+            "h": 220
+          },
+          "anchorX": 850,
+          "baseline": 696,
+          "runtime": {
+            "x": 640,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 17,
+          "name": "jump",
+          "source": {
+            "x": 981,
+            "y": 474,
+            "w": 178,
+            "h": 236
+          },
+          "anchorX": 1063,
+          "baseline": 675,
+          "runtime": {
+            "x": 1280,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 18,
+          "name": "crouch",
+          "source": {
+            "x": 1163,
+            "y": 490,
+            "w": 177,
+            "h": 220
+          },
+          "anchorX": 1226.5,
+          "baseline": 705,
+          "runtime": {
+            "x": 1920,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 19,
+          "name": "guard",
+          "source": {
+            "x": 1344,
+            "y": 490,
+            "w": 172,
+            "h": 220
+          },
+          "anchorX": 1408.5,
+          "baseline": 701,
+          "runtime": {
+            "x": 2560,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 20,
+          "name": "hurt",
+          "source": {
+            "x": 20,
+            "y": 725,
+            "w": 236,
+            "h": 230
+          },
+          "anchorX": 149,
+          "baseline": 946,
+          "runtime": {
+            "x": 0,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 21,
+          "name": "launched",
+          "source": {
+            "x": 260,
+            "y": 725,
+            "w": 282,
+            "h": 230
+          },
+          "anchorX": 442,
+          "baseline": 933,
+          "runtime": {
+            "x": 640,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 22,
+          "name": "defeat",
+          "source": {
+            "x": 546,
+            "y": 725,
+            "w": 307,
+            "h": 230
+          },
+          "anchorX": 699.5,
+          "baseline": 946,
+          "runtime": {
+            "x": 1280,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 23,
+          "name": "victory0",
+          "source": {
+            "x": 857,
+            "y": 725,
+            "w": 231,
+            "h": 230
+          },
+          "anchorX": 957,
+          "baseline": 946,
+          "runtime": {
+            "x": 1920,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 24,
+          "name": "victory1",
+          "source": {
+            "x": 1092,
+            "y": 725,
+            "w": 250,
+            "h": 230
+          },
+          "anchorX": 1192.5,
+          "baseline": 946,
+          "runtime": {
+            "x": 2560,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ],
+      "specialSource": "sprites/player_eric-special.png",
+      "specialFrames": [
+        {
+          "index": 0,
+          "name": "special-ready",
+          "source": {
+            "x": 23,
+            "y": 67,
+            "w": 172,
+            "h": 241
+          },
+          "anchorX": 103,
+          "baseline": 286,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "special-windup",
+          "source": {
+            "x": 199,
+            "y": 67,
+            "w": 189,
+            "h": 241
+          },
+          "anchorX": 275.5,
+          "baseline": 286,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "special-release",
+          "source": {
+            "x": 392,
+            "y": 67,
+            "w": 251,
+            "h": 241
+          },
+          "anchorX": 465.5,
+          "baseline": 286,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ]
+    },
+    "kristen": {
+      "source": "sprites/player_kristen.png",
+      "frames": [
+        {
+          "index": 0,
+          "name": "idle0",
+          "source": {
+            "x": 20,
+            "y": 18,
+            "w": 174,
+            "h": 226
+          },
+          "anchorX": 93,
+          "baseline": 236,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "idle1",
+          "source": {
+            "x": 198,
+            "y": 18,
+            "w": 186,
+            "h": 226
+          },
+          "anchorX": 281.5,
+          "baseline": 236,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "punch0",
+          "source": {
+            "x": 388,
+            "y": 18,
+            "w": 272,
+            "h": 226
+          },
+          "anchorX": 483,
+          "baseline": 236,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "punch1",
+          "source": {
+            "x": 664,
+            "y": 18,
+            "w": 280,
+            "h": 226
+          },
+          "anchorX": 768.5,
+          "baseline": 236,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "punch2",
+          "source": {
+            "x": 948,
+            "y": 18,
+            "w": 272,
+            "h": 226
+          },
+          "anchorX": 1054,
+          "baseline": 236,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "punch3",
+          "source": {
+            "x": 1224,
+            "y": 18,
+            "w": 288,
+            "h": 226
+          },
+          "anchorX": 1307.5,
+          "baseline": 236,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "ready0",
+          "source": {
+            "x": 20,
+            "y": 256,
+            "w": 220,
+            "h": 225
+          },
+          "anchorX": 106.5,
+          "baseline": 475,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "kick0",
+          "source": {
+            "x": 244,
+            "y": 256,
+            "w": 261,
+            "h": 225
+          },
+          "anchorX": 334.5,
+          "baseline": 475,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 8,
+          "name": "ready1",
+          "source": {
+            "x": 509,
+            "y": 256,
+            "w": 246,
+            "h": 225
+          },
+          "anchorX": 618,
+          "baseline": 475,
+          "runtime": {
+            "x": 1920,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 9,
+          "name": "kick1",
+          "source": {
+            "x": 759,
+            "y": 256,
+            "w": 242,
+            "h": 225
+          },
+          "anchorX": 816,
+          "baseline": 475,
+          "runtime": {
+            "x": 2560,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 10,
+          "name": "kick2",
+          "source": {
+            "x": 1005,
+            "y": 256,
+            "w": 259,
+            "h": 225
+          },
+          "anchorX": 1083,
+          "baseline": 475,
+          "runtime": {
+            "x": 0,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 11,
+          "name": "kick3",
+          "source": {
+            "x": 1268,
+            "y": 256,
+            "w": 244,
+            "h": 225
+          },
+          "anchorX": 1363,
+          "baseline": 473,
+          "runtime": {
+            "x": 640,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 12,
+          "name": "walk0",
+          "source": {
+            "x": 20,
+            "y": 494,
+            "w": 179,
+            "h": 228
+          },
+          "anchorX": 110,
+          "baseline": 713,
+          "runtime": {
+            "x": 1280,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 13,
+          "name": "walk1",
+          "source": {
+            "x": 203,
+            "y": 494,
+            "w": 170,
+            "h": 228
+          },
+          "anchorX": 290,
+          "baseline": 714,
+          "runtime": {
+            "x": 1920,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 14,
+          "name": "walk2",
+          "source": {
+            "x": 377,
+            "y": 494,
+            "w": 167,
+            "h": 228
+          },
+          "anchorX": 448.5,
+          "baseline": 713,
+          "runtime": {
+            "x": 2560,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 15,
+          "name": "run0",
+          "source": {
+            "x": 548,
+            "y": 494,
+            "w": 228,
+            "h": 228
+          },
+          "anchorX": 653.5,
+          "baseline": 704,
+          "runtime": {
+            "x": 0,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 16,
+          "name": "run1",
+          "source": {
+            "x": 780,
+            "y": 494,
+            "w": 197,
+            "h": 228
+          },
+          "anchorX": 857.5,
+          "baseline": 704,
+          "runtime": {
+            "x": 640,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 17,
+          "name": "jump",
+          "source": {
+            "x": 981,
+            "y": 478,
+            "w": 170,
+            "h": 244
+          },
+          "anchorX": 1064,
+          "baseline": 695,
+          "runtime": {
+            "x": 1280,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 18,
+          "name": "crouch",
+          "source": {
+            "x": 1155,
+            "y": 494,
+            "w": 183,
+            "h": 228
+          },
+          "anchorX": 1227.5,
+          "baseline": 715,
+          "runtime": {
+            "x": 1920,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 19,
+          "name": "guard",
+          "source": {
+            "x": 1342,
+            "y": 494,
+            "w": 170,
+            "h": 228
+          },
+          "anchorX": 1409,
+          "baseline": 714,
+          "runtime": {
+            "x": 2560,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 20,
+          "name": "hurt",
+          "source": {
+            "x": 20,
+            "y": 735,
+            "w": 239,
+            "h": 237
+          },
+          "anchorX": 140.5,
+          "baseline": 962,
+          "runtime": {
+            "x": 0,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 21,
+          "name": "launched",
+          "source": {
+            "x": 263,
+            "y": 735,
+            "w": 282,
+            "h": 237
+          },
+          "anchorX": 448.5,
+          "baseline": 943,
+          "runtime": {
+            "x": 640,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 22,
+          "name": "defeat",
+          "source": {
+            "x": 549,
+            "y": 735,
+            "w": 302,
+            "h": 237
+          },
+          "anchorX": 700,
+          "baseline": 955,
+          "runtime": {
+            "x": 1280,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 23,
+          "name": "victory0",
+          "source": {
+            "x": 855,
+            "y": 735,
+            "w": 231,
+            "h": 237
+          },
+          "anchorX": 950,
+          "baseline": 964,
+          "runtime": {
+            "x": 1920,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 24,
+          "name": "victory1",
+          "source": {
+            "x": 1090,
+            "y": 735,
+            "w": 258,
+            "h": 237
+          },
+          "anchorX": 1168.5,
+          "baseline": 964,
+          "runtime": {
+            "x": 2560,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ],
+      "specialSource": "sprites/player_kristen-special.png",
+      "specialFrames": [
+        {
+          "index": 0,
+          "name": "special-ready",
+          "source": {
+            "x": 25,
+            "y": 64,
+            "w": 176,
+            "h": 241
+          },
+          "anchorX": 105.5,
+          "baseline": 291,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "special-windup",
+          "source": {
+            "x": 205,
+            "y": 64,
+            "w": 189,
+            "h": 241
+          },
+          "anchorX": 289,
+          "baseline": 291,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "special-release",
+          "source": {
+            "x": 398,
+            "y": 64,
+            "w": 236,
+            "h": 241
+          },
+          "anchorX": 481.5,
+          "baseline": 291,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ]
+    },
+    "rochelle": {
+      "source": "sprites/player_rochelle.png",
+      "frames": [
+        {
+          "index": 0,
+          "name": "idle0",
+          "source": {
+            "x": 22,
+            "y": 18,
+            "w": 184,
+            "h": 228
+          },
+          "anchorX": 103.5,
+          "baseline": 239,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "idle1",
+          "source": {
+            "x": 210,
+            "y": 18,
+            "w": 182,
+            "h": 228
+          },
+          "anchorX": 290.5,
+          "baseline": 239,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "punch0",
+          "source": {
+            "x": 396,
+            "y": 18,
+            "w": 277,
+            "h": 228
+          },
+          "anchorX": 440.5,
+          "baseline": 239,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "punch1",
+          "source": {
+            "x": 677,
+            "y": 18,
+            "w": 273,
+            "h": 228
+          },
+          "anchorX": 780,
+          "baseline": 220,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "punch2",
+          "source": {
+            "x": 954,
+            "y": 18,
+            "w": 284,
+            "h": 228
+          },
+          "anchorX": 1067,
+          "baseline": 225,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "punch3",
+          "source": {
+            "x": 1242,
+            "y": 18,
+            "w": 268,
+            "h": 228
+          },
+          "anchorX": 1373.5,
+          "baseline": 239,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "ready0",
+          "source": {
+            "x": 22,
+            "y": 262,
+            "w": 229,
+            "h": 222
+          },
+          "anchorX": 125.5,
+          "baseline": 477,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "kick0",
+          "source": {
+            "x": 255,
+            "y": 262,
+            "w": 260,
+            "h": 222
+          },
+          "anchorX": 355.5,
+          "baseline": 464,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 8,
+          "name": "ready1",
+          "source": {
+            "x": 519,
+            "y": 262,
+            "w": 256,
+            "h": 222
+          },
+          "anchorX": 631,
+          "baseline": 477,
+          "runtime": {
+            "x": 1920,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 9,
+          "name": "kick1",
+          "source": {
+            "x": 779,
+            "y": 262,
+            "w": 232,
+            "h": 222
+          },
+          "anchorX": 840,
+          "baseline": 463,
+          "runtime": {
+            "x": 2560,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 10,
+          "name": "kick2",
+          "source": {
+            "x": 1015,
+            "y": 262,
+            "w": 251,
+            "h": 222
+          },
+          "anchorX": 1098.5,
+          "baseline": 462,
+          "runtime": {
+            "x": 0,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 11,
+          "name": "kick3",
+          "source": {
+            "x": 1270,
+            "y": 262,
+            "w": 240,
+            "h": 222
+          },
+          "anchorX": 1362,
+          "baseline": 465,
+          "runtime": {
+            "x": 640,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 12,
+          "name": "walk0",
+          "source": {
+            "x": 22,
+            "y": 502,
+            "w": 184,
+            "h": 220
+          },
+          "anchorX": 117.5,
+          "baseline": 709,
+          "runtime": {
+            "x": 1280,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 13,
+          "name": "walk1",
+          "source": {
+            "x": 210,
+            "y": 502,
+            "w": 162,
+            "h": 220
+          },
+          "anchorX": 284,
+          "baseline": 712,
+          "runtime": {
+            "x": 1920,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 14,
+          "name": "walk2",
+          "source": {
+            "x": 376,
+            "y": 502,
+            "w": 182,
+            "h": 220
+          },
+          "anchorX": 465.5,
+          "baseline": 711,
+          "runtime": {
+            "x": 2560,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 15,
+          "name": "run0",
+          "source": {
+            "x": 562,
+            "y": 502,
+            "w": 213,
+            "h": 220
+          },
+          "anchorX": 668,
+          "baseline": 703,
+          "runtime": {
+            "x": 0,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 16,
+          "name": "run1",
+          "source": {
+            "x": 779,
+            "y": 502,
+            "w": 208,
+            "h": 220
+          },
+          "anchorX": 872.5,
+          "baseline": 701,
+          "runtime": {
+            "x": 640,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 17,
+          "name": "jump",
+          "source": {
+            "x": 991,
+            "y": 486,
+            "w": 172,
+            "h": 236
+          },
+          "anchorX": 1061.5,
+          "baseline": 685,
+          "runtime": {
+            "x": 1280,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 18,
+          "name": "crouch",
+          "source": {
+            "x": 1167,
+            "y": 502,
+            "w": 174,
+            "h": 220
+          },
+          "anchorX": 1216,
+          "baseline": 714,
+          "runtime": {
+            "x": 1920,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 19,
+          "name": "guard",
+          "source": {
+            "x": 1345,
+            "y": 502,
+            "w": 165,
+            "h": 220
+          },
+          "anchorX": 1413.5,
+          "baseline": 700,
+          "runtime": {
+            "x": 2560,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 20,
+          "name": "hurt",
+          "source": {
+            "x": 22,
+            "y": 739,
+            "w": 235,
+            "h": 234
+          },
+          "anchorX": 149.5,
+          "baseline": 945,
+          "runtime": {
+            "x": 0,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 21,
+          "name": "launched",
+          "source": {
+            "x": 261,
+            "y": 739,
+            "w": 289,
+            "h": 234
+          },
+          "anchorX": 431.5,
+          "baseline": 919,
+          "runtime": {
+            "x": 640,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 22,
+          "name": "defeat",
+          "source": {
+            "x": 554,
+            "y": 739,
+            "w": 312,
+            "h": 234
+          },
+          "anchorX": 710,
+          "baseline": 951,
+          "runtime": {
+            "x": 1280,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 23,
+          "name": "victory0",
+          "source": {
+            "x": 870,
+            "y": 739,
+            "w": 193,
+            "h": 234
+          },
+          "anchorX": 971.5,
+          "baseline": 949,
+          "runtime": {
+            "x": 1920,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 24,
+          "name": "victory1",
+          "source": {
+            "x": 1067,
+            "y": 739,
+            "w": 275,
+            "h": 234
+          },
+          "anchorX": 1189,
+          "baseline": 946,
+          "runtime": {
+            "x": 2560,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ],
+      "specialSource": "sprites/player_rochelle-special.png",
+      "specialFrames": [
+        {
+          "index": 0,
+          "name": "special-ready",
+          "source": {
+            "x": 24,
+            "y": 66,
+            "w": 182,
+            "h": 235
+          },
+          "anchorX": 162,
+          "baseline": 289,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "special-windup",
+          "source": {
+            "x": 210,
+            "y": 66,
+            "w": 189,
+            "h": 235
+          },
+          "anchorX": 238.5,
+          "baseline": 289,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "special-release",
+          "source": {
+            "x": 403,
+            "y": 66,
+            "w": 249,
+            "h": 235
+          },
+          "anchorX": 486,
+          "baseline": 289,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ]
+    },
+    "vickie": {
+      "source": "sprites/player_vickie.png",
+      "frames": [
+        {
+          "index": 0,
+          "name": "idle0",
+          "source": {
+            "x": 22,
+            "y": 18,
+            "w": 192,
+            "h": 229
+          },
+          "anchorX": 115,
+          "baseline": 240,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "idle1",
+          "source": {
+            "x": 218,
+            "y": 18,
+            "w": 178,
+            "h": 229
+          },
+          "anchorX": 301,
+          "baseline": 240,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "punch0",
+          "source": {
+            "x": 400,
+            "y": 18,
+            "w": 276,
+            "h": 229
+          },
+          "anchorX": 502,
+          "baseline": 240,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "punch1",
+          "source": {
+            "x": 680,
+            "y": 18,
+            "w": 271,
+            "h": 229
+          },
+          "anchorX": 779,
+          "baseline": 240,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "punch2",
+          "source": {
+            "x": 955,
+            "y": 18,
+            "w": 277,
+            "h": 229
+          },
+          "anchorX": 1056,
+          "baseline": 240,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "punch3",
+          "source": {
+            "x": 1236,
+            "y": 18,
+            "w": 276,
+            "h": 229
+          },
+          "anchorX": 1329.5,
+          "baseline": 240,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "ready0",
+          "source": {
+            "x": 22,
+            "y": 262,
+            "w": 234,
+            "h": 229
+          },
+          "anchorX": 120.5,
+          "baseline": 483,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "kick0",
+          "source": {
+            "x": 260,
+            "y": 262,
+            "w": 258,
+            "h": 229
+          },
+          "anchorX": 344.5,
+          "baseline": 483,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 8,
+          "name": "ready1",
+          "source": {
+            "x": 522,
+            "y": 262,
+            "w": 254,
+            "h": 229
+          },
+          "anchorX": 626.5,
+          "baseline": 483,
+          "runtime": {
+            "x": 1920,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 9,
+          "name": "kick1",
+          "source": {
+            "x": 780,
+            "y": 262,
+            "w": 231,
+            "h": 229
+          },
+          "anchorX": 829.5,
+          "baseline": 483,
+          "runtime": {
+            "x": 2560,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 10,
+          "name": "kick2",
+          "source": {
+            "x": 1015,
+            "y": 262,
+            "w": 251,
+            "h": 229
+          },
+          "anchorX": 1087,
+          "baseline": 485,
+          "runtime": {
+            "x": 0,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 11,
+          "name": "kick3",
+          "source": {
+            "x": 1270,
+            "y": 262,
+            "w": 242,
+            "h": 229
+          },
+          "anchorX": 1362.5,
+          "baseline": 482,
+          "runtime": {
+            "x": 640,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 12,
+          "name": "walk0",
+          "source": {
+            "x": 22,
+            "y": 507,
+            "w": 180,
+            "h": 225
+          },
+          "anchorX": 105,
+          "baseline": 725,
+          "runtime": {
+            "x": 1280,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 13,
+          "name": "walk1",
+          "source": {
+            "x": 206,
+            "y": 507,
+            "w": 167,
+            "h": 225
+          },
+          "anchorX": 287,
+          "baseline": 724,
+          "runtime": {
+            "x": 1920,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 14,
+          "name": "walk2",
+          "source": {
+            "x": 377,
+            "y": 507,
+            "w": 177,
+            "h": 225
+          },
+          "anchorX": 459,
+          "baseline": 722,
+          "runtime": {
+            "x": 2560,
+            "y": 512,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 15,
+          "name": "run0",
+          "source": {
+            "x": 558,
+            "y": 507,
+            "w": 211,
+            "h": 225
+          },
+          "anchorX": 654.5,
+          "baseline": 719,
+          "runtime": {
+            "x": 0,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 16,
+          "name": "run1",
+          "source": {
+            "x": 773,
+            "y": 507,
+            "w": 202,
+            "h": 225
+          },
+          "anchorX": 913.5,
+          "baseline": 719,
+          "runtime": {
+            "x": 640,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 17,
+          "name": "jump",
+          "source": {
+            "x": 979,
+            "y": 491,
+            "w": 169,
+            "h": 241
+          },
+          "anchorX": 1053.5,
+          "baseline": 712,
+          "runtime": {
+            "x": 1280,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 18,
+          "name": "crouch",
+          "source": {
+            "x": 1152,
+            "y": 507,
+            "w": 186,
+            "h": 225
+          },
+          "anchorX": 1223,
+          "baseline": 725,
+          "runtime": {
+            "x": 1920,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 19,
+          "name": "guard",
+          "source": {
+            "x": 1342,
+            "y": 507,
+            "w": 170,
+            "h": 225
+          },
+          "anchorX": 1407,
+          "baseline": 724,
+          "runtime": {
+            "x": 2560,
+            "y": 768,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 20,
+          "name": "hurt",
+          "source": {
+            "x": 22,
+            "y": 747,
+            "w": 235,
+            "h": 228
+          },
+          "anchorX": 153,
+          "baseline": 965,
+          "runtime": {
+            "x": 0,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 21,
+          "name": "launched",
+          "source": {
+            "x": 261,
+            "y": 747,
+            "w": 283,
+            "h": 228
+          },
+          "anchorX": 444,
+          "baseline": 949,
+          "runtime": {
+            "x": 640,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 22,
+          "name": "defeat",
+          "source": {
+            "x": 548,
+            "y": 747,
+            "w": 303,
+            "h": 228
+          },
+          "anchorX": 699.5,
+          "baseline": 958,
+          "runtime": {
+            "x": 1280,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 23,
+          "name": "victory0",
+          "source": {
+            "x": 855,
+            "y": 747,
+            "w": 220,
+            "h": 228
+          },
+          "anchorX": 957.5,
+          "baseline": 966,
+          "runtime": {
+            "x": 1920,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 24,
+          "name": "victory1",
+          "source": {
+            "x": 1079,
+            "y": 747,
+            "w": 263,
+            "h": 228
+          },
+          "anchorX": 1178,
+          "baseline": 966,
+          "runtime": {
+            "x": 2560,
+            "y": 1024,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ],
+      "specialSource": "sprites/player_vickie-special.png",
+      "specialFrames": [
+        {
+          "index": 0,
+          "name": "special-ready",
+          "source": {
+            "x": 24,
+            "y": 68,
+            "w": 171,
+            "h": 242
+          },
+          "anchorX": 105,
+          "baseline": 296,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 1,
+          "name": "special-windup",
+          "source": {
+            "x": 199,
+            "y": 68,
+            "w": 189,
+            "h": 242
+          },
+          "anchorX": 274.5,
+          "baseline": 296,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 2,
+          "name": "special-release",
+          "source": {
+            "x": 392,
+            "y": 68,
+            "w": 253,
+            "h": 242
+          },
+          "anchorX": 468,
+          "baseline": 296,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        }
+      ]
+    }
+  }
+}
