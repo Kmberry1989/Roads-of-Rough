@@ -28,13 +28,13 @@
   const H = canvas.height;
   const WAVES_PER_LEVEL = 4;
   const LEVELS = [
-    { name: 'DOWNTOWN', boss: 'STREET BOSS', backdrops: [0, 1], sky: '#09091b', grade: 'rgba(12,20,54,.08)' },
-    { name: 'NEON MARKET', boss: 'THE ENFORCER', backdrops: [1, 2], sky: '#180b27', grade: 'rgba(118,24,88,.19)' },
-    { name: 'HARBORLINE', boss: 'DOCK KING', backdrops: [2, 0], sky: '#071923', grade: 'rgba(16,91,106,.2)' },
-    { name: 'OLD QUARTER', boss: 'THE NIGHT MAYOR', backdrops: [0, 2], sky: '#20131b', grade: 'rgba(176,75,40,.17)' },
-    { name: 'SKYWAY HEIGHTS', boss: 'SKYLINE PHANTOM', backdrops: [2, 1], sky: '#101b31', grade: 'rgba(55,91,170,.2)' },
-    { name: 'FLOODWAYS', boss: 'UNDERTOW', backdrops: [1, 0], sky: '#071d25', grade: 'rgba(15,125,138,.24)' },
-    { name: 'CROWN TERMINAL', boss: 'GLASS JACKAL', backdrops: [0, 2], sky: '#251728', grade: 'rgba(194,100,49,.2)' },
+    { name: 'DOWNTOWN', boss: 'STREET BOSS', background: 'stages/downtown.png', sky: '#09091b', grade: 'rgba(12,20,54,.08)' },
+    { name: 'NEON MARKET', boss: 'THE ENFORCER', background: 'stages/neon-market.png', sky: '#180b27', grade: 'rgba(118,24,88,.09)' },
+    { name: 'HARBORLINE', boss: 'DOCK KING', background: 'stages/harborline.png', sky: '#071923', grade: 'rgba(16,91,106,.09)' },
+    { name: 'OLD QUARTER', boss: 'THE NIGHT MAYOR', background: 'stages/old-quarter.png', sky: '#20131b', grade: 'rgba(176,75,40,.08)' },
+    { name: 'SKYWAY HEIGHTS', boss: 'SKYLINE PHANTOM', background: 'stages/skyway-heights.png', sky: '#101b31', grade: 'rgba(55,91,170,.1)' },
+    { name: 'FLOODWAYS', boss: 'UNDERTOW', background: 'stages/floodways.png', sky: '#071d25', grade: 'rgba(15,125,138,.1)' },
+    { name: 'CROWN TERMINAL', boss: 'GLASS JACKAL', background: 'stages/crown-terminal.png', sky: '#251728', grade: 'rgba(194,100,49,.09)' },
   ];
   const WAVES_PER_CAMPAIGN = WAVES_PER_LEVEL * LEVELS.length;
   const LEVEL_LENGTH = 5000;
@@ -310,16 +310,16 @@
         resolve(surface);
       };
       image.onerror = () => { assets.failed += 1; resolve(null); };
-      image.src = PATH + (HEROES.some(hero => hero.base === name || hero.special === name) ? 'runtime/' : '') + name + '?v=20261126-detailed-portraits';
+      image.src = PATH + (HEROES.some(hero => hero.base === name || hero.special === name) ? 'runtime/' : '') + name + '?v=20261126-downtown-polish';
     });
   }
 
   async function loadAssets() {
     const names = [
-      ['backdrop_city.png', false], ['backdrop_city2.png', false], ['backdrop_city3.png', false], ['backdrop_skyline.png', false],
       ['ground_city.png', false], ['ground_city2.png', false], ['interface.png', true],
       ...HEROES.flatMap((hero) => [[hero.base, true], [hero.special, true]]),
       ...ENEMY_FILES.map((file) => [file, false]),
+      ...LEVELS.map((level) => [level.background, false]),
       [THROWER_SHEET, false],
       [WEAPON_SHEET, false], [BROKEN_WEAPON_SHEET, false],
     ];
@@ -389,26 +389,12 @@
     const tileWidth = 1280;
     const levelIndex = clamp(state.level, 0, LEVELS.length - 1);
     const level = LEVELS[levelIndex];
-    const backdropFiles = ['backdrop_city.png', 'backdrop_city2.png', 'backdrop_city3.png'];
-    const cityName = backdropFiles[level.backdrops[0]];
-    const city = image(cityName);
-    const city2 = image(backdropFiles[level.backdrops[1]]);
-    const skyline = image('backdrop_skyline.png');
+    const city = image(level.background);
     const ground = image('ground_city.png');
     const ground2 = image('ground_city2.png');
     ctx.fillStyle = level.sky;
     ctx.fillRect(0, 0, W, H);
-    if (skyline) ctx.drawImage(skyline, -((state.cameraX * 0.08) % tileWidth), 0, tileWidth, H * 0.82);
-    if (city2) {
-      const offset = -((state.cameraX * 0.16) % tileWidth);
-      ctx.drawImage(city2, offset, 0, tileWidth, H * 0.82);
-      ctx.drawImage(city2, offset + tileWidth, 0, tileWidth, H * 0.82);
-    }
-    if (city) {
-      const offset = -((state.cameraX * 0.28) % tileWidth);
-      ctx.drawImage(city, offset, 0, tileWidth, H * 0.86);
-      ctx.drawImage(city, offset + tileWidth, 0, tileWidth, H * 0.86);
-    }
+    drawStageLayer(city);
     ctx.fillStyle = 'rgba(9, 5, 23, .18)';
     ctx.fillRect(0, 0, W, FLOOR_TOP);
     if (ground) {
@@ -431,6 +417,23 @@
     grade.addColorStop(1, 'rgba(5,3,14,.58)');
     ctx.fillStyle = grade;
     ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawStageLayer(scene) {
+    if (!scene) return;
+    const height = H * 0.86;
+    const width = height * scene.naturalWidth / scene.naturalHeight;
+    const pairWidth = width * 2;
+    const offset = -((state.cameraX * .28) % pairWidth);
+    // Alternate mirrored tiles so the generated panoramas join cleanly at their edges.
+    for (let tile = 0; tile < 4; tile += 1) {
+      const x = offset + tile * width;
+      if (tile % 2) {
+        ctx.save(); ctx.translate(x + width, 0); ctx.scale(-1, 1);
+        ctx.drawImage(scene, 0, 0, width, height);
+        ctx.restore();
+      } else ctx.drawImage(scene, x, 0, width, height);
+    }
   }
 
   function createPlayer(heroIndex = state.selectedHero, playerIndex = 0) {

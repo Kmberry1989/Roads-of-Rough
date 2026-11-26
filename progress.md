@@ -120,3 +120,14 @@ Original prompt: Code a 2D Beat-em-up side scroller with assumptions you can mak
 
 - Replaced all five small roster portraits with generated, transparent 1254×1254 head-and-shoulders close-ups. Kept each fighter's signature hair, glasses/accessories, and clothing, and matched the series framing and neon rim lighting. Roster portraits now render with smooth scaling and a cache-busted URL.
 - Browser roster layout verification was not run.
+
+## 2026-11-26 — Unique visual layers for every district
+
+- Generated dedicated wide street-scene layers for Downtown, Neon Market, Harborline, Old Quarter, Skyway Heights, Floodways, and Crown Terminal. Each has its own architecture, landmarks, and palette instead of reusing the three original storefront paintings.
+- Wired each district to its new background asset. The scene scrolls at a separate parallax speed and alternates mirrored tiles for clean joins; the shared foreground road layers remain in front.
+- Browser gameplay and visual verification were not run.
+
+## 2026-11-26 — Refined the original Downtown stage
+
+- Reworked Downtown from the original arcade-and-pawnshop art into a cleaner, more detailed panorama with a deeper alley, stronger neon lighting, clearer storefront shapes, and an open combat lane. The original source image remains unchanged; the refreshed art replaces only `sprites/stages/downtown.png`.
+- Bumped the game and background cache keys. Browser gameplay verification was not run.
