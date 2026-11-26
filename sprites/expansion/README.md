@@ -19,7 +19,7 @@ The five hero and heavy enemy sheets retain backgrounds close to the current mag
 
 ## Thrower runtime atlas (2026-10-12)
 
-`runtime/enemy-thrower-frames.json` records the measured source rectangles, extracted bounds, horizontal body anchors, and runtime rectangles for all 18 poses. The original 1536×1024 sheet has uneven rows of 5, 5, 4, and 4 frames. The derived 3200×1280 atlas uses 640×320 cells, a shared body baseline at 300, and centred bottle frames. This preserves character proportions during knockdown and keeps the body anchored through extended-arm poses.
+`runtime/enemy-thrower-frames.json` records the measured source rectangles, extracted bounds, horizontal body anchors, and runtime rectangles for 48 frames: 18 original poses, 25 new thrower poses, and five projectile poses. The copied originals and supplemental art live in `sprites/workbench/`. The derived 3200×3200 atlas uses 640×320 cells, a shared body baseline at 300, and centred bottle frames. This preserves character proportions during knockdown and keeps the body anchored through extended-arm poses.
 
 The source's visible dark gradient/guide matte has low alpha coverage. `scripts/build-thrower-sprite.mjs` removes coverage below 96, remaps the remaining 96–255 coverage, and removes magenta source shadows. It preserves opaque dark outlines and clothing rather than globally keying black. The release pose's detached bottle and trail are masked so gameplay can render one independent projectile. The runtime PNG loads directly without the legacy magenta key.
 

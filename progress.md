@@ -56,3 +56,67 @@ Original prompt: Code a 2D Beat-em-up side scroller with assumptions you can mak
 - Full gameplay regression passed all 13 groups, including keyboard/gamepad, audio, touch, pause/restart, resize/fullscreen, defeat, and desktop/touch boss victories. Visual and thrower regression results recorded in this run's output directory; see final verification entry below.
 - These follow-up changes are local. No new commit, push, or deployment performed. Existing unrelated .DS_Store files remain untouched.
 - Final verification: all 13 gameplay, 10 thrower, and 7 visual regression groups passed with no captured browser errors. The lab suite additionally passed 16 actors / 121 clips / 294 frame entries, contact-sheet selection, share-link feedback, exact paused URL restoration, playback controls/cycling, pixel-level idle anchors, and mobile overflow/touch checks. Original base/special sheet Git hashes matched HEAD. Inspected the final desktop select screenshot: Rochelle is centered with the other heroes. `node --check` for the game, catalog, lab, builder, and new verifier, plus `git diff --check`, passed.
+
+## 2026-11-22 — Enemy sprite dimension and animation pass
+
+- Original hero and enemy source sheets are all 1536×1024, but the ten enemy runtime clips used variable-sized crops. That changed their apparent scale between poses. The old walk clips also skipped one stride pose and included that pose in hurt.
+- Added reproducible `scripts/build-enemy-sprites.mjs` and generated `sprites/runtime/enemy_baddy1.png` through `enemy_baddy10.png`. Every atlas is 3200×960 with 13 measured poses in 640×320 cells on a shared floor line. Original source sheets remain unchanged. Magenta matte removal is flood-filled from crop edges to preserve dark-purple clothing.
+- Updated the game and animation lab to use the derived atlases. Walk now uses all four stride poses; hurt uses only the actual reaction pose. Tuned enemy 10's narrower fourth walk panel after visual inspection to remove a neighboring hair fragment.
+- The animation lab showed enemy 10's four walk frames without a neighboring-pose fragment; all ten generated atlases report the same 3200×960 dimensions. Automated test suites were not run for this visual-only request.
+
+## 2026-11-22 — Standalone animation viewer
+
+- Added `animation-viewer.html` as a direct entry point to the shared sprite animation viewer and linked it from the game's character-select screen. The link appears only during selection.
+- Reframed the viewer around straightforward controls for actor, animation, facing, speed, zoom, background, playback, looping, and frame stepping. Frame metadata is now collapsible, and the contact strip labels each pose correctly.
+- Visually inspected the viewer with Kyle's idle frames and the game character-select screen with its new viewer link. Both rendered correctly. Formal test suites were not run.
+
+## 2026-11-22 — Five-step animation clips
+
+- Initial implementation used held frames to reach five entries; this was superseded by the following pass after the user clarified that frames must show different poses.
+
+## 2026-11-22 — Distinct copied-sheet animation frames
+
+- Preserved every original hero, enemy, and thrower sheet. Created working copies under `sprites/workbench/` and generated character-specific supplementary pose sheets there.
+- Replaced repeated timeline entries with five distinct drawings for hero idle, punch, hurt/recovery, defeat, victory, special, and thrower idle, walk, attack, hurt, defeat, and bottle flight. Hero walk/kick and thrower windup use five unique supplied poses. Each of the ten enemy atlases now has five unique frames for idle, attack, walk, hurt, and defeat.
+- Idle clips ping-pong from the first pose to the last and back. Updated the three atlas builders, source-frame manifests, animation viewer source comparison, and sprite documentation to use the copies and supplemental art.
+- The viewer visibly cycles Kyle's idle through eight forward/reverse steps; Enemy 1 and thrower idle also expose eight steps over five distinct poses. Hero and enemy runtime previews were visually inspected, atlas rebuilds completed from copied sources, and all 21 source copies matched their originals byte-for-byte. Formal gameplay test suites were not run.
+
+## 2026-11-22 — Three-district campaign and boss fights
+
+- Expanded the route from one four-wave street to three districts: Downtown, Neon Market, and Harborline. Each district has four waves and a boss encounter; the campaign now tracks all 12 waves and ends after the Harborline boss.
+- Reused the supplied city backdrops with district-specific combinations and color grading. Added two named boss variants, `THE ENFORCER` and `DOCK KING`, with distinct attack telegraphs, damage/range tuning, aura colors, and higher health. Boss counters and district state are exposed in `render_game_to_text()`.
+- Existing sprite originals, copied workbench sheets, runtime atlases, and animation viewer remain in place. No gameplay test or browser playthrough was run for this change.
+
+## 2026-11-23 — Full campaign playthrough and regression pass
+
+- Updated the gameplay route regression to cover all 12 waves, all three named bosses, and capture each encounter. Desktop and touch playthroughs both reached victory; three bosses defeated; final HP 53 (desktop) / 41 (touch); no browser errors. Evidence and encounter screenshots: `output/playwright/campaign-2026-11-23/final-game/`.
+- Visual inspection found checkerboard matte baked into expanded enemy pose sheets, visible as gray boxes during boss fights. Updated `scripts/build-enemy-sprites.mjs` to flood-remove connected bright neutral pixels from each added pose crop and rebuilt all ten runtime enemy atlases. Re-inspected Street Boss, Enforcer, and Dock King captures; the boxes are gone and costume whites remain.
+- Fixed animation viewer source loading by moving `loadPath` into the viewer's shared scope. Adjusted regression assumptions for five-pose clips, ping-pong idle, copied workbench sources, and 8-pose sequence timing. Diagnostic route patterns now match cache-busted `game.js` URLs.
+- Final verification passed: gameplay (13 groups including desktop/touch 12-wave victories), thrower (10 groups), visuals (8 groups including transparent corners across all 250 expanded enemy frames and phone layouts), animation viewer (16 actors / 130 clips / 566 frames), JavaScript syntax checks, and `git diff --check`. No browser errors or warnings in the passing runs.
+
+## 2026-11-25 — Hero walk cycle cleanup
+
+- Preserved original sheets and workbench inputs; rebuilt derived hero atlases with two generated walk poses per playable hero and expanded base atlases from 50 to 52 frames.
+- Replaced the old walk/run mix with a five-frame alternating footfall sequence (`12, 51, 13, 50, 14`), filtering detached FX/specks and pink edge contamination from packed hero crops. Runtime/game and animation viewer cache keys updated.
+- Added viewer verification for five distinct walk crops per hero and transparent cell edges. Animation-lab verification passed for all 16 actors, 130 clips, and 566 frames, including playback, paused URL/source restoration, the five walk crops per hero, and mobile viewer controls. `verify-visuals.mjs` remains blocked by the existing online-lobby panel intercepting the audio control; this is outside the sprite cycle. Physical-device play remains unverified.
+
+## 2026-11-26 — Expanded the campaign with two districts
+
+- Added Old Quarter and Skyway Heights, expanding the campaign from 3 districts / 12 waves to 5 districts / 20 waves. Each new district has its own color grade, backdrop pairing, four-wave encounter, and named boss with a distinct telegraphed attack.
+- Updated the victory message and gameplay route verifier for five bosses and twenty waves. Reused the existing city art with new combinations and tints; no new background art was created.
+- Automated gameplay/browser validation was not run for this change.
+
+## 2026-11-26 — Added two more campaign districts
+
+- Added Floodways and Crown Terminal, bringing the route to seven districts, 28 waves, and seven district bosses. Both use unique palette/backdrop combinations and new boss attack telegraphs.
+- Updated the gameplay route verifier horizon and expected campaign length/boss list. Automated gameplay/browser validation was not run for this change.
+
+## 2026-11-26 — Added street weapons
+
+- Added generated transparent intact and broken sprite atlases for a steel pipe, baseball bat, and chain. District pickups appear along the route; E or a nearby canvas tap equips one. Weapon swings increase damage and reach, consume durability on hits, and show a broken sprite when exhausted. Weapon state is shown in the HUD/text state and included in co-op snapshots.
+- Updated pickup instructions and cache-busted the runtime assets. `git diff --check` passed; browser gameplay and visual verification were not run.
+
+## 2026-11-26 — Detailed fighter portraits
+
+- Replaced all five small roster portraits with generated, transparent 1254×1254 head-and-shoulders close-ups. Kept each fighter's signature hair, glasses/accessories, and clothing, and matched the series framing and neon rim lighting. Roster portraits now render with smooth scaling and a cache-busted URL.
+- Browser roster layout verification was not run.

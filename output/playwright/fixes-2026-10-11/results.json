@@ -10,6 +10,10 @@
         "viewport": [
           900,
           500
+        ],
+        "intrinsic": [
+          1280,
+          720
         ]
       },
       {
@@ -20,6 +24,10 @@
         "viewport": [
           1280,
           300
+        ],
+        "intrinsic": [
+          1280,
+          720
         ]
       },
       {
@@ -28,6 +36,10 @@
         "width": 1280,
         "height": 720,
         "viewport": [
+          1280,
+          720
+        ],
+        "intrinsic": [
           1280,
           720
         ]
@@ -41,6 +53,10 @@
         "width": 1280,
         "height": 720,
         "viewport": [
+          1280,
+          720
+        ],
+        "intrinsic": [
           1280,
           720
         ]
@@ -83,13 +99,17 @@
     },
     "rotation": [
       {
-        "x": 0,
-        "y": 312.3125,
-        "width": 390,
-        "height": 219.375,
+        "x": 10,
+        "y": 155.84375,
+        "width": 370,
+        "height": 512.296875,
         "viewport": [
           390,
           844
+        ],
+        "intrinsic": [
+          520,
+          720
         ]
       },
       {
@@ -100,26 +120,38 @@
         "viewport": [
           844,
           390
+        ],
+        "intrinsic": [
+          1280,
+          720
         ]
       },
       {
-        "x": 0,
-        "y": 194,
-        "width": 320,
-        "height": 180,
+        "x": 10,
+        "y": 110.109375,
+        "width": 300,
+        "height": 327.765625,
         "viewport": [
           320,
           568
+        ],
+        "intrinsic": [
+          659,
+          720
         ]
       },
       {
-        "x": 0,
-        "y": 312.3125,
-        "width": 390,
-        "height": 219.375,
+        "x": 10,
+        "y": 155.84375,
+        "width": 370,
+        "height": 512.296875,
         "viewport": [
           390,
           844
+        ],
+        "intrinsic": [
+          520,
+          720
         ]
       }
     ],
@@ -127,6 +159,11 @@
       "state": {
         "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
         "mode": "play",
+        "view": {
+          "portrait": true,
+          "width": 520,
+          "height": 720
+        },
         "selectedHero": "KRISTEN",
         "player": {
           "x": 335,
@@ -137,33 +174,44 @@
           "action": "light",
           "dodgeCooldown": 0
         },
+        "partner": null,
+        "online": {
+          "role": "",
+          "connected": false
+        },
         "enemies": [
           {
-            "id": "1-0-9adc606d1d438",
+            "id": "1-0-181f872d1e4f",
             "x": 751,
-            "y": 534,
+            "y": 539,
             "health": 32,
             "type": "grunt",
             "boss": false,
+            "bossName": null,
             "state": "walk",
             "tell": null
           },
           {
-            "id": "1-1-90a5f86ea7b9d8",
+            "id": "1-1-d6d5b1a901f72",
             "x": 847,
-            "y": 534,
+            "y": 522,
             "health": 24,
             "type": "rusher",
             "boss": false,
+            "bossName": null,
             "state": "walk",
             "tell": null
           }
         ],
+        "projectiles": [],
+        "lastProjectileImpact": null,
         "wave": 1,
+        "level": "DOWNTOWN",
+        "bossesDefeated": 0,
         "queuedEnemies": 1,
         "spawnCap": 2,
         "score": 0,
-        "cameraX": 0,
+        "cameraX": 166,
         "goSignal": true,
         "bossDefeated": false,
         "hitStop": 0,
@@ -185,7 +233,7 @@
           "progress": 0,
           "draws": [
             {
-              "sourceX": 15,
+              "sourceX": 0,
               "alpha": 1,
               "centre": 330
             }
@@ -195,7 +243,7 @@
           "progress": 1,
           "draws": [
             {
-              "sourceX": 200,
+              "sourceX": 640,
               "alpha": 1,
               "centre": 330
             }
@@ -205,7 +253,7 @@
           "progress": 2,
           "draws": [
             {
-              "sourceX": 15,
+              "sourceX": 1280,
               "alpha": 1,
               "centre": 330
             }
@@ -215,7 +263,7 @@
           "progress": 3,
           "draws": [
             {
-              "sourceX": 200,
+              "sourceX": 1920,
               "alpha": 1,
               "centre": 330
             }
@@ -225,7 +273,7 @@
           "progress": 4,
           "draws": [
             {
-              "sourceX": 15,
+              "sourceX": 2560,
               "alpha": 1,
               "centre": 330
             }
@@ -235,7 +283,7 @@
           "progress": 8,
           "draws": [
             {
-              "sourceX": 15,
+              "sourceX": 0,
               "alpha": 1,
               "centre": 330
             }
@@ -245,13 +293,8 @@
           "progress": 8.5,
           "draws": [
             {
-              "sourceX": 15,
-              "alpha": 0.5,
-              "centre": 330
-            },
-            {
-              "sourceX": 200,
-              "alpha": 0.5,
+              "sourceX": 0,
+              "alpha": 1,
               "centre": 330
             }
           ]
@@ -260,156 +303,276 @@
       "anchors": [
         [
           {
-            "sourceX": 15,
+            "sourceX": 0,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 15,
+            "sourceX": 0,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 200,
+            "sourceX": 640,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 200,
+            "sourceX": 640,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 375,
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 375,
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 670,
+            "sourceX": 1920,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 670,
+            "sourceX": 1920,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 960,
+            "sourceX": 2560,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 960,
+            "sourceX": 2560,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 15,
+            "sourceX": 1920,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 15,
+            "sourceX": 1920,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 200,
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 200,
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 490,
+            "sourceX": 640,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 490,
+            "sourceX": 640,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 780,
+            "sourceX": 0,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 780,
+            "sourceX": 0,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 15,
+            "sourceX": 640,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 15,
+            "sourceX": 640,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 200,
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 200,
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 440,
+            "sourceX": 1920,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 440,
+            "sourceX": 1920,
             "alpha": 1,
             "centre": 330
           }
         ],
         [
           {
-            "sourceX": 870,
+            "sourceX": 2560,
             "alpha": 1,
             "centre": 330
           },
           {
-            "sourceX": 870,
+            "sourceX": 2560,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 640,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 640,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 1280,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 1280,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 2560,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 2560,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 0,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 0,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 640,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 640,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 1920,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 1920,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 2560,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 2560,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 0,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 0,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 640,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 640,
+            "alpha": 1,
+            "centre": 330
+          }
+        ],
+        [
+          {
+            "sourceX": 1280,
+            "alpha": 1,
+            "centre": 330
+          },
+          {
+            "sourceX": 1280,
             "alpha": 1,
             "centre": 330
           }
@@ -417,7 +580,7 @@
       ],
       "nonLoop": [
         {
-          "sourceX": 780,
+          "sourceX": 640,
           "alpha": 1,
           "centre": 330
         }
@@ -794,94 +957,54 @@
       "disconnect": true
     },
     "desktopRoute": {
-      "ticks": 505,
+      "ticks": 1664,
       "state": {
         "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
         "mode": "victory",
+        "view": {
+          "portrait": false,
+          "width": 1280,
+          "height": 720
+        },
         "selectedHero": "ERIC",
         "player": {
-          "x": 5102,
-          "y": 560,
-          "health": 85,
-          "meter": 79,
+          "x": 14501,
+          "y": 548,
+          "health": 61,
+          "meter": 25,
           "state": "walk",
           "action": null,
           "dodgeCooldown": 0
         },
+        "partner": null,
+        "online": {
+          "role": "",
+          "connected": false
+        },
         "enemies": [],
-        "wave": 4,
+        "projectiles": [],
+        "lastProjectileImpact": {
+          "x": 13558.160592283108,
+          "y": 511.46419053935466,
+          "playerId": "p1",
+          "outcome": "miss",
+          "time": 137.15163333331677
+        },
+        "wave": 12,
+        "level": "HARBORLINE",
+        "bossesDefeated": 3,
         "queuedEnemies": 0,
         "spawnCap": 2,
-        "score": 4725,
-        "cameraX": 4320,
+        "score": 18925,
+        "cameraX": 13720,
         "goSignal": false,
         "bossDefeated": true,
         "hitStop": 0,
         "lastImpact": {
           "kind": "heavy",
-          "x": 4627,
-          "y": 446,
-          "time": 45.2949666666773
-        },
-        "audio": {
-          "supported": true,
-          "muted": false,
-          "volume": 0.32
-        }
-      },
-      "waves": [
-        {
-          "wave": 1,
-          "health": 125,
-          "score": 0
-        },
-        {
-          "wave": 2,
-          "health": 125,
-          "score": 375
-        },
-        {
-          "wave": 3,
-          "health": 117,
-          "score": 1275
-        },
-        {
-          "wave": 4,
-          "health": 101,
-          "score": 1975
-        }
-      ]
-    },
-    "defeatRestart": true,
-    "touchRoute": {
-      "ticks": 547,
-      "state": {
-        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
-        "mode": "victory",
-        "selectedHero": "ERIC",
-        "player": {
-          "x": 5101,
-          "y": 524,
-          "health": 85,
-          "meter": 98,
-          "state": "walk",
-          "action": null,
-          "dodgeCooldown": 0
-        },
-        "enemies": [],
-        "wave": 4,
-        "queuedEnemies": 0,
-        "spawnCap": 2,
-        "score": 4675,
-        "cameraX": 4320,
-        "goSignal": false,
-        "bossDefeated": true,
-        "hitStop": 0,
-        "lastImpact": {
-          "kind": "heavy",
-          "x": 4590,
-          "y": 429,
-          "time": 49.176666666689
+          "x": 14601,
+          "y": 461,
+          "time": 157.91829999999996
         },
         "audio": {
           "supported": true,
@@ -907,8 +1030,196 @@
         },
         {
           "wave": 4,
-          "health": 101,
+          "health": 109,
           "score": 1675
+        },
+        {
+          "wave": 5,
+          "health": 101,
+          "score": 4675
+        },
+        {
+          "wave": 6,
+          "health": 101,
+          "score": 5800
+        },
+        {
+          "wave": 7,
+          "health": 93,
+          "score": 6800
+        },
+        {
+          "wave": 8,
+          "health": 93,
+          "score": 8250
+        },
+        {
+          "wave": 9,
+          "health": 85,
+          "score": 11250
+        },
+        {
+          "wave": 10,
+          "health": 77,
+          "score": 12225
+        },
+        {
+          "wave": 11,
+          "health": 77,
+          "score": 13825
+        },
+        {
+          "wave": 12,
+          "health": 69,
+          "score": 15325
+        }
+      ],
+      "bosses": [
+        {
+          "name": "STREET BOSS",
+          "level": "DOWNTOWN"
+        },
+        {
+          "name": "THE ENFORCER",
+          "level": "NEON MARKET"
+        },
+        {
+          "name": "DOCK KING",
+          "level": "HARBORLINE"
+        }
+      ]
+    },
+    "defeatRestart": true,
+    "touchRoute": {
+      "ticks": 1630,
+      "state": {
+        "coordinateSystem": "origin is the upper-left; x increases right, y increases down; player y is the ground contact point",
+        "mode": "victory",
+        "view": {
+          "portrait": true,
+          "width": 520,
+          "height": 720
+        },
+        "selectedHero": "ERIC",
+        "player": {
+          "x": 14507,
+          "y": 548,
+          "health": 41,
+          "meter": 25,
+          "state": "heavy",
+          "action": "heavy",
+          "dodgeCooldown": 0
+        },
+        "partner": null,
+        "online": {
+          "role": "",
+          "connected": false
+        },
+        "enemies": [],
+        "projectiles": [],
+        "lastProjectileImpact": {
+          "x": 13784.779679341853,
+          "y": 535.7320952696773,
+          "playerId": "p1",
+          "outcome": "miss",
+          "time": 135.30739999999983
+        },
+        "wave": 12,
+        "level": "HARBORLINE",
+        "bossesDefeated": 3,
+        "queuedEnemies": 0,
+        "spawnCap": 2,
+        "score": 18925,
+        "cameraX": 14341,
+        "goSignal": false,
+        "bossDefeated": true,
+        "hitStop": 0.065,
+        "lastImpact": {
+          "kind": "heavy",
+          "x": 14620,
+          "y": 455,
+          "time": 155.37406666668247
+        },
+        "audio": {
+          "supported": true,
+          "muted": false,
+          "volume": 0.32
+        }
+      },
+      "waves": [
+        {
+          "wave": 1,
+          "health": 125,
+          "score": 0
+        },
+        {
+          "wave": 2,
+          "health": 125,
+          "score": 375
+        },
+        {
+          "wave": 3,
+          "health": 117,
+          "score": 975
+        },
+        {
+          "wave": 4,
+          "health": 105,
+          "score": 1675
+        },
+        {
+          "wave": 5,
+          "health": 97,
+          "score": 4675
+        },
+        {
+          "wave": 6,
+          "health": 97,
+          "score": 5800
+        },
+        {
+          "wave": 7,
+          "health": 89,
+          "score": 6800
+        },
+        {
+          "wave": 8,
+          "health": 77,
+          "score": 8250
+        },
+        {
+          "wave": 9,
+          "health": 69,
+          "score": 11250
+        },
+        {
+          "wave": 10,
+          "health": 61,
+          "score": 12225
+        },
+        {
+          "wave": 11,
+          "health": 61,
+          "score": 13825
+        },
+        {
+          "wave": 12,
+          "health": 49,
+          "score": 15325
+        }
+      ],
+      "bosses": [
+        {
+          "name": "STREET BOSS",
+          "level": "DOWNTOWN"
+        },
+        {
+          "name": "THE ENFORCER",
+          "level": "NEON MARKET"
+        },
+        {
+          "name": "DOCK KING",
+          "level": "HARBORLINE"
         }
       ]
     }

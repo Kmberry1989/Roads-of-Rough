@@ -5,7 +5,7 @@
   const heroes = ['kyle','eric','kristen','rochelle','vickie'];
   const actors = [...heroes.map(id=>({id,label:id.toUpperCase(),type:'hero'})),...Array.from({length:10},(_,i)=>({id:`baddy${i+1}`,label:`Enemy ${i+1}`,type:'enemy'})),{id:'thrower',label:'Bottle thrower',type:'thrower'}];
   const state={actor:'kyle',clip:'idle',frame:0,playing:false,speed:1,facing:1,zoom:1,background:'checker',loop:true,sequence:false,guides:true,onion:false,source:false};
-  const sheets=new Map();let heroManifest,throwManifest,elapsed=0,deterministic=false;
+  const sheets=new Map();let heroManifest,enemyManifest,throwManifest,elapsed=0,deterministic=false;
   function actor(){return actors.find(a=>a.id===state.actor);}
   function clips(a=actor()) {
     if(a.type==='hero')return {...C.heroFrames,special:C.specialFrames,'pose: ready': [C.heroFrame(8)],'pose: jump':[C.heroFrame(17)],'pose: crouch':[C.heroFrame(18)],'pose: guard':[C.heroFrame(19)]};
@@ -13,11 +13,22 @@
     return {...C.throwerFrames,...Object.fromEntries(Object.entries(throwManifest.frames).filter(([,m])=>![...Object.values(C.throwerFrames)].flat().some(f=>f.x===m.runtime.x&&f.y===m.runtime.y)).map(([name,m])=>[`pose: ${name}`,[m.runtime]]))};
   }
   function frames(a=actor()){return clips(a)[state.clip]||clips(a).idle;}
-  function path(a=actor()){return a.type==='hero'?`sprites/runtime/player_${a.id}${state.clip==='special'?'-special':''}.png`:a.type==='enemy'?`sprites/${a.id}.png`:'sprites/expansion/runtime/enemy-thrower.png';}
-  function measurement(a=actor(),f=frames(a)[state.frame]) {
+  function path(a=actor()){return a.type==='hero'?`sprites/runtime/player_${a.id}${state.clip==='special'?'-special':''}.png`:a.type==='enemy'?`sprites/runtime/enemy_${a.id}.png`:'sprites/expansion/runtime/enemy-thrower.png';}
+  function measurement(a=actor(),f=frames(a)[state.frame],frameIndex=state.frame) {
     if(a.type==='hero'){const m=heroManifest.heroes[a.id];return (state.clip==='special'?m.specialFrames:m.frames).find(m=>m.runtime.x===f.x&&m.runtime.y===f.y);}
     if(a.type==='thrower')return Object.entries(throwManifest.frames).map(([name,m])=>({name,...m})).find(m=>m.runtime.x===f.x&&m.runtime.y===f.y);
-    return {name:`${state.clip} ${state.frame+1}`,source:f,runtime:f};
+    const m=Object.values(enemyManifest.enemies[a.id].frames).find(m=>m.runtime.x===f.x&&m.runtime.y===f.y);
+    return {name:`${state.clip} ${frameIndex+1}`,...m};
+  }
+  function sourcePath(a=actor(),f=frames(a)[state.frame]) {
+    const m=measurement(a,f);
+    return m?.sheetSource||(a.type==='hero'?heroManifest.heroes[a.id][state.clip==='special'?'specialSource':'source']:a.type==='thrower'?throwManifest.source:enemyManifest.enemies[a.id].source);
+  }
+  async function loadPath(p){if(sheets.has(p))return;const img=new Image();img.src=`../${p}?v=20261125-walk-cycle-final2`;try{await img.decode();}catch(error){throw Error(`Unable to decode sprite ${p}: ${error.message}`);}sheets.set(p,img);if(/^sprites\/baddy/.test(p)){const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const ctx=c.getContext('2d');ctx.drawImage(img,0,0);const pixels=ctx.getImageData(0,0,c.width,c.height);for(let i=0;i<pixels.data.length;i+=4)if(C.isPink(...pixels.data.slice(i,i+3)))pixels.data[i+3]=0;ctx.putImageData(pixels,0,0);sheets.set(p,c);sheets.set(`${p}:original`,img);}}
+  async function loadActorSources(a=actor()) {
+    const manifest=a.type==='hero'?heroManifest.heroes[a.id]:a.type==='thrower'?throwManifest:enemyManifest.enemies[a.id];
+    const entries=a.type==='hero'?[...manifest.frames,...manifest.specialFrames]:Object.values(manifest.frames);
+    await Promise.all([...new Set(entries.map(m=>m.sheetSource).filter(Boolean))].map(loadPath));
   }
   function background(ctx,w,h){ctx.fillStyle=state.background==='light'?'#e3e8ef':'#111725';ctx.fillRect(0,0,w,h);if(state.background==='checker')for(let y=0;y<h;y+=20)for(let x=0;x<w;x+=20)if((x/20+y/20)%2===0){ctx.fillStyle='#263247';ctx.fillRect(x,y,20,20);}}
   function draw(ctx,a,index,x,y,height,overlay=false){const list=frames(a),f=list[Math.min(index,list.length-1)],scale=height/f.h;const baseline=y+(a.type==='hero'?12*height/256:a.type==='thrower'?20*height/320:0);ctx.imageSmoothingEnabled=false;
@@ -28,7 +39,7 @@
   function render(){const a=actor(),list=frames(),canvas=$('preview'),ctx=canvas.getContext('2d');const width=Math.max(520,Math.min(1000,Math.round(canvas.clientWidth)));if(canvas.width!==width)canvas.width=width;background(ctx,canvas.width,canvas.height);
     const height=(a.type==='hero'?245:a.type==='thrower'?state.clip==='bottle'?128:235:205)*state.zoom*(state.source&&width<700?.7:1),x=width*(state.source?.28:.5),y=415;
     draw(ctx,a,state.frame,x,y,height,state.onion);
-    if(state.source){const m=measurement(),sourcePath=a.type==='hero'?heroManifest.heroes[a.id][state.clip==='special'?'specialSource':'source']:a.type==='thrower'?throwManifest.source:`sprites/${a.id}.png`;const img=sheets.get(`${sourcePath}:original`)||sheets.get(sourcePath);if(img){const f=m.source,scale=Math.min(width*.35/f.w,350/f.h);ctx.drawImage(img,f.x,f.y,f.w,f.h,width*.76-f.w*scale/2,415-f.h*scale,f.w*scale,f.h*scale);ctx.fillStyle='#fff';ctx.font='16px system-ui';ctx.fillText('Original source crop',width*.61,465);}}
+    if(state.source){const m=measurement(),src=sourcePath(a,list[state.frame]);const img=sheets.get(`${src}:original`)||sheets.get(src);if(img){const f=m.source,scale=Math.min(width*.35/f.w,350/f.h);ctx.drawImage(img,f.x,f.y,f.w,f.h,width*.76-f.w*scale/2,415-f.h*scale,f.w*scale,f.h*scale);ctx.fillStyle='#fff';ctx.font='16px system-ui';ctx.fillText('Working source crop',width*.61,465);}}
     ctx.fillStyle=state.background==='light'?'#10121b':'#d7e2fa';ctx.font='16px system-ui';ctx.fillText('Runtime · shared game renderer',20,30);
     $('frame').value=state.frame;$('frame-label').value=`${state.frame+1} / ${list.length}`;$('play').textContent=state.playing?'Pause':'Play';
     $('status').textContent=`${a.label} / ${state.clip} · frame ${state.frame+1}/${list.length} · ${state.facing===1?'right':'left'} · ${state.playing?'playing':'paused'}`;
@@ -37,21 +48,25 @@
     $('comparison-note').textContent=`All five heroes at the same scale and anchor · ${C.heroFrames[state.clip]||state.clip==='special'||state.clip.startsWith('pose:')&&clips(actors[0])[state.clip]?state.clip:'idle (selected enemy clip has no hero equivalent)'}.`;
     document.querySelectorAll('#roster canvas').forEach((c,i)=>{const rc=c.getContext('2d');background(rc,c.width,c.height);draw(rc,actors[i],state.frame,240,245,210);});
   }
-  function rebuild(){const list=frames();state.frame=Math.min(state.frame,list.length-1);$('frame').max=list.length-1;$('strip').replaceChildren();list.forEach((f,i)=>{const b=document.createElement('button'),c=document.createElement('canvas'),label=document.createElement('span');c.width=480;c.height=280;label.textContent=`${i+1} · ${measurement(actor(),f).name}`;b.append(c,label);b.onclick=()=>{state.playing=false;state.frame=i;elapsed=0;render();save();};$('strip').append(b);const ctx=c.getContext('2d');background(ctx,480,280);draw(ctx,actor(),i,240,245,210);});render();save();}
+  function rebuild(){const list=frames();state.frame=Math.min(state.frame,list.length-1);$('frame').max=list.length-1;$('strip').replaceChildren();list.forEach((f,i)=>{const b=document.createElement('button'),c=document.createElement('canvas'),label=document.createElement('span');c.width=480;c.height=280;label.textContent=`${i+1} · ${measurement(actor(),f,i).name}`;b.append(c,label);b.onclick=()=>{state.playing=false;state.frame=i;elapsed=0;render();save();};$('strip').append(b);const ctx=c.getContext('2d');background(ctx,480,280);draw(ctx,actor(),i,240,245,210);});render();save();}
   function clipOptions(){const selected=state.clip;$('clip').replaceChildren(...Object.keys(clips()).map(name=>new Option(name,name)));state.clip=clips()[selected]?selected:'idle';$('clip').value=state.clip;}
-  function save(){const p=new URLSearchParams();for(const [k,v]of Object.entries(state))p.set(k,String(v));history.replaceState(null,'',`#${p}`);}
+  function save(){const p=new URLSearchParams();for(const [k,v]of Object.entries(state))p.set(k,String(v));history.replaceState(null,'',`${location.pathname}${location.search}#${p}`);}
   function stepFrame(direction){state.playing=false;state.frame=(state.frame+direction+frames().length)%frames().length;elapsed=0;render();save();}
-  function update(ms){if(!state.playing)return;elapsed+=ms*state.speed;const interval=1000/(state.clip==='windup'?frames().length/.95:8);let changed=false;while(elapsed>=interval){elapsed-=interval;changed=true;if(state.frame<frames().length-1)state.frame++;else if(state.sequence){const names=Object.keys(clips());state.clip=names[(names.indexOf(state.clip)+1)%names.length];state.frame=0;$('clip').value=state.clip;rebuild();}else if(state.loop)state.frame=0;else {state.playing=false;elapsed=0;break;}}if(changed){render();save();}}
+  function update(ms){if(!state.playing)return;elapsed+=ms*state.speed;const interval=1000/(state.clip==='windup'?frames().length/.95:8);let changed=false;while(elapsed>=interval){elapsed-=interval;changed=true;if(state.frame<frames().length-1)state.frame++;else if(state.sequence){const names=Object.keys(clips());state.clip=names[(names.indexOf(state.clip)+1)%names.length];state.frame=0;$('clip').value=state.clip;void loadPath(path()).then(rebuild);}else if(state.loop)state.frame=0;else {state.playing=false;elapsed=0;break;}}if(changed){render();save();}}
   try {
-    [heroManifest,throwManifest]=await Promise.all(['../sprites/runtime/hero-frames.json','../sprites/expansion/runtime/enemy-thrower-frames.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(`Missing manifest: ${url}`);return r.json();}));
-    const paths=new Set(actors.flatMap(a=>a.type==='hero'?[`sprites/runtime/player_${a.id}.png`,`sprites/runtime/player_${a.id}-special.png`,heroManifest.heroes[a.id].source,heroManifest.heroes[a.id].specialSource]:a.type==='enemy'?[`sprites/${a.id}.png`]:['sprites/expansion/runtime/enemy-thrower.png',throwManifest.source]));
-    await Promise.all([...paths].map(async p=>{const img=new Image();img.src=`../${p}`;await img.decode();sheets.set(p,img);if(/^sprites\/baddy/.test(p)){const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const ctx=c.getContext('2d');ctx.drawImage(img,0,0);const pixels=ctx.getImageData(0,0,c.width,c.height);for(let i=0;i<pixels.data.length;i+=4)if(C.isPink(...pixels.data.slice(i,i+3)))pixels.data[i+3]=0;ctx.putImageData(pixels,0,0);sheets.set(p,c);sheets.set(`${p}:original`,img);}}));
+    [heroManifest,enemyManifest,throwManifest]=await Promise.all(['../sprites/runtime/hero-frames.json','../sprites/runtime/enemy-frames.json','../sprites/expansion/runtime/enemy-thrower-frames.json'].map(async url=>{const r=await fetch(`${url}?v=20261125-walk-cycle-final2`,{cache:'no-store'});if(!r.ok)throw Error(`Missing manifest: ${url}`);return r.json();}));
+    const paths=new Set(heroes.map(id=>`sprites/runtime/player_${id}.png`));
+    await Promise.all([...paths].map(loadPath));
     // Reproduction URLs restore an exact paused frame; playback can be resumed explicitly.
     const params=new URLSearchParams(location.hash.slice(1));for(const k of Object.keys(state)){if(!params.has(k))continue;const v=params.get(k);state[k]=typeof state[k]==='boolean'?v==='true':typeof state[k]==='number'?Number(v):v;}
     if(!actors.some(a=>a.id===state.actor))state.actor='kyle';state.frame=Number.isFinite(state.frame)?Math.max(0,Math.floor(state.frame)):0;state.speed=[.25,.5,1,2].includes(state.speed)?state.speed:1;state.zoom=[.75,1,1.5,2].includes(state.zoom)?state.zoom:1;state.facing=state.facing===-1?-1:1;if(!['checker','dark','light'].includes(state.background))state.background='checker';state.playing=false;
+    if(actor().type==='enemy'){await loadPath(`sprites/runtime/enemy_${actor().id}.png`);if(state.source)await loadPath(enemyManifest.enemies[actor().id].source);}
+    else if(actor().type==='thrower')await loadPath(path());
+    else if(state.clip==='special')await loadPath(path());
+    else if(state.source)await loadActorSources(actor());
     $('actor').replaceChildren(...actors.map(a=>new Option(a.label,a.id)));$('actor').value=state.actor;clipOptions();
-    for(const key of ['facing','speed','zoom','background','loop','sequence','guides','onion','source']){const input=$(key);if(input.type==='checkbox')input.checked=state[key];else input.value=state[key];input.onchange=()=>{state[key]=input.type==='checkbox'?input.checked:typeof state[key]==='number'?Number(input.value):input.value;rebuild();};}
-    $('actor').onchange=()=>{state.actor=$('actor').value;state.frame=0;elapsed=0;clipOptions();rebuild();};$('clip').onchange=()=>{state.clip=$('clip').value;state.frame=0;elapsed=0;rebuild();};$('frame').oninput=()=>{state.playing=false;state.frame=Number($('frame').value);elapsed=0;render();save();};
+    for(const key of ['facing','speed','zoom','background','loop','sequence','guides','onion','source']){const input=$(key);if(input.type==='checkbox')input.checked=state[key];else input.value=state[key];input.onchange=async()=>{state[key]=input.type==='checkbox'?input.checked:typeof state[key]==='number'?Number(input.value):input.value;if(key==='source'&&state.source)await loadActorSources();rebuild();};}
+    $('actor').onchange=async()=>{state.actor=$('actor').value;state.frame=0;elapsed=0;clipOptions();const a=actor();if(a.type==='enemy')await loadPath(`sprites/runtime/enemy_${a.id}.png`);else await loadPath(path(a));if(state.source)await loadActorSources(a);rebuild();};$('clip').onchange=async()=>{state.clip=$('clip').value;state.frame=0;elapsed=0;await loadPath(path());rebuild();};$('frame').oninput=async()=>{state.playing=false;state.frame=Number($('frame').value);elapsed=0;if(state.source)await loadPath(sourcePath());render();save();};
     $('play').onclick=()=>{state.playing=!state.playing;render();save();};$('restart').onclick=()=>{state.frame=0;elapsed=0;state.playing=true;render();save();};$('previous').onclick=()=>stepFrame(-1);$('next').onclick=()=>stepFrame(1);
     $('share').onclick=async()=>{save();try{await navigator.clipboard.writeText(location.href);$('share-status').textContent='Copied. Opens at this exact paused frame.';}catch{$('share-status').textContent=`Copy the address bar URL: ${location.href}`;}};
     window.addEventListener('resize',render);

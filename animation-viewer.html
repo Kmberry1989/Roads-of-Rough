@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10121b">
+  <base href="dev/">
+  <title>Roads of Rough · Animation Viewer</title>
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+<main>
+  <header>
+    <div><p class="eyebrow">ROADS OF ROUGH · SPRITES</p><h1>Animation Viewer</h1><p>Pick a character or enemy, play an animation, and step through its frames.</p></div>
+    <a href="../index.html">Back to game ↗</a>
+  </header>
+  <section class="toolbar" aria-label="Animation selection">
+    <label>Character or enemy<select id="actor"></select></label>
+    <label>Animation<select id="clip"></select></label>
+    <label>Facing<select id="facing"><option value="1">Right →</option><option value="-1">← Left</option></select></label>
+    <label>Speed<select id="speed"><option value="0.25">¼×</option><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+    <label>Zoom<select id="zoom"><option value="0.75">75%</option><option value="1" selected>100%</option><option value="1.5">150%</option><option value="2">200%</option></select></label>
+    <label>Background<select id="background"><option value="checker">Checkerboard</option><option value="dark">Street dark</option><option value="light">Light</option></select></label>
+  </section>
+  <section class="workspace">
+    <div class="preview"><canvas id="preview" width="1000" height="520" aria-label="Selected animation preview"></canvas><p id="status" role="status">Loading sprites…</p></div>
+    <aside>
+      <h2>Playback</h2>
+      <div class="buttons"><button id="play" disabled>Play</button><button id="restart" disabled>Replay</button><button id="previous" disabled aria-label="Previous frame">← Frame</button><button id="next" disabled aria-label="Next frame">Frame →</button></div>
+      <label>Frame <output id="frame-label"></output><input id="frame" type="range" min="0" max="0" value="0" step="1" aria-label="Choose animation frame"></label>
+      <label class="check"><input id="loop" type="checkbox" checked> Loop animation</label>
+      <label class="check"><input id="sequence" type="checkbox"> Play every animation in order</label>
+      <label class="check"><input id="guides" type="checkbox" checked> Show anchor and frame guides</label>
+      <label class="check"><input id="onion" type="checkbox"> Show previous pose</label>
+      <label class="check"><input id="source" type="checkbox"> Compare original source</label>
+      <button id="share">Copy link to this frame</button><p id="share-status" role="status"></p>
+      <details class="frame-details"><summary>Frame details</summary><pre id="details"></pre></details>
+      <p class="hint">Space: play or pause · ← / →: step · R: replay. Selecting a frame pauses the animation.</p>
+    </aside>
+  </section>
+  <section><h2>Every frame in this animation</h2><p>Select a thumbnail to jump to that pose.</p><div id="strip" class="strip"></div></section>
+  <section><h2>Compare the heroes</h2><p id="comparison-note">All five heroes at the same scale and anchor.</p><div id="roster" class="roster"></div></section>
+  <footer>Original sprite sheets stay unchanged. The viewer uses the same runtime frames and renderer as the game.</footer>
+</main>
+<script src="../sprite-catalog.js?v=20261125-walk-cycle-final2"></script>
+<script src="animations.js?v=20261125-walk-cycle-final2"></script>
+</body>
+</html>

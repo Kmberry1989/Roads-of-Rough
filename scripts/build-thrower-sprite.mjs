@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
-const source = 'sprites/expansion/enemy-thrower-actions.png';
+const source = 'sprites/workbench/enemy-thrower-actions.png';
 const destination = 'sprites/expansion/runtime/enemy-thrower.png';
 const browser = await chromium.launch({ headless: true });
 try {
@@ -20,7 +20,7 @@ try {
       { y: 628, bottom: 847, xs: [26, 448, 817, 1128, 1511], anchors: [235, 618, 966, 1300], names: ['defeat', 'rise', 'crouch', 'panic'] },
       { y: 862, bottom: 1000, xs: [26, 415, 751, 1082, 1511], names: ['bottle0', 'bottle1', 'bottle2', 'bottle3'] },
     ];
-    const atlas = document.createElement('canvas'); atlas.width = 3200; atlas.height = 1280;
+    const atlas = document.createElement('canvas'); atlas.width = 3200; atlas.height = 3200;
     const out = atlas.getContext('2d'); const frames = {}; let index = 0;
     for (const row of rows) for (let cell = 0; cell < row.names.length; cell++) {
       const left = row.xs[cell] + 2, right = row.xs[cell + 1] - 2, top = row.y, bottom = row.bottom;
@@ -39,7 +39,31 @@ try {
       const w = maxX - minX + 1, h = maxY - minY + 1, name = row.names[cell];
       const x = (index % 5) * 640, y = Math.floor(index / 5) * 320;
       out.drawImage(canvas, minX, minY, w, h, x + (name.startsWith('bottle') ? (640 - w) / 2 : 320 + minX - row.anchors[cell]), y + (name.startsWith('bottle') ? (320 - h) / 2 : 300 - h), w, h);
-      frames[name] = { source: { x: left, y: top, w: right - left, h: bottom - top }, bounds: { x: minX, y: minY, w, h }, anchorX: row.anchors?.[cell] ?? (minX + w / 2), runtime: { x, y, w: 640, h: 320 } };
+      frames[name] = { sheetSource: source, source: { x: left, y: top, w: right - left, h: bottom - top }, bounds: { x: minX, y: minY, w, h }, anchorX: row.anchors?.[cell] ?? (minX + w / 2), runtime: { x, y, w: 640, h: 320 } };
+      index++;
+    }
+    const expandedPath = 'sprites/workbench/thrower-expanded-poses-transparent.png';
+    const expanded = new Image(); expanded.src = expandedPath; await expanded.decode();
+    const clipNames = ['idle', 'walk', 'throw', 'hurt', 'defeat'];
+    for (let row = 0; row < 5; row++) for (let col = 0; col < 5; col++) {
+      const sw = expanded.width / 5, sh = expanded.height / 5, sx = col * sw, sy = row * sh;
+      const x = (index % 5) * 640, y = Math.floor(index / 5) * 320;
+      const scale = Math.min(640 / sw, 320 / sh), dw = sw * scale, dh = sh * scale;
+      out.imageSmoothingEnabled = false;
+      out.drawImage(expanded, sx, sy, sw, sh, x + (640 - dw) / 2, y + 300 - dh, dw, dh);
+      const name = `expanded-${clipNames[row]}${col}`;
+      frames[name] = { sheetSource: expandedPath, source: { x: sx, y: sy, w: sw, h: sh }, anchorX: sw / 2, runtime: { x, y, w: 640, h: 320 } };
+      index++;
+    }
+    const bottlePath = 'sprites/workbench/thrower-bottle-expanded-poses.png';
+    const bottles = new Image(); bottles.src = bottlePath; await bottles.decode();
+    for (let col = 0; col < 5; col++) {
+      const sw = bottles.width / 5, sh = bottles.height, sx = col * sw;
+      const x = (index % 5) * 640, y = Math.floor(index / 5) * 320;
+      const scale = Math.min(640 / sw, 320 / sh), dw = sw * scale, dh = sh * scale;
+      out.imageSmoothingEnabled = false;
+      out.drawImage(bottles, sx, 0, sw, sh, x + (640 - dw) / 2, y + (320 - dh) / 2, dw, dh);
+      frames[`expanded-bottle${col}`] = { sheetSource: bottlePath, source: { x: sx, y: 0, w: sw, h: sh }, runtime: { x, y, w: 640, h: 320 } };
       index++;
     }
     return { png: atlas.toDataURL('image/png').split(',')[1], frames, sourceSize: [sheet.width, sheet.height] };

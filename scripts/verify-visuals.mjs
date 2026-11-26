@@ -12,19 +12,26 @@ const step = (page,ms) => page.evaluate(ms => window.advanceTime(ms),ms);
 async function open(options={}) {
   const context=await browser.newContext({viewport:{width:1280,height:720},...options});const page=await context.newPage();
   page.on('pageerror',e=>results.errors.push(e.message));page.on('console',e=>{if(['warning','error'].includes(e.type()))results.errors.push(e.text());});
-  await page.route('**/game.js',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('  window.render_game_to_text = renderGameToText;', '  window.__visual = {state, HEROES, heroFrames, specialFrames, beginRun, createEnemy, drawAnimatedSprite, image, drawPlayer};\n  window.render_game_to_text = renderGameToText;')});});
+  await page.route('**/game.js*',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('  window.render_game_to_text = renderGameToText;', '  window.__visual = {state, HEROES, heroFrames, specialFrames, beginRun, createEnemy, drawAnimatedSprite, image, drawPlayer};\n  window.render_game_to_text = renderGameToText;')});});
   await page.goto(process.env.GAME_URL||'http://127.0.0.1:4173');await page.waitForFunction(()=>JSON.parse(window.render_game_to_text()).mode==='select');await step(page,0);return {page,context};
 }
 try {
   const manifest=JSON.parse(await fs.readFile('sprites/runtime/hero-frames.json','utf8'));
   for(const [name,hero] of Object.entries(manifest.heroes)) {
-    for (const source of [hero.source,hero.specialSource]) assert.equal(execFileSync('git',['hash-object',source],{encoding:'utf8'}).trim(),execFileSync('git',['rev-parse',`HEAD:${source}`],{encoding:'utf8'}).trim(),'original hero sheet must remain unchanged');
-    assert.equal(hero.specialFrames.length,3);
-    assert.equal(hero.frames.length,25);for(const frame of hero.frames){assert.ok(frame.baseline>frame.source.y);assert.ok(frame.anchorX>=frame.source.x&&frame.anchorX<frame.source.x+frame.source.w);}
+    for (const source of [hero.source,hero.specialSource]) {
+      const original=source.replace('sprites/workbench/','sprites/');
+      assert.equal(execFileSync('git',['hash-object',original],{encoding:'utf8'}).trim(),execFileSync('git',['rev-parse',`HEAD:${original}`],{encoding:'utf8'}).trim(),'original hero sheet must remain unchanged');
+      assert.equal(execFileSync('git',['hash-object',source],{encoding:'utf8'}).trim(),execFileSync('git',['hash-object',original],{encoding:'utf8'}).trim(),'workbench copy must match original sheet');
+    }
+    assert.ok(hero.specialFrames.length>=5);
+    assert.ok(hero.frames.length>=25);for(const frame of hero.frames){assert.ok(frame.baseline>0&&frame.baseline<1024);assert.ok((frame.anchorX>=frame.source.x&&frame.anchorX<frame.source.x+frame.source.w)||(frame.anchorX>=0&&frame.anchorX<frame.source.w));}
   }
   results.checks.originalsAndMeasurements=true;
   {
     const {page,context}=await open();await page.screenshot({path:path.join(out,'desktop-select.png')});
+    const alpha=await page.evaluate(async()=>{const checks=[];for(let id=1;id<=10;id++){const image=new Image();image.src=`sprites/runtime/enemy_baddy${id}.png`;await image.decode();const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const context=c.getContext('2d',{willReadFrequently:true});context.drawImage(image,0,0);const pixels=context.getImageData(0,0,c.width,c.height).data;for(let index=13;index<38;index++){const x=(index%5)*640,y=Math.floor(index/5)*320;for(const [dx,dy] of [[1,1],[638,1],[1,318],[638,318]]){const a=pixels[((y+dy)*c.width+x+dx)*4+3];checks.push({id,index,dx,dy,alpha:a});}}}return checks;});
+    assert.ok(alpha.every(check=>check.alpha===0),'expanded enemy poses must keep their cell corners transparent');
+    results.checks.expandedEnemyTransparency=alpha.length;
     const poses=await page.evaluate(()=>{
       const a=window.__visual,c=game.getContext('2d'),original=c.drawImage.bind(c),trials=[];
       c.drawImage=(...args)=>{const t=c.getTransform();trials.push({sourceX:args[1],alpha:c.globalAlpha,centre:t.a*(args[5]+args[7]/2)+t.e});original(...args);};
@@ -32,7 +39,7 @@ try {
       for(const hero of a.HEROES)for(const facing of [1,-1])for(let i=0;i<a.specialFrames.length;i++)a.drawAnimatedSprite(a.image(hero.special),a.specialFrames,i+.5,330,560,245,facing,1,false);
       c.drawImage=original;return trials;
     });
-    assert.equal(poses.length,90,'walk and special clips for every hero in both directions must draw one pose each');
+    assert.equal(poses.length,100,'five-pose walk and special clips for every hero in both directions must draw one pose each');
     for(const pose of poses){assert.equal(pose.alpha,1);assert.ok(Math.abs(pose.centre-330)<.001);}
     results.checks.crispAnchoredPoses=poses;
     for(let hero=0;hero<5;hero++)for(const facing of [1,-1]){

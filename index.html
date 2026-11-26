@@ -23,10 +23,25 @@
           <button id="portrait-resume" type="button">RESUME</button><button id="portrait-restart" type="button">RESTART</button>
         </section>
       </div>
+      <a id="animation-viewer-link" href="animation-viewer.html" hidden>SPRITE ANIMATION VIEWER ↗</a>
+      <section id="online-lobby" aria-label="Online co-op">
+        <button id="online-toggle" type="button" aria-expanded="false">ONLINE CO-OP</button>
+        <div id="online-panel" hidden>
+          <label>YOUR FIGHTER <select id="online-hero"></select></label>
+          <button id="online-host" type="button">HOST A ROOM</button>
+          <label>ROOM CODE <input id="online-room" autocomplete="off" spellcheck="false" placeholder="Paste your friend's code" /></label>
+          <button id="online-join" type="button">JOIN ROOM</button>
+          <button id="online-copy" type="button" hidden>COPY ROOM CODE</button>
+          <button id="online-leave" type="button" hidden>LEAVE ROOM</button>
+          <p id="online-status" role="status" aria-live="polite">Play together from two devices. Use keyboard or a PS4 controller.</p>
+          <small id="gamepad-status">Controller not detected</small>
+          <small class="gamepad-map">PS4: Cross / Square hit · Circle / Triangle kick · L1 / R1 special · L2 / R2 dodge · Options pause</small>
+        </div>
+      </section>
       <section id="portrait-select" class="portrait-ui portrait-select" hidden>
         <h1>ROADS OF ROUGH</h1><p>Choose your fighter · tap to start</p>
         <div id="portrait-roster"></div>
-        <p class="portrait-hint">Move between lanes to avoid bottles.<br>HIT and KICK build your special meter.</p>
+        <p class="portrait-hint">Move between lanes to avoid bottles.<br>HIT and KICK build your special meter. Tap glowing weapons to equip them.</p>
       </section>
       <div id="touch-controls" aria-label="Touch controls" hidden>
         <div class="touch-dpad">
@@ -52,7 +67,8 @@
       </div>
       <p class="screen-reader" id="game-status" aria-live="polite"></p>
     </main>
-    <script src="sprite-catalog.js"></script>
-    <script src="game.js"></script>
+    <script src="sprite-catalog.js?v=20261125-walk-cycle-final2"></script>
+    <script src="vendor/peerjs-1.5.5.min.js"></script>
+    <script src="game.js?v=20261126-detailed-portraits"></script>
   </body>
 </html>

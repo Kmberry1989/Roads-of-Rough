@@ -7,11 +7,12 @@
   },
   "heroes": {
     "kyle": {
-      "source": "sprites/player_kyle.png",
+      "source": "sprites/workbench/player_kyle.png",
       "frames": [
         {
           "index": 0,
           "name": "idle0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 22,
             "y": 18,
@@ -30,6 +31,7 @@
         {
           "index": 1,
           "name": "idle1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 204,
             "y": 18,
@@ -48,6 +50,7 @@
         {
           "index": 2,
           "name": "punch0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 395,
             "y": 18,
@@ -66,6 +69,7 @@
         {
           "index": 3,
           "name": "punch1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 676,
             "y": 18,
@@ -84,6 +88,7 @@
         {
           "index": 4,
           "name": "punch2",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 954,
             "y": 18,
@@ -102,6 +107,7 @@
         {
           "index": 5,
           "name": "punch3",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 1242,
             "y": 18,
@@ -120,14 +126,15 @@
         {
           "index": 6,
           "name": "ready0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 22,
             "y": 263,
             "w": 229,
             "h": 221
           },
-          "anchorX": 126.5,
-          "baseline": 476,
+          "anchorX": 126,
+          "baseline": 475,
           "runtime": {
             "x": 640,
             "y": 256,
@@ -138,6 +145,7 @@
         {
           "index": 7,
           "name": "kick0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 255,
             "y": 263,
@@ -156,6 +164,7 @@
         {
           "index": 8,
           "name": "ready1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 519,
             "y": 263,
@@ -174,13 +183,14 @@
         {
           "index": 9,
           "name": "kick1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 779,
             "y": 263,
             "w": 232,
             "h": 221
           },
-          "anchorX": 833.5,
+          "anchorX": 834.5,
           "baseline": 475,
           "runtime": {
             "x": 2560,
@@ -192,14 +202,15 @@
         {
           "index": 10,
           "name": "kick2",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 1015,
             "y": 263,
             "w": 251,
             "h": 221
           },
-          "anchorX": 1091.5,
-          "baseline": 476,
+          "anchorX": 1093.5,
+          "baseline": 475,
           "runtime": {
             "x": 0,
             "y": 512,
@@ -210,6 +221,7 @@
         {
           "index": 11,
           "name": "kick3",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 1270,
             "y": 263,
@@ -217,7 +229,7 @@
             "h": 221
           },
           "anchorX": 1364.5,
-          "baseline": 476,
+          "baseline": 475,
           "runtime": {
             "x": 640,
             "y": 512,
@@ -228,13 +240,14 @@
         {
           "index": 12,
           "name": "walk0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 22,
             "y": 502,
             "w": 184,
             "h": 220
           },
-          "anchorX": 106.5,
+          "anchorX": 105,
           "baseline": 711,
           "runtime": {
             "x": 1280,
@@ -246,13 +259,14 @@
         {
           "index": 13,
           "name": "walk1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 210,
             "y": 502,
             "w": 162,
             "h": 220
           },
-          "anchorX": 282.5,
+          "anchorX": 284,
           "baseline": 711,
           "runtime": {
             "x": 1920,
@@ -264,13 +278,14 @@
         {
           "index": 14,
           "name": "walk2",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 376,
             "y": 502,
             "w": 182,
             "h": 220
           },
-          "anchorX": 454.5,
+          "anchorX": 458.5,
           "baseline": 711,
           "runtime": {
             "x": 2560,
@@ -282,13 +297,14 @@
         {
           "index": 15,
           "name": "run0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 562,
             "y": 502,
             "w": 213,
             "h": 220
           },
-          "anchorX": 663.5,
+          "anchorX": 666,
           "baseline": 705,
           "runtime": {
             "x": 0,
@@ -300,14 +316,15 @@
         {
           "index": 16,
           "name": "run1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 779,
             "y": 502,
             "w": 209,
             "h": 220
           },
-          "anchorX": 922.5,
-          "baseline": 706,
+          "anchorX": 872.5,
+          "baseline": 705,
           "runtime": {
             "x": 640,
             "y": 768,
@@ -318,13 +335,14 @@
         {
           "index": 17,
           "name": "jump",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 992,
             "y": 486,
             "w": 169,
             "h": 236
           },
-          "anchorX": 1066.5,
+          "anchorX": 1064.5,
           "baseline": 692,
           "runtime": {
             "x": 1280,
@@ -336,6 +354,7 @@
         {
           "index": 18,
           "name": "crouch",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 1165,
             "y": 502,
@@ -354,6 +373,7 @@
         {
           "index": 19,
           "name": "guard",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 1344,
             "y": 502,
@@ -372,6 +392,7 @@
         {
           "index": 20,
           "name": "hurt",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 22,
             "y": 740,
@@ -390,13 +411,14 @@
         {
           "index": 21,
           "name": "launched",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 261,
             "y": 740,
             "w": 289,
             "h": 232
           },
-          "anchorX": 445.5,
+          "anchorX": 444,
           "baseline": 944,
           "runtime": {
             "x": 640,
@@ -408,6 +430,7 @@
         {
           "index": 22,
           "name": "defeat",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 554,
             "y": 740,
@@ -426,13 +449,14 @@
         {
           "index": 23,
           "name": "victory0",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 870,
             "y": 740,
             "w": 194,
             "h": 232
           },
-          "anchorX": 971.5,
+          "anchorX": 972,
           "baseline": 961,
           "runtime": {
             "x": 1920,
@@ -444,6 +468,7 @@
         {
           "index": 24,
           "name": "victory1",
+          "sheetSource": "sprites/workbench/player_kyle.png",
           "source": {
             "x": 1068,
             "y": 740,
@@ -458,21 +483,537 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 50,
+          "name": "walk3",
+          "sheetSource": "sprites/workbench/player_kyle-walk-additions.png",
+          "source": {
+            "x": 285,
+            "y": 117,
+            "w": 463,
+            "h": 676
+          },
+          "anchorX": 231.5,
+          "baseline": 676,
+          "runtime": {
+            "x": 0,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": false
+        },
+        {
+          "index": 51,
+          "name": "walk4",
+          "sheetSource": "sprites/workbench/player_kyle-walk-additions.png",
+          "source": {
+            "x": 983,
+            "y": 117,
+            "w": 438,
+            "h": 676
+          },
+          "anchorX": 219,
+          "baseline": 676,
+          "runtime": {
+            "x": 640,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": true
+        },
+        {
+          "index": 25,
+          "name": "idle0",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 26,
+          "name": "idle1",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 27,
+          "name": "idle2",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 28,
+          "name": "idle3",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 29,
+          "name": "idle4",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 30,
+          "name": "punch0",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 31,
+          "name": "punch1",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 32,
+          "name": "punch2",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 33,
+          "name": "punch3",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 34,
+          "name": "punch4",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 35,
+          "name": "hurt0",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 36,
+          "name": "hurt1",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 37,
+          "name": "hurt2",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 38,
+          "name": "hurt3",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 39,
+          "name": "hurt4",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 40,
+          "name": "defeat0",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 41,
+          "name": "defeat1",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 42,
+          "name": "defeat2",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 43,
+          "name": "defeat3",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 44,
+          "name": "defeat4",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 45,
+          "name": "victory0",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 46,
+          "name": "victory1",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 47,
+          "name": "victory2",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 48,
+          "name": "victory3",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 49,
+          "name": "victory4",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
         }
       ],
-      "specialSource": "sprites/player_kyle-special.png",
+      "specialSource": "sprites/workbench/player_kyle-special.png",
       "specialFrames": [
         {
           "index": 0,
           "name": "special-ready",
+          "sheetSource": "sprites/workbench/player_kyle-special.png",
           "source": {
             "x": 24,
             "y": 68,
             "w": 174,
             "h": 244
           },
-          "anchorX": 103,
-          "baseline": 287,
+          "anchorX": 103.5,
+          "baseline": 286,
           "runtime": {
             "x": 0,
             "y": 0,
@@ -483,14 +1024,15 @@
         {
           "index": 1,
           "name": "special-windup",
+          "sheetSource": "sprites/workbench/player_kyle-special.png",
           "source": {
             "x": 202,
             "y": 68,
             "w": 197,
             "h": 244
           },
-          "anchorX": 282.5,
-          "baseline": 287,
+          "anchorX": 282,
+          "baseline": 286,
           "runtime": {
             "x": 640,
             "y": 0,
@@ -501,6 +1043,7 @@
         {
           "index": 2,
           "name": "special-release",
+          "sheetSource": "sprites/workbench/player_kyle-special.png",
           "source": {
             "x": 403,
             "y": 68,
@@ -515,15 +1058,111 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 3,
+          "name": "special0",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "special1",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "special2",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "special3",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "special4",
+          "sheetSource": "sprites/workbench/player_kyle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
         }
       ]
     },
     "eric": {
-      "source": "sprites/player_eric.png",
+      "source": "sprites/workbench/player_eric.png",
       "frames": [
         {
           "index": 0,
           "name": "idle0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 20,
             "y": 15,
@@ -542,6 +1181,7 @@
         {
           "index": 1,
           "name": "idle1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 218,
             "y": 15,
@@ -560,6 +1200,7 @@
         {
           "index": 2,
           "name": "punch0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 416,
             "y": 15,
@@ -578,6 +1219,7 @@
         {
           "index": 3,
           "name": "punch1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 701,
             "y": 15,
@@ -596,13 +1238,14 @@
         {
           "index": 4,
           "name": "punch2",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 983,
             "y": 15,
             "w": 279,
             "h": 226
           },
-          "anchorX": 1086,
+          "anchorX": 1086.5,
           "baseline": 230,
           "runtime": {
             "x": 2560,
@@ -614,6 +1257,7 @@
         {
           "index": 5,
           "name": "punch3",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 1266,
             "y": 15,
@@ -632,6 +1276,7 @@
         {
           "index": 6,
           "name": "ready0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 20,
             "y": 255,
@@ -650,6 +1295,7 @@
         {
           "index": 7,
           "name": "kick0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 251,
             "y": 255,
@@ -668,6 +1314,7 @@
         {
           "index": 8,
           "name": "ready1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 520,
             "y": 255,
@@ -686,6 +1333,7 @@
         {
           "index": 9,
           "name": "kick1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 776,
             "y": 255,
@@ -704,6 +1352,7 @@
         {
           "index": 10,
           "name": "kick2",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 1016,
             "y": 255,
@@ -722,6 +1371,7 @@
         {
           "index": 11,
           "name": "kick3",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 1272,
             "y": 255,
@@ -740,13 +1390,14 @@
         {
           "index": 12,
           "name": "walk0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 20,
             "y": 490,
             "w": 172,
             "h": 220
           },
-          "anchorX": 101.5,
+          "anchorX": 102.5,
           "baseline": 699,
           "runtime": {
             "x": 1280,
@@ -758,14 +1409,15 @@
         {
           "index": 13,
           "name": "walk1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 196,
             "y": 490,
             "w": 167,
             "h": 220
           },
-          "anchorX": 271.5,
-          "baseline": 699,
+          "anchorX": 272.5,
+          "baseline": 698,
           "runtime": {
             "x": 1920,
             "y": 512,
@@ -776,14 +1428,15 @@
         {
           "index": 14,
           "name": "walk2",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 367,
             "y": 490,
             "w": 166,
             "h": 220
           },
-          "anchorX": 436.5,
-          "baseline": 699,
+          "anchorX": 438,
+          "baseline": 698,
           "runtime": {
             "x": 2560,
             "y": 512,
@@ -794,13 +1447,14 @@
         {
           "index": 15,
           "name": "run0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 537,
             "y": 490,
             "w": 235,
             "h": 220
           },
-          "anchorX": 640.5,
+          "anchorX": 644,
           "baseline": 693,
           "runtime": {
             "x": 0,
@@ -812,13 +1466,14 @@
         {
           "index": 16,
           "name": "run1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 776,
             "y": 490,
             "w": 201,
             "h": 220
           },
-          "anchorX": 850,
+          "anchorX": 855,
           "baseline": 696,
           "runtime": {
             "x": 640,
@@ -830,13 +1485,14 @@
         {
           "index": 17,
           "name": "jump",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 981,
             "y": 474,
             "w": 178,
             "h": 236
           },
-          "anchorX": 1063,
+          "anchorX": 1061.5,
           "baseline": 675,
           "runtime": {
             "x": 1280,
@@ -848,14 +1504,15 @@
         {
           "index": 18,
           "name": "crouch",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 1163,
             "y": 490,
             "w": 177,
             "h": 220
           },
-          "anchorX": 1226.5,
-          "baseline": 705,
+          "anchorX": 1227,
+          "baseline": 704,
           "runtime": {
             "x": 1920,
             "y": 768,
@@ -866,6 +1523,7 @@
         {
           "index": 19,
           "name": "guard",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 1344,
             "y": 490,
@@ -884,13 +1542,14 @@
         {
           "index": 20,
           "name": "hurt",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 20,
             "y": 725,
             "w": 236,
             "h": 230
           },
-          "anchorX": 149,
+          "anchorX": 150,
           "baseline": 946,
           "runtime": {
             "x": 0,
@@ -902,13 +1561,14 @@
         {
           "index": 21,
           "name": "launched",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 260,
             "y": 725,
             "w": 282,
             "h": 230
           },
-          "anchorX": 442,
+          "anchorX": 443,
           "baseline": 933,
           "runtime": {
             "x": 640,
@@ -920,6 +1580,7 @@
         {
           "index": 22,
           "name": "defeat",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 546,
             "y": 725,
@@ -938,6 +1599,7 @@
         {
           "index": 23,
           "name": "victory0",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 857,
             "y": 725,
@@ -956,6 +1618,7 @@
         {
           "index": 24,
           "name": "victory1",
+          "sheetSource": "sprites/workbench/player_eric.png",
           "source": {
             "x": 1092,
             "y": 725,
@@ -970,13 +1633,529 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 50,
+          "name": "walk3",
+          "sheetSource": "sprites/workbench/player_eric-walk-additions.png",
+          "source": {
+            "x": 279,
+            "y": 117,
+            "w": 413,
+            "h": 655
+          },
+          "anchorX": 206.5,
+          "baseline": 655,
+          "runtime": {
+            "x": 0,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": false
+        },
+        {
+          "index": 51,
+          "name": "walk4",
+          "sheetSource": "sprites/workbench/player_eric-walk-additions.png",
+          "source": {
+            "x": 1039,
+            "y": 117,
+            "w": 379,
+            "h": 657
+          },
+          "anchorX": 189.5,
+          "baseline": 657,
+          "runtime": {
+            "x": 640,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": true
+        },
+        {
+          "index": 25,
+          "name": "idle0",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 26,
+          "name": "idle1",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 27,
+          "name": "idle2",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 28,
+          "name": "idle3",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 29,
+          "name": "idle4",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 30,
+          "name": "punch0",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 31,
+          "name": "punch1",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 32,
+          "name": "punch2",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 33,
+          "name": "punch3",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 34,
+          "name": "punch4",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 35,
+          "name": "hurt0",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 36,
+          "name": "hurt1",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 37,
+          "name": "hurt2",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 38,
+          "name": "hurt3",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 39,
+          "name": "hurt4",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 40,
+          "name": "defeat0",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 41,
+          "name": "defeat1",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 42,
+          "name": "defeat2",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 43,
+          "name": "defeat3",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 44,
+          "name": "defeat4",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 45,
+          "name": "victory0",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 46,
+          "name": "victory1",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 47,
+          "name": "victory2",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 48,
+          "name": "victory3",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 49,
+          "name": "victory4",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
         }
       ],
-      "specialSource": "sprites/player_eric-special.png",
+      "specialSource": "sprites/workbench/player_eric-special.png",
       "specialFrames": [
         {
           "index": 0,
           "name": "special-ready",
+          "sheetSource": "sprites/workbench/player_eric-special.png",
           "source": {
             "x": 23,
             "y": 67,
@@ -995,6 +2174,7 @@
         {
           "index": 1,
           "name": "special-windup",
+          "sheetSource": "sprites/workbench/player_eric-special.png",
           "source": {
             "x": 199,
             "y": 67,
@@ -1013,13 +2193,14 @@
         {
           "index": 2,
           "name": "special-release",
+          "sheetSource": "sprites/workbench/player_eric-special.png",
           "source": {
             "x": 392,
             "y": 67,
             "w": 251,
             "h": 241
           },
-          "anchorX": 465.5,
+          "anchorX": 466,
           "baseline": 286,
           "runtime": {
             "x": 1280,
@@ -1027,15 +2208,111 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 3,
+          "name": "special0",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "special1",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "special2",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "special3",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "special4",
+          "sheetSource": "sprites/workbench/player_eric-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
         }
       ]
     },
     "kristen": {
-      "source": "sprites/player_kristen.png",
+      "source": "sprites/workbench/player_kristen.png",
       "frames": [
         {
           "index": 0,
           "name": "idle0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 20,
             "y": 18,
@@ -1054,6 +2331,7 @@
         {
           "index": 1,
           "name": "idle1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 198,
             "y": 18,
@@ -1072,13 +2350,14 @@
         {
           "index": 2,
           "name": "punch0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 388,
             "y": 18,
             "w": 272,
             "h": 226
           },
-          "anchorX": 483,
+          "anchorX": 483.5,
           "baseline": 236,
           "runtime": {
             "x": 1280,
@@ -1090,6 +2369,7 @@
         {
           "index": 3,
           "name": "punch1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 664,
             "y": 18,
@@ -1108,6 +2388,7 @@
         {
           "index": 4,
           "name": "punch2",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 948,
             "y": 18,
@@ -1126,6 +2407,7 @@
         {
           "index": 5,
           "name": "punch3",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 1224,
             "y": 18,
@@ -1144,6 +2426,7 @@
         {
           "index": 6,
           "name": "ready0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 20,
             "y": 256,
@@ -1162,6 +2445,7 @@
         {
           "index": 7,
           "name": "kick0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 244,
             "y": 256,
@@ -1180,6 +2464,7 @@
         {
           "index": 8,
           "name": "ready1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 509,
             "y": 256,
@@ -1198,6 +2483,7 @@
         {
           "index": 9,
           "name": "kick1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 759,
             "y": 256,
@@ -1216,6 +2502,7 @@
         {
           "index": 10,
           "name": "kick2",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 1005,
             "y": 256,
@@ -1234,6 +2521,7 @@
         {
           "index": 11,
           "name": "kick3",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 1268,
             "y": 256,
@@ -1252,13 +2540,14 @@
         {
           "index": 12,
           "name": "walk0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 20,
             "y": 494,
             "w": 179,
             "h": 228
           },
-          "anchorX": 110,
+          "anchorX": 108,
           "baseline": 713,
           "runtime": {
             "x": 1280,
@@ -1270,13 +2559,14 @@
         {
           "index": 13,
           "name": "walk1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 203,
             "y": 494,
             "w": 170,
             "h": 228
           },
-          "anchorX": 290,
+          "anchorX": 287.5,
           "baseline": 714,
           "runtime": {
             "x": 1920,
@@ -1288,14 +2578,15 @@
         {
           "index": 14,
           "name": "walk2",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 377,
             "y": 494,
             "w": 167,
             "h": 228
           },
-          "anchorX": 448.5,
-          "baseline": 713,
+          "anchorX": 451.5,
+          "baseline": 712,
           "runtime": {
             "x": 2560,
             "y": 512,
@@ -1306,13 +2597,14 @@
         {
           "index": 15,
           "name": "run0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 548,
             "y": 494,
             "w": 228,
             "h": 228
           },
-          "anchorX": 653.5,
+          "anchorX": 650.5,
           "baseline": 704,
           "runtime": {
             "x": 0,
@@ -1324,13 +2616,14 @@
         {
           "index": 16,
           "name": "run1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 780,
             "y": 494,
             "w": 197,
             "h": 228
           },
-          "anchorX": 857.5,
+          "anchorX": 861,
           "baseline": 704,
           "runtime": {
             "x": 640,
@@ -1342,13 +2635,14 @@
         {
           "index": 17,
           "name": "jump",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 981,
             "y": 478,
             "w": 170,
             "h": 244
           },
-          "anchorX": 1064,
+          "anchorX": 1062,
           "baseline": 695,
           "runtime": {
             "x": 1280,
@@ -1360,6 +2654,7 @@
         {
           "index": 18,
           "name": "crouch",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 1155,
             "y": 494,
@@ -1367,7 +2662,7 @@
             "h": 228
           },
           "anchorX": 1227.5,
-          "baseline": 715,
+          "baseline": 714,
           "runtime": {
             "x": 1920,
             "y": 768,
@@ -1378,6 +2673,7 @@
         {
           "index": 19,
           "name": "guard",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 1342,
             "y": 494,
@@ -1396,13 +2692,14 @@
         {
           "index": 20,
           "name": "hurt",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 20,
             "y": 735,
             "w": 239,
             "h": 237
           },
-          "anchorX": 140.5,
+          "anchorX": 144.5,
           "baseline": 962,
           "runtime": {
             "x": 0,
@@ -1414,13 +2711,14 @@
         {
           "index": 21,
           "name": "launched",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 263,
             "y": 735,
             "w": 282,
             "h": 237
           },
-          "anchorX": 448.5,
+          "anchorX": 451,
           "baseline": 943,
           "runtime": {
             "x": 640,
@@ -1432,6 +2730,7 @@
         {
           "index": 22,
           "name": "defeat",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 549,
             "y": 735,
@@ -1450,6 +2749,7 @@
         {
           "index": 23,
           "name": "victory0",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 855,
             "y": 735,
@@ -1468,6 +2768,7 @@
         {
           "index": 24,
           "name": "victory1",
+          "sheetSource": "sprites/workbench/player_kristen.png",
           "source": {
             "x": 1090,
             "y": 735,
@@ -1482,20 +2783,536 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 50,
+          "name": "walk3",
+          "sheetSource": "sprites/workbench/player_kristen-walk-additions.png",
+          "source": {
+            "x": 324,
+            "y": 79,
+            "w": 403,
+            "h": 722
+          },
+          "anchorX": 201.5,
+          "baseline": 722,
+          "runtime": {
+            "x": 0,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": false
+        },
+        {
+          "index": 51,
+          "name": "walk4",
+          "sheetSource": "sprites/workbench/player_kristen-walk-additions.png",
+          "source": {
+            "x": 1033,
+            "y": 79,
+            "w": 399,
+            "h": 722
+          },
+          "anchorX": 199.5,
+          "baseline": 722,
+          "runtime": {
+            "x": 640,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": true
+        },
+        {
+          "index": 25,
+          "name": "idle0",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 26,
+          "name": "idle1",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 27,
+          "name": "idle2",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 28,
+          "name": "idle3",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 29,
+          "name": "idle4",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 30,
+          "name": "punch0",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 31,
+          "name": "punch1",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 32,
+          "name": "punch2",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 33,
+          "name": "punch3",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 34,
+          "name": "punch4",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 35,
+          "name": "hurt0",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 36,
+          "name": "hurt1",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 37,
+          "name": "hurt2",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 38,
+          "name": "hurt3",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 39,
+          "name": "hurt4",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 40,
+          "name": "defeat0",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 41,
+          "name": "defeat1",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 42,
+          "name": "defeat2",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 43,
+          "name": "defeat3",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 44,
+          "name": "defeat4",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 45,
+          "name": "victory0",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 46,
+          "name": "victory1",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 47,
+          "name": "victory2",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 48,
+          "name": "victory3",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 49,
+          "name": "victory4",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
         }
       ],
-      "specialSource": "sprites/player_kristen-special.png",
+      "specialSource": "sprites/workbench/player_kristen-special.png",
       "specialFrames": [
         {
           "index": 0,
           "name": "special-ready",
+          "sheetSource": "sprites/workbench/player_kristen-special.png",
           "source": {
             "x": 25,
             "y": 64,
             "w": 176,
             "h": 241
           },
-          "anchorX": 105.5,
+          "anchorX": 106,
           "baseline": 291,
           "runtime": {
             "x": 0,
@@ -1507,6 +3324,7 @@
         {
           "index": 1,
           "name": "special-windup",
+          "sheetSource": "sprites/workbench/player_kristen-special.png",
           "source": {
             "x": 205,
             "y": 64,
@@ -1525,6 +3343,7 @@
         {
           "index": 2,
           "name": "special-release",
+          "sheetSource": "sprites/workbench/player_kristen-special.png",
           "source": {
             "x": 398,
             "y": 64,
@@ -1539,15 +3358,111 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 3,
+          "name": "special0",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "special1",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "special2",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "special3",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "special4",
+          "sheetSource": "sprites/workbench/player_kristen-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
         }
       ]
     },
     "rochelle": {
-      "source": "sprites/player_rochelle.png",
+      "source": "sprites/workbench/player_rochelle.png",
       "frames": [
         {
           "index": 0,
           "name": "idle0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 22,
             "y": 18,
@@ -1555,7 +3470,7 @@
             "h": 228
           },
           "anchorX": 103.5,
-          "baseline": 239,
+          "baseline": 238,
           "runtime": {
             "x": 0,
             "y": 0,
@@ -1566,6 +3481,7 @@
         {
           "index": 1,
           "name": "idle1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 210,
             "y": 18,
@@ -1584,14 +3500,15 @@
         {
           "index": 2,
           "name": "punch0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 396,
             "y": 18,
             "w": 277,
             "h": 228
           },
-          "anchorX": 440.5,
-          "baseline": 239,
+          "anchorX": 496.5,
+          "baseline": 232,
           "runtime": {
             "x": 1280,
             "y": 0,
@@ -1602,13 +3519,14 @@
         {
           "index": 3,
           "name": "punch1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 677,
             "y": 18,
             "w": 273,
             "h": 228
           },
-          "anchorX": 780,
+          "anchorX": 781,
           "baseline": 220,
           "runtime": {
             "x": 1920,
@@ -1620,13 +3538,14 @@
         {
           "index": 4,
           "name": "punch2",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 954,
             "y": 18,
             "w": 284,
             "h": 228
           },
-          "anchorX": 1067,
+          "anchorX": 1065,
           "baseline": 225,
           "runtime": {
             "x": 2560,
@@ -1638,14 +3557,15 @@
         {
           "index": 5,
           "name": "punch3",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 1242,
             "y": 18,
             "w": 268,
             "h": 228
           },
-          "anchorX": 1373.5,
-          "baseline": 239,
+          "anchorX": 1324,
+          "baseline": 225,
           "runtime": {
             "x": 0,
             "y": 256,
@@ -1656,6 +3576,7 @@
         {
           "index": 6,
           "name": "ready0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 22,
             "y": 262,
@@ -1674,14 +3595,15 @@
         {
           "index": 7,
           "name": "kick0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 255,
             "y": 262,
             "w": 260,
             "h": 222
           },
-          "anchorX": 355.5,
-          "baseline": 464,
+          "anchorX": 356,
+          "baseline": 461,
           "runtime": {
             "x": 1280,
             "y": 256,
@@ -1692,14 +3614,15 @@
         {
           "index": 8,
           "name": "ready1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 519,
             "y": 262,
             "w": 256,
             "h": 222
           },
-          "anchorX": 631,
-          "baseline": 477,
+          "anchorX": 629.5,
+          "baseline": 464,
           "runtime": {
             "x": 1920,
             "y": 256,
@@ -1710,14 +3633,15 @@
         {
           "index": 9,
           "name": "kick1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 779,
             "y": 262,
             "w": 232,
             "h": 222
           },
-          "anchorX": 840,
-          "baseline": 463,
+          "anchorX": 841,
+          "baseline": 462,
           "runtime": {
             "x": 2560,
             "y": 256,
@@ -1728,13 +3652,14 @@
         {
           "index": 10,
           "name": "kick2",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 1015,
             "y": 262,
             "w": 251,
             "h": 222
           },
-          "anchorX": 1098.5,
+          "anchorX": 1101.5,
           "baseline": 462,
           "runtime": {
             "x": 0,
@@ -1746,14 +3671,15 @@
         {
           "index": 11,
           "name": "kick3",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 1270,
             "y": 262,
             "w": 240,
             "h": 222
           },
-          "anchorX": 1362,
-          "baseline": 465,
+          "anchorX": 1367.5,
+          "baseline": 463,
           "runtime": {
             "x": 640,
             "y": 512,
@@ -1764,14 +3690,15 @@
         {
           "index": 12,
           "name": "walk0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 22,
             "y": 502,
             "w": 184,
             "h": 220
           },
-          "anchorX": 117.5,
-          "baseline": 709,
+          "anchorX": 107,
+          "baseline": 705,
           "runtime": {
             "x": 1280,
             "y": 512,
@@ -1782,14 +3709,15 @@
         {
           "index": 13,
           "name": "walk1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 210,
             "y": 502,
             "w": 162,
             "h": 220
           },
-          "anchorX": 284,
-          "baseline": 712,
+          "anchorX": 284.5,
+          "baseline": 702,
           "runtime": {
             "x": 1920,
             "y": 512,
@@ -1800,14 +3728,15 @@
         {
           "index": 14,
           "name": "walk2",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 376,
             "y": 502,
             "w": 182,
             "h": 220
           },
-          "anchorX": 465.5,
-          "baseline": 711,
+          "anchorX": 459.5,
+          "baseline": 701,
           "runtime": {
             "x": 2560,
             "y": 512,
@@ -1818,14 +3747,15 @@
         {
           "index": 15,
           "name": "run0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 562,
             "y": 502,
             "w": 213,
             "h": 220
           },
-          "anchorX": 668,
-          "baseline": 703,
+          "anchorX": 671.5,
+          "baseline": 692,
           "runtime": {
             "x": 0,
             "y": 768,
@@ -1836,14 +3766,15 @@
         {
           "index": 16,
           "name": "run1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 779,
             "y": 502,
             "w": 208,
             "h": 220
           },
-          "anchorX": 872.5,
-          "baseline": 701,
+          "anchorX": 875,
+          "baseline": 698,
           "runtime": {
             "x": 640,
             "y": 768,
@@ -1854,14 +3785,15 @@
         {
           "index": 17,
           "name": "jump",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 991,
             "y": 486,
             "w": 172,
             "h": 236
           },
-          "anchorX": 1061.5,
-          "baseline": 685,
+          "anchorX": 1060.5,
+          "baseline": 684,
           "runtime": {
             "x": 1280,
             "y": 768,
@@ -1872,13 +3804,14 @@
         {
           "index": 18,
           "name": "crouch",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 1167,
             "y": 502,
             "w": 174,
             "h": 220
           },
-          "anchorX": 1216,
+          "anchorX": 1238.5,
           "baseline": 714,
           "runtime": {
             "x": 1920,
@@ -1890,13 +3823,14 @@
         {
           "index": 19,
           "name": "guard",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 1345,
             "y": 502,
             "w": 165,
             "h": 220
           },
-          "anchorX": 1413.5,
+          "anchorX": 1411.5,
           "baseline": 700,
           "runtime": {
             "x": 2560,
@@ -1908,13 +3842,14 @@
         {
           "index": 20,
           "name": "hurt",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 22,
             "y": 739,
             "w": 235,
             "h": 234
           },
-          "anchorX": 149.5,
+          "anchorX": 150,
           "baseline": 945,
           "runtime": {
             "x": 0,
@@ -1926,13 +3861,14 @@
         {
           "index": 21,
           "name": "launched",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 261,
             "y": 739,
             "w": 289,
             "h": 234
           },
-          "anchorX": 431.5,
+          "anchorX": 450.5,
           "baseline": 919,
           "runtime": {
             "x": 640,
@@ -1944,6 +3880,7 @@
         {
           "index": 22,
           "name": "defeat",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 554,
             "y": 739,
@@ -1962,6 +3899,7 @@
         {
           "index": 23,
           "name": "victory0",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 870,
             "y": 739,
@@ -1969,7 +3907,7 @@
             "h": 234
           },
           "anchorX": 971.5,
-          "baseline": 949,
+          "baseline": 947,
           "runtime": {
             "x": 1920,
             "y": 1024,
@@ -1980,13 +3918,14 @@
         {
           "index": 24,
           "name": "victory1",
+          "sheetSource": "sprites/workbench/player_rochelle.png",
           "source": {
             "x": 1067,
             "y": 739,
             "w": 275,
             "h": 234
           },
-          "anchorX": 1189,
+          "anchorX": 1191,
           "baseline": 946,
           "runtime": {
             "x": 2560,
@@ -1994,21 +3933,537 @@
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 50,
+          "name": "walk3",
+          "sheetSource": "sprites/workbench/player_rochelle-walk-additions.png",
+          "source": {
+            "x": 293,
+            "y": 69,
+            "w": 464,
+            "h": 757
+          },
+          "anchorX": 232,
+          "baseline": 757,
+          "runtime": {
+            "x": 0,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": false
+        },
+        {
+          "index": 51,
+          "name": "walk4",
+          "sheetSource": "sprites/workbench/player_rochelle-walk-additions.png",
+          "source": {
+            "x": 994,
+            "y": 69,
+            "w": 453,
+            "h": 753
+          },
+          "anchorX": 226.5,
+          "baseline": 753,
+          "runtime": {
+            "x": 640,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": true
+        },
+        {
+          "index": 25,
+          "name": "idle0",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 26,
+          "name": "idle1",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 27,
+          "name": "idle2",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 28,
+          "name": "idle3",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 29,
+          "name": "idle4",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 30,
+          "name": "punch0",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 31,
+          "name": "punch1",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 32,
+          "name": "punch2",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 33,
+          "name": "punch3",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 34,
+          "name": "punch4",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 35,
+          "name": "hurt0",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 36,
+          "name": "hurt1",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 37,
+          "name": "hurt2",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 38,
+          "name": "hurt3",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 39,
+          "name": "hurt4",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 40,
+          "name": "defeat0",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 41,
+          "name": "defeat1",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 42,
+          "name": "defeat2",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 43,
+          "name": "defeat3",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 44,
+          "name": "defeat4",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 45,
+          "name": "victory0",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 46,
+          "name": "victory1",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 47,
+          "name": "victory2",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 48,
+          "name": "victory3",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 49,
+          "name": "victory4",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
         }
       ],
-      "specialSource": "sprites/player_rochelle-special.png",
+      "specialSource": "sprites/workbench/player_rochelle-special.png",
       "specialFrames": [
         {
           "index": 0,
           "name": "special-ready",
+          "sheetSource": "sprites/workbench/player_rochelle-special.png",
           "source": {
             "x": 24,
             "y": 66,
             "w": 182,
             "h": 235
           },
-          "anchorX": 162,
-          "baseline": 289,
+          "anchorX": 115,
+          "baseline": 288,
           "runtime": {
             "x": 0,
             "y": 0,
@@ -2019,14 +4474,15 @@
         {
           "index": 1,
           "name": "special-windup",
+          "sheetSource": "sprites/workbench/player_rochelle-special.png",
           "source": {
             "x": 210,
             "y": 66,
             "w": 189,
             "h": 235
           },
-          "anchorX": 238.5,
-          "baseline": 289,
+          "anchorX": 291,
+          "baseline": 288,
           "runtime": {
             "x": 640,
             "y": 0,
@@ -2037,6 +4493,7 @@
         {
           "index": 2,
           "name": "special-release",
+          "sheetSource": "sprites/workbench/player_rochelle-special.png",
           "source": {
             "x": 403,
             "y": 66,
@@ -2044,10 +4501,105 @@
             "h": 235
           },
           "anchorX": 486,
-          "baseline": 289,
+          "baseline": 288,
           "runtime": {
             "x": 1280,
             "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "special0",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "special1",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "special2",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "special3",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "special4",
+          "sheetSource": "sprites/workbench/player_rochelle-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
             "w": 640,
             "h": 256
           }
@@ -2055,11 +4607,12 @@
       ]
     },
     "vickie": {
-      "source": "sprites/player_vickie.png",
+      "source": "sprites/workbench/player_vickie.png",
       "frames": [
         {
           "index": 0,
           "name": "idle0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 22,
             "y": 18,
@@ -2067,7 +4620,7 @@
             "h": 229
           },
           "anchorX": 115,
-          "baseline": 240,
+          "baseline": 239,
           "runtime": {
             "x": 0,
             "y": 0,
@@ -2078,6 +4631,7 @@
         {
           "index": 1,
           "name": "idle1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 218,
             "y": 18,
@@ -2085,7 +4639,7 @@
             "h": 229
           },
           "anchorX": 301,
-          "baseline": 240,
+          "baseline": 239,
           "runtime": {
             "x": 640,
             "y": 0,
@@ -2096,6 +4650,7 @@
         {
           "index": 2,
           "name": "punch0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 400,
             "y": 18,
@@ -2103,7 +4658,7 @@
             "h": 229
           },
           "anchorX": 502,
-          "baseline": 240,
+          "baseline": 239,
           "runtime": {
             "x": 1280,
             "y": 0,
@@ -2114,6 +4669,7 @@
         {
           "index": 3,
           "name": "punch1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 680,
             "y": 18,
@@ -2121,7 +4677,7 @@
             "h": 229
           },
           "anchorX": 779,
-          "baseline": 240,
+          "baseline": 239,
           "runtime": {
             "x": 1920,
             "y": 0,
@@ -2132,6 +4688,7 @@
         {
           "index": 4,
           "name": "punch2",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 955,
             "y": 18,
@@ -2139,7 +4696,7 @@
             "h": 229
           },
           "anchorX": 1056,
-          "baseline": 240,
+          "baseline": 239,
           "runtime": {
             "x": 2560,
             "y": 0,
@@ -2150,6 +4707,7 @@
         {
           "index": 5,
           "name": "punch3",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 1236,
             "y": 18,
@@ -2157,7 +4715,7 @@
             "h": 229
           },
           "anchorX": 1329.5,
-          "baseline": 240,
+          "baseline": 239,
           "runtime": {
             "x": 0,
             "y": 256,
@@ -2168,13 +4726,14 @@
         {
           "index": 6,
           "name": "ready0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 22,
             "y": 262,
             "w": 234,
             "h": 229
           },
-          "anchorX": 120.5,
+          "anchorX": 121,
           "baseline": 483,
           "runtime": {
             "x": 640,
@@ -2186,13 +4745,14 @@
         {
           "index": 7,
           "name": "kick0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 260,
             "y": 262,
             "w": 258,
             "h": 229
           },
-          "anchorX": 344.5,
+          "anchorX": 345.5,
           "baseline": 483,
           "runtime": {
             "x": 1280,
@@ -2204,13 +4764,14 @@
         {
           "index": 8,
           "name": "ready1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 522,
             "y": 262,
             "w": 254,
             "h": 229
           },
-          "anchorX": 626.5,
+          "anchorX": 626,
           "baseline": 483,
           "runtime": {
             "x": 1920,
@@ -2222,13 +4783,14 @@
         {
           "index": 9,
           "name": "kick1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 780,
             "y": 262,
             "w": 231,
             "h": 229
           },
-          "anchorX": 829.5,
+          "anchorX": 832,
           "baseline": 483,
           "runtime": {
             "x": 2560,
@@ -2240,13 +4802,14 @@
         {
           "index": 10,
           "name": "kick2",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 1015,
             "y": 262,
             "w": 251,
             "h": 229
           },
-          "anchorX": 1087,
+          "anchorX": 1090,
           "baseline": 485,
           "runtime": {
             "x": 0,
@@ -2258,6 +4821,7 @@
         {
           "index": 11,
           "name": "kick3",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 1270,
             "y": 262,
@@ -2276,13 +4840,14 @@
         {
           "index": 12,
           "name": "walk0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 22,
             "y": 507,
             "w": 180,
             "h": 225
           },
-          "anchorX": 105,
+          "anchorX": 103.5,
           "baseline": 725,
           "runtime": {
             "x": 1280,
@@ -2294,13 +4859,14 @@
         {
           "index": 13,
           "name": "walk1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 206,
             "y": 507,
             "w": 167,
             "h": 225
           },
-          "anchorX": 287,
+          "anchorX": 286.5,
           "baseline": 724,
           "runtime": {
             "x": 1920,
@@ -2312,13 +4878,14 @@
         {
           "index": 14,
           "name": "walk2",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 377,
             "y": 507,
             "w": 177,
             "h": 225
           },
-          "anchorX": 459,
+          "anchorX": 459.5,
           "baseline": 722,
           "runtime": {
             "x": 2560,
@@ -2330,13 +4897,14 @@
         {
           "index": 15,
           "name": "run0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 558,
             "y": 507,
             "w": 211,
             "h": 225
           },
-          "anchorX": 654.5,
+          "anchorX": 656,
           "baseline": 719,
           "runtime": {
             "x": 0,
@@ -2348,13 +4916,14 @@
         {
           "index": 16,
           "name": "run1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 773,
             "y": 507,
             "w": 202,
             "h": 225
           },
-          "anchorX": 913.5,
+          "anchorX": 865,
           "baseline": 719,
           "runtime": {
             "x": 640,
@@ -2366,13 +4935,14 @@
         {
           "index": 17,
           "name": "jump",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 979,
             "y": 491,
             "w": 169,
             "h": 241
           },
-          "anchorX": 1053.5,
+          "anchorX": 1052,
           "baseline": 712,
           "runtime": {
             "x": 1280,
@@ -2384,13 +4954,14 @@
         {
           "index": 18,
           "name": "crouch",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 1152,
             "y": 507,
             "w": 186,
             "h": 225
           },
-          "anchorX": 1223,
+          "anchorX": 1226.5,
           "baseline": 725,
           "runtime": {
             "x": 1920,
@@ -2402,13 +4973,14 @@
         {
           "index": 19,
           "name": "guard",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 1342,
             "y": 507,
             "w": 170,
             "h": 225
           },
-          "anchorX": 1407,
+          "anchorX": 1406.5,
           "baseline": 724,
           "runtime": {
             "x": 2560,
@@ -2420,6 +4992,7 @@
         {
           "index": 20,
           "name": "hurt",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 22,
             "y": 747,
@@ -2438,13 +5011,14 @@
         {
           "index": 21,
           "name": "launched",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 261,
             "y": 747,
             "w": 283,
             "h": 228
           },
-          "anchorX": 444,
+          "anchorX": 441,
           "baseline": 949,
           "runtime": {
             "x": 640,
@@ -2456,6 +5030,7 @@
         {
           "index": 22,
           "name": "defeat",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 548,
             "y": 747,
@@ -2463,7 +5038,7 @@
             "h": 228
           },
           "anchorX": 699.5,
-          "baseline": 958,
+          "baseline": 957,
           "runtime": {
             "x": 1280,
             "y": 1024,
@@ -2474,6 +5049,7 @@
         {
           "index": 23,
           "name": "victory0",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 855,
             "y": 747,
@@ -2481,7 +5057,7 @@
             "h": 228
           },
           "anchorX": 957.5,
-          "baseline": 966,
+          "baseline": 965,
           "runtime": {
             "x": 1920,
             "y": 1024,
@@ -2492,6 +5068,7 @@
         {
           "index": 24,
           "name": "victory1",
+          "sheetSource": "sprites/workbench/player_vickie.png",
           "source": {
             "x": 1079,
             "y": 747,
@@ -2499,28 +5076,544 @@
             "h": 228
           },
           "anchorX": 1178,
-          "baseline": 966,
+          "baseline": 965,
           "runtime": {
             "x": 2560,
             "y": 1024,
             "w": 640,
             "h": 256
           }
+        },
+        {
+          "index": 50,
+          "name": "walk3",
+          "sheetSource": "sprites/workbench/player_vickie-walk-additions.png",
+          "source": {
+            "x": 320,
+            "y": 75,
+            "w": 447,
+            "h": 730
+          },
+          "anchorX": 223.5,
+          "baseline": 730,
+          "runtime": {
+            "x": 0,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": false
+        },
+        {
+          "index": 51,
+          "name": "walk4",
+          "sheetSource": "sprites/workbench/player_vickie-walk-additions.png",
+          "source": {
+            "x": 1023,
+            "y": 75,
+            "w": 420,
+            "h": 733
+          },
+          "anchorX": 210,
+          "baseline": 733,
+          "runtime": {
+            "x": 640,
+            "y": 2560,
+            "w": 640,
+            "h": 256
+          },
+          "phaseMirrored": true
+        },
+        {
+          "index": 25,
+          "name": "idle0",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 26,
+          "name": "idle1",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 27,
+          "name": "idle2",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 28,
+          "name": "idle3",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 29,
+          "name": "idle4",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 0,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 30,
+          "name": "punch0",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 31,
+          "name": "punch1",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 32,
+          "name": "punch2",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 33,
+          "name": "punch3",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 34,
+          "name": "punch4",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 229,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1536,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 35,
+          "name": "hurt0",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 36,
+          "name": "hurt1",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 37,
+          "name": "hurt2",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 38,
+          "name": "hurt3",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 39,
+          "name": "hurt4",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 458,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 1792,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 40,
+          "name": "defeat0",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 41,
+          "name": "defeat1",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 42,
+          "name": "defeat2",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 43,
+          "name": "defeat3",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 44,
+          "name": "defeat4",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 687,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2048,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 45,
+          "name": "victory0",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 46,
+          "name": "victory1",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 47,
+          "name": "victory2",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 48,
+          "name": "victory3",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 49,
+          "name": "victory4",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 916,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 2304,
+            "w": 640,
+            "h": 256
+          }
         }
       ],
-      "specialSource": "sprites/player_vickie-special.png",
+      "specialSource": "sprites/workbench/player_vickie-special.png",
       "specialFrames": [
         {
           "index": 0,
           "name": "special-ready",
+          "sheetSource": "sprites/workbench/player_vickie-special.png",
           "source": {
             "x": 24,
             "y": 68,
             "w": 171,
             "h": 242
           },
-          "anchorX": 105,
-          "baseline": 296,
+          "anchorX": 105.5,
+          "baseline": 295,
           "runtime": {
             "x": 0,
             "y": 0,
@@ -2531,6 +5624,7 @@
         {
           "index": 1,
           "name": "special-windup",
+          "sheetSource": "sprites/workbench/player_vickie-special.png",
           "source": {
             "x": 199,
             "y": 68,
@@ -2538,7 +5632,7 @@
             "h": 242
           },
           "anchorX": 274.5,
-          "baseline": 296,
+          "baseline": 295,
           "runtime": {
             "x": 640,
             "y": 0,
@@ -2549,6 +5643,7 @@
         {
           "index": 2,
           "name": "special-release",
+          "sheetSource": "sprites/workbench/player_vickie-special.png",
           "source": {
             "x": 392,
             "y": 68,
@@ -2560,6 +5655,101 @@
           "runtime": {
             "x": 1280,
             "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 3,
+          "name": "special0",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 0,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 4,
+          "name": "special1",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 229,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 5,
+          "name": "special2",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 458,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 0,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 6,
+          "name": "special3",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 687,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 640,
+            "y": 256,
+            "w": 640,
+            "h": 256
+          }
+        },
+        {
+          "index": 7,
+          "name": "special4",
+          "sheetSource": "sprites/workbench/player_vickie-expanded-poses-transparent.png",
+          "source": {
+            "x": 916,
+            "y": 1145,
+            "w": 229,
+            "h": 229
+          },
+          "anchorX": 114.5,
+          "baseline": 229,
+          "runtime": {
+            "x": 1280,
+            "y": 256,
             "w": 640,
             "h": 256
           }

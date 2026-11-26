@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="refresh" content="0;url=../animation-viewer.html">
+    <title>Roads of Rough · Animation Viewer</title>
+  </head>
+  <body>
+    <p>Opening the <a id="viewer-link" href="../animation-viewer.html">animation viewer</a>…</p>
+    <script>
+      const viewer = new URL('../animation-viewer.html', location.href);
+      viewer.search = location.search;
+      viewer.hash = location.hash;
+      location.replace(viewer.href);
+    </script>
+  </body>
+</html>

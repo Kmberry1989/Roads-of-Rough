@@ -1,5 +1,5 @@
 {
-  "source": "sprites/expansion/enemy-thrower-actions.png",
+  "source": "sprites/workbench/enemy-thrower-actions.png",
   "sourceSize": [
     1536,
     1024
@@ -11,6 +11,7 @@
   "baseline": 300,
   "frames": {
     "idle": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 28,
         "y": 18,
@@ -32,6 +33,7 @@
       }
     },
     "walk": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 291,
         "y": 18,
@@ -53,6 +55,7 @@
       }
     },
     "ready": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 550,
         "y": 18,
@@ -74,6 +77,7 @@
       }
     },
     "windup": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 810,
         "y": 18,
@@ -95,6 +99,7 @@
       }
     },
     "release": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 1082,
         "y": 18,
@@ -116,6 +121,7 @@
       }
     },
     "recover": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 28,
         "y": 335,
@@ -137,6 +143,7 @@
       }
     },
     "retreat": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 309,
         "y": 335,
@@ -158,6 +165,7 @@
       }
     },
     "guard": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 572,
         "y": 335,
@@ -179,6 +187,7 @@
       }
     },
     "hurt": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 865,
         "y": 335,
@@ -200,6 +209,7 @@
       }
     },
     "knockdown": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 1164,
         "y": 335,
@@ -221,6 +231,7 @@
       }
     },
     "defeat": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 28,
         "y": 628,
@@ -242,6 +253,7 @@
       }
     },
     "rise": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 450,
         "y": 628,
@@ -263,6 +275,7 @@
       }
     },
     "crouch": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 819,
         "y": 628,
@@ -284,6 +297,7 @@
       }
     },
     "panic": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 1130,
         "y": 628,
@@ -305,6 +319,7 @@
       }
     },
     "bottle0": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 28,
         "y": 862,
@@ -326,6 +341,7 @@
       }
     },
     "bottle1": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 417,
         "y": 862,
@@ -347,6 +363,7 @@
       }
     },
     "bottle2": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 753,
         "y": 862,
@@ -368,6 +385,7 @@
       }
     },
     "bottle3": {
+      "sheetSource": "sprites/workbench/enemy-thrower-actions.png",
       "source": {
         "x": 1084,
         "y": 862,
@@ -384,6 +402,481 @@
       "runtime": {
         "x": 1280,
         "y": 960,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-idle0": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 0,
+        "y": 0,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1920,
+        "y": 960,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-idle1": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 307.2,
+        "y": 0,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 2560,
+        "y": 960,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-idle2": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 614.4,
+        "y": 0,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 0,
+        "y": 1280,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-idle3": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 921.5999999999999,
+        "y": 0,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 640,
+        "y": 1280,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-idle4": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 1228.8,
+        "y": 0,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1280,
+        "y": 1280,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-walk0": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 0,
+        "y": 204.8,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1920,
+        "y": 1280,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-walk1": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 307.2,
+        "y": 204.8,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 2560,
+        "y": 1280,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-walk2": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 614.4,
+        "y": 204.8,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 0,
+        "y": 1600,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-walk3": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 921.5999999999999,
+        "y": 204.8,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 640,
+        "y": 1600,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-walk4": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 1228.8,
+        "y": 204.8,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1280,
+        "y": 1600,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-throw0": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 0,
+        "y": 409.6,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1920,
+        "y": 1600,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-throw1": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 307.2,
+        "y": 409.6,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 2560,
+        "y": 1600,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-throw2": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 614.4,
+        "y": 409.6,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 0,
+        "y": 1920,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-throw3": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 921.5999999999999,
+        "y": 409.6,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 640,
+        "y": 1920,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-throw4": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 1228.8,
+        "y": 409.6,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1280,
+        "y": 1920,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-hurt0": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 0,
+        "y": 614.4000000000001,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1920,
+        "y": 1920,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-hurt1": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 307.2,
+        "y": 614.4000000000001,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 2560,
+        "y": 1920,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-hurt2": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 614.4,
+        "y": 614.4000000000001,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 0,
+        "y": 2240,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-hurt3": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 921.5999999999999,
+        "y": 614.4000000000001,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 640,
+        "y": 2240,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-hurt4": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 1228.8,
+        "y": 614.4000000000001,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1280,
+        "y": 2240,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-defeat0": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 0,
+        "y": 819.2,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1920,
+        "y": 2240,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-defeat1": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 307.2,
+        "y": 819.2,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 2560,
+        "y": 2240,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-defeat2": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 614.4,
+        "y": 819.2,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 0,
+        "y": 2560,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-defeat3": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 921.5999999999999,
+        "y": 819.2,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 640,
+        "y": 2560,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-defeat4": {
+      "sheetSource": "sprites/workbench/thrower-expanded-poses-transparent.png",
+      "source": {
+        "x": 1228.8,
+        "y": 819.2,
+        "w": 307.2,
+        "h": 204.8
+      },
+      "anchorX": 153.6,
+      "runtime": {
+        "x": 1280,
+        "y": 2560,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-bottle0": {
+      "sheetSource": "sprites/workbench/thrower-bottle-expanded-poses.png",
+      "source": {
+        "x": 0,
+        "y": 0,
+        "w": 434.4,
+        "h": 724
+      },
+      "runtime": {
+        "x": 1920,
+        "y": 2560,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-bottle1": {
+      "sheetSource": "sprites/workbench/thrower-bottle-expanded-poses.png",
+      "source": {
+        "x": 434.4,
+        "y": 0,
+        "w": 434.4,
+        "h": 724
+      },
+      "runtime": {
+        "x": 2560,
+        "y": 2560,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-bottle2": {
+      "sheetSource": "sprites/workbench/thrower-bottle-expanded-poses.png",
+      "source": {
+        "x": 868.8,
+        "y": 0,
+        "w": 434.4,
+        "h": 724
+      },
+      "runtime": {
+        "x": 0,
+        "y": 2880,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-bottle3": {
+      "sheetSource": "sprites/workbench/thrower-bottle-expanded-poses.png",
+      "source": {
+        "x": 1303.1999999999998,
+        "y": 0,
+        "w": 434.4,
+        "h": 724
+      },
+      "runtime": {
+        "x": 640,
+        "y": 2880,
+        "w": 640,
+        "h": 320
+      }
+    },
+    "expanded-bottle4": {
+      "sheetSource": "sprites/workbench/thrower-bottle-expanded-poses.png",
+      "source": {
+        "x": 1737.6,
+        "y": 0,
+        "w": 434.4,
+        "h": 724
+      },
+      "runtime": {
+        "x": 1280,
+        "y": 2880,
         "w": 640,
         "h": 320
       }

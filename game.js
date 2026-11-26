@@ -18,8 +18,34 @@
   const portraitHud = document.getElementById('portrait-hud');
   const portraitSelect = document.getElementById('portrait-select');
   const portraitOverlay = document.getElementById('portrait-overlay');
+  const animationViewerLink = document.getElementById('animation-viewer-link');
+  const onlineToggle = document.getElementById('online-toggle');
+  const onlinePanel = document.getElementById('online-panel');
+  const onlineHero = document.getElementById('online-hero');
+  const onlineRoom = document.getElementById('online-room');
+  const onlineStatus = document.getElementById('online-status');
+  const gamepadStatus = document.getElementById('gamepad-status');
   const H = canvas.height;
-  const WORLD_WIDTH = 5600;
+  const WAVES_PER_LEVEL = 4;
+  const LEVELS = [
+    { name: 'DOWNTOWN', boss: 'STREET BOSS', backdrops: [0, 1], sky: '#09091b', grade: 'rgba(12,20,54,.08)' },
+    { name: 'NEON MARKET', boss: 'THE ENFORCER', backdrops: [1, 2], sky: '#180b27', grade: 'rgba(118,24,88,.19)' },
+    { name: 'HARBORLINE', boss: 'DOCK KING', backdrops: [2, 0], sky: '#071923', grade: 'rgba(16,91,106,.2)' },
+    { name: 'OLD QUARTER', boss: 'THE NIGHT MAYOR', backdrops: [0, 2], sky: '#20131b', grade: 'rgba(176,75,40,.17)' },
+    { name: 'SKYWAY HEIGHTS', boss: 'SKYLINE PHANTOM', backdrops: [2, 1], sky: '#101b31', grade: 'rgba(55,91,170,.2)' },
+    { name: 'FLOODWAYS', boss: 'UNDERTOW', backdrops: [1, 0], sky: '#071d25', grade: 'rgba(15,125,138,.24)' },
+    { name: 'CROWN TERMINAL', boss: 'GLASS JACKAL', backdrops: [0, 2], sky: '#251728', grade: 'rgba(194,100,49,.2)' },
+  ];
+  const WAVES_PER_CAMPAIGN = WAVES_PER_LEVEL * LEVELS.length;
+  const LEVEL_LENGTH = 5000;
+  const WORLD_WIDTH = LEVEL_LENGTH * LEVELS.length;
+  const WEAPON_SHEET = 'runtime/weapons/weapons-intact.png';
+  const BROKEN_WEAPON_SHEET = 'runtime/weapons/weapons-broken.png';
+  const WEAPONS = [
+    { id: 'pipe', name: 'STEEL PIPE', frame: 0, damage: 1.34, reach: 34, durability: 7, color: '#5de7ff' },
+    { id: 'bat', name: 'BASEBALL BAT', frame: 1, damage: 1.58, reach: 45, durability: 6, color: '#ffcf65' },
+    { id: 'chain', name: 'CHAIN', frame: 2, damage: 1.22, reach: 58, durability: 5, color: '#bf9aff' },
+  ];
   const FLOOR_TOP = 430;
   const FLOOR_BOTTOM = 635;
   const MAGENTA = [245, 8, 130];
@@ -31,7 +57,7 @@
     { name: 'ROCHELLE', role: 'STREET GUARDIAN', specialName: 'GREEN LIGHT', color: '#9dff75', base: 'player_rochelle.png', special: 'player_rochelle-special.png', speed: 245, maxHealth: 110, meterStart: 30, damage: 1.06, dodge: 185 },
     { name: 'VICKIE', role: 'SPECIALIST', specialName: 'PURPLE HAZE', color: '#bf9aff', base: 'player_vickie.png', special: 'player_vickie-special.png', speed: 240, maxHealth: 95, meterStart: 60, damage: 1.02, dodge: 195 },
   ];
-  const ENEMY_FILES = Array.from({ length: 10 }, (_, i) => `baddy${i + 1}.png`);
+  const ENEMY_FILES = Array.from({ length: 10 }, (_, i) => `runtime/enemy_baddy${i + 1}.png`);
   const PATH = 'sprites/';
   const THROWER_SHEET = 'expansion/runtime/enemy-thrower.png';
   // Measured source cells and derived bounds: runtime/enemy-thrower-frames.json.
@@ -43,11 +69,23 @@
     boss: { windup: .78, active: .22, recovery: .55, range: 148, damage: 20, color: '#ff315f', label: 'BOSS BREAK' },
     thrower: { windup: .95, active: .16, recovery: .75, range: 540, damage: 12, color: '#a7ff67', label: 'BOTTLE • MOVE!' },
   };
+  const BOSS_ATTACKS = [
+    ENEMY_ATTACKS.boss,
+    { windup: .62, active: .24, recovery: .48, range: 164, damage: 22, color: '#d35aff', label: 'RUSHDOWN' },
+    { windup: .92, active: .28, recovery: .72, range: 186, damage: 28, color: '#44dbff', label: 'DOCK CRASH' },
+    { windup: .72, active: .2, recovery: .58, range: 174, damage: 25, color: '#ff9b55', label: 'MIDNIGHT SWEEP' },
+    { windup: .82, active: .26, recovery: .64, range: 198, damage: 30, color: '#9b8bff', label: 'PHANTOM STRIKE' },
+    { windup: .88, active: .3, recovery: .62, range: 190, damage: 32, color: '#36e0d1', label: 'UNDERTOW CRASH' },
+    { windup: .68, active: .34, recovery: .7, range: 210, damage: 34, color: '#ffcf65', label: 'SHATTER DASH' },
+  ];
+  function attackFor(enemy) { return enemy.boss ? BOSS_ATTACKS[enemy.bossLevel] : ENEMY_ATTACKS[enemy.type]; }
 
   const assets = { images: {}, ready: false, failed: 0 };
   const keys = new Set();
   const heldActions = new Set();
   const pressedActions = new Set();
+  const pressedActionsByPlayer = [pressedActions, new Set()];
+  const heldActionsByPlayer = [heldActions, new Set()];
   let previousGamepadButtons = new Set();
   let gamepadSelectDirection = 0;
   let inputSuspended = false;
@@ -210,8 +248,10 @@
     mode: 'loading',
     selectedHero: 0,
     player: null,
+    partner: null,
     enemies: [],
     projectiles: [],
+    weaponPickups: [],
     effects: [],
     particles: [],
     cameraX: 0,
@@ -233,7 +273,14 @@
     messageTimer: 0,
     time: 0,
     bossDefeated: false,
+    bossesDefeated: 0,
+    level: 0,
   };
+  const online = {
+    role: '', peer: null, connection: null, remoteInput: { x: 0, y: 0, actions: new Set() },
+    localActions: new Set(), partnerHero: 1, sendClock: 0, roomId: '', snapshotClock: 0,
+  };
+  const players = () => [state.player, state.partner].filter(Boolean);
 
   // Source rectangles and per-hero body anchors: sprites/runtime/hero-frames.json.
   const {heroFrames, specialFrames, enemyFrames} = window.RoughSprites;
@@ -263,7 +310,7 @@
         resolve(surface);
       };
       image.onerror = () => { assets.failed += 1; resolve(null); };
-      image.src = PATH + (HEROES.some(hero => hero.base === name || hero.special === name) ? 'runtime/' : '') + name;
+      image.src = PATH + (HEROES.some(hero => hero.base === name || hero.special === name) ? 'runtime/' : '') + name + '?v=20261126-detailed-portraits';
     });
   }
 
@@ -272,8 +319,9 @@
       ['backdrop_city.png', false], ['backdrop_city2.png', false], ['backdrop_city3.png', false], ['backdrop_skyline.png', false],
       ['ground_city.png', false], ['ground_city2.png', false], ['interface.png', true],
       ...HEROES.flatMap((hero) => [[hero.base, true], [hero.special, true]]),
-      ...ENEMY_FILES.map((file) => [file, true]),
+      ...ENEMY_FILES.map((file) => [file, false]),
       [THROWER_SHEET, false],
+      [WEAPON_SHEET, false], [BROKEN_WEAPON_SHEET, false],
     ];
     await Promise.all(names.map(async ([name, keyed]) => { assets.images[name] = await loadImage(name, keyed); }));
     assets.ready = true;
@@ -290,6 +338,11 @@
 
   function frameFor(frames, index) { return frames[index % frames.length]; }
   function drawSprite(...args) { window.RoughSprites.drawSprite(ctx, ...args); }
+  function drawWeaponSprite(sheet, frame, x, y, width, height) {
+    if (!sheet) return;
+    const rowHeight = sheet.naturalHeight / WEAPONS.length;
+    ctx.drawImage(sheet, 0, rowHeight * frame, sheet.naturalWidth, rowHeight, x, y, width, height);
+  }
 
   function drawAnimatedSprite(sheet, frames, progress, x, baseline, height, facing = 1, alpha = 1, loop = true) {
     if (!sheet || !frames?.length) return;
@@ -334,12 +387,16 @@
 
   function drawBackground() {
     const tileWidth = 1280;
-    const city = image('backdrop_city.png');
-    const city2 = image('backdrop_city2.png');
+    const levelIndex = clamp(state.level, 0, LEVELS.length - 1);
+    const level = LEVELS[levelIndex];
+    const backdropFiles = ['backdrop_city.png', 'backdrop_city2.png', 'backdrop_city3.png'];
+    const cityName = backdropFiles[level.backdrops[0]];
+    const city = image(cityName);
+    const city2 = image(backdropFiles[level.backdrops[1]]);
     const skyline = image('backdrop_skyline.png');
     const ground = image('ground_city.png');
     const ground2 = image('ground_city2.png');
-    ctx.fillStyle = '#09091b';
+    ctx.fillStyle = level.sky;
     ctx.fillRect(0, 0, W, H);
     if (skyline) ctx.drawImage(skyline, -((state.cameraX * 0.08) % tileWidth), 0, tileWidth, H * 0.82);
     if (city2) {
@@ -366,6 +423,8 @@
       ctx.drawImage(ground2, offset + tileWidth, 405, tileWidth, 315);
       ctx.globalAlpha = 1;
     }
+    ctx.fillStyle = level.grade;
+    ctx.fillRect(0, 0, W, H);
     const grade = ctx.createLinearGradient(0, 0, 0, H);
     grade.addColorStop(0, 'rgba(8,4,23,.08)');
     grade.addColorStop(.7, 'rgba(6,4,19,.22)');
@@ -374,10 +433,10 @@
     ctx.fillRect(0, 0, W, H);
   }
 
-  function createPlayer() {
-    const hero = HEROES[state.selectedHero];
+  function createPlayer(heroIndex = state.selectedHero, playerIndex = 0) {
+    const hero = HEROES[heroIndex];
     return {
-      x: 330, y: 560, vx: 0, vy: 0, facing: 1, speed: hero.speed, health: hero.maxHealth, maxHealth: hero.maxHealth,
+      id: playerIndex === 0 ? 'p1' : 'p2', heroIndex, x: playerIndex === 0 ? 330 : 260, y: playerIndex === 0 ? 560 : 590, vx: 0, vy: 0, facing: 1, speed: hero.speed, health: hero.maxHealth, maxHealth: hero.maxHealth,
       meter: hero.meterStart, maxMeter: 100, state: 'idle', action: '', actionTime: 0, actionTotal: 0,
       actionHit: false, combo: 0, comboTimer: 0, hurtTimer: 0, flashTimer: 0, invuln: 0, anim: 0,
       dodgeTime: 0, dodgeCooldown: 0, dodgeVx: 0, hero,
@@ -386,13 +445,15 @@
 
   function createEnemy(index, x, y, type = 'grunt') {
     const boss = type === 'boss';
+    const bossLevel = boss ? Math.min(LEVELS.length - 1, Math.floor((state.wave - 1) / WAVES_PER_LEVEL)) : 0;
+    const bossHealth = 180 + bossLevel * 75;
     const bruiser = type === 'bruiser';
     const rusher = type === 'rusher';
     return {
       id: `${state.wave}-${index}-${Math.random().toString(16).slice(2)}`,
       x, y, vx: 0, facing: -1, type, boss, sheet: type === 'thrower' ? THROWER_SHEET : ENEMY_FILES[(index + state.wave * 2) % ENEMY_FILES.length],
-      health: boss ? 180 : bruiser ? 45 : rusher ? 24 : 32, maxHealth: boss ? 180 : bruiser ? 45 : rusher ? 24 : 32,
-      speed: boss ? 44 : bruiser ? 52 : rusher ? 112 : 74, state: 'idle', actionTime: 0, actionHit: false,
+      bossLevel, health: boss ? bossHealth : bruiser ? 45 : rusher ? 24 : 32, maxHealth: boss ? bossHealth : bruiser ? 45 : rusher ? 24 : 32,
+      speed: boss ? 44 + bossLevel * 9 : bruiser ? 52 : rusher ? 112 : 74, state: 'idle', actionTime: 0, actionHit: false,
       hurtTimer: 0, flashTimer: 0, invuln: 0, anim: Math.random() * 3, attackCooldown: boss ? .7 : .35 + Math.random(),
       dead: false, deathTimer: 0,
       target: null,
@@ -400,11 +461,20 @@
   }
 
   function beginRun() {
+    if (online.role === 'guest') return;
     clearInput();
     state.mode = 'play';
     state.player = createPlayer();
+    state.partner = online.role === 'host' ? createPlayer(online.partnerHero, 1) : null;
     state.enemies = [];
     state.projectiles = [];
+    state.weaponPickups = LEVELS.map((_, index) => ({
+      id: `weapon-${index}`,
+      weaponId: WEAPONS[index % WEAPONS.length].id,
+      x: index === 0 ? 420 : index * LEVEL_LENGTH + 140,
+      y: 600,
+      available: true,
+    }));
     state.effects = [];
     state.particles = [];
     state.cameraX = 0;
@@ -414,6 +484,8 @@
     state.lastProjectileImpact = null;
     state.wave = 0;
     state.bossDefeated = false;
+    state.bossesDefeated = 0;
+    state.level = 0;
     state.nextWaveAt = 260;
     state.spawnQueue = [];
     state.spawnTimer = 0;
@@ -425,29 +497,32 @@
     state.messageTimer = 1.6;
     spawnWave(0);
     touchControls.hidden = !isTouchCapable();
-    updateStatus('Fight through the street. Move with arrows or WASD, attack with J and K, dodge with Shift, special with L.');
+    updateStatus('Fight through the street. Move with arrows or WASD, hit with J, kick with K, pick up weapons with E or tap them, dodge with Shift, special with L.');
     audio.play('select');
     syncPortraitUi();
   }
 
   function spawnWave(index) {
     state.wave = index + 1;
+    const levelIndex = Math.floor(index / WAVES_PER_LEVEL);
+    const localWave = index % WAVES_PER_LEVEL;
+    state.level = levelIndex;
     const recipes = [
       ['grunt', 'rusher', 'grunt'],
       ['thrower', 'rusher', 'bruiser', 'grunt'],
       ['grunt', 'thrower', 'rusher', 'bruiser'],
       ['thrower', 'bruiser', 'grunt', 'bruiser', 'rusher', 'boss'],
     ];
-    const recipe = recipes[index] || recipes[recipes.length - 1];
+    const recipe = recipes[localWave] || recipes[recipes.length - 1];
     state.spawnQueue = [...recipe];
     state.spawnIndex = 0;
     state.waveSpawnX = Math.max(state.player.x + 430, state.nextWaveAt + 200);
     state.spawnTimer = 0;
     spawnQueuedEnemies();
     state.goTimer = 1.5;
-    state.waveLabel = `WAVE ${index + 1}`;
+    state.waveLabel = `${LEVELS[levelIndex].name} · ${localWave + 1}/${WAVES_PER_LEVEL}`;
     state.nextWaveAt += 1250;
-    state.message = index === 3 ? 'FINAL WAVE' : `WAVE ${index + 1}`;
+    state.message = localWave === WAVES_PER_LEVEL - 1 ? `${LEVELS[levelIndex].boss} APPROACHES` : `${LEVELS[levelIndex].name} · WAVE ${localWave + 1}`;
     state.messageTimer = 1.5;
   }
 
@@ -465,14 +540,19 @@
 
   function activeEnemies() { return state.enemies.filter((enemy) => !enemy.dead); }
 
-  function inputAxis() {
+  function inputAxis(slot = 0) {
     if (inputSuspended || document.hidden || isInteractiveTarget(document.activeElement)) return { x: 0, y: 0 };
+    if (online.role === 'host' && slot === 1) return { x: online.remoteInput.x, y: online.remoteInput.y };
     let dx = 0; let dy = 0;
-    if (keys.has('ArrowLeft') || keys.has('a') || heldActions.has('left')) dx -= 1;
-    if (keys.has('ArrowRight') || keys.has('d') || heldActions.has('right')) dx += 1;
-    if (keys.has('ArrowUp') || keys.has('w') || heldActions.has('up')) dy -= 1;
-    if (keys.has('ArrowDown') || keys.has('s') || heldActions.has('down')) dy += 1;
-    const pad = getGamepad();
+    const moveKeys = slot === 1 ? ['a', 'd', 'w', 's'] : ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
+    if (keys.has(moveKeys[0]) || heldActionsByPlayer[slot].has('left')) dx -= 1;
+    if (keys.has(moveKeys[1]) || heldActionsByPlayer[slot].has('right')) dx += 1;
+    if (keys.has(moveKeys[2]) || heldActionsByPlayer[slot].has('up')) dy -= 1;
+    if (keys.has(moveKeys[3]) || heldActionsByPlayer[slot].has('down')) dy += 1;
+    if (!state.partner && online.role !== 'guest' && slot === 0) {
+      if (keys.has('a')) dx -= 1; if (keys.has('d')) dx += 1; if (keys.has('w')) dy -= 1; if (keys.has('s')) dy += 1;
+    }
+    const pad = getGamepad(online.role === 'guest' ? 0 : slot);
     if (pad) {
       const px = Math.abs(pad.axes[0] || 0) > .2 ? pad.axes[0] : 0;
       const py = Math.abs(pad.axes[1] || 0) > .2 ? pad.axes[1] : 0;
@@ -487,12 +567,15 @@
   }
 
   function pollGamepad() {
-    const pad = getGamepad();
+    const pad = getGamepad(online.role === 'guest' ? 0 : 0);
     if (!pad) {
       previousGamepadButtons.clear();
       gamepadSelectDirection = 0;
+      gamepadStatus.textContent = 'Controller not detected';
       return;
     }
+    const padId = pad.id || '';
+    gamepadStatus.textContent = `${padId.includes('054c') || /dualshock|wireless controller/i.test(padId) ? 'PS4 controller' : 'Controller'} connected · plug in with USB or pair over Bluetooth`;
     const buttons = new Set(pad.buttons.flatMap((button, index) => button.pressed ? [index] : []));
     const newlyPressed = new Set([...buttons].filter((index) => !previousGamepadButtons.has(index)));
     const pressed = (...indices) => indices.some((index) => newlyPressed.has(index));
@@ -515,29 +598,55 @@
       if (pressed(0, 2, 9)) beginFromInput();
       return;
     }
-    if (pressed(9)) { setPaused(state.mode !== 'paused'); return; }
+    if (pressed(9)) {
+      if (online.role === 'guest') online.connection?.send({ type: 'pause' });
+      else setPaused(state.mode !== 'paused');
+      return;
+    }
     if (state.mode === 'paused') {
       if (pressed(0, 2)) beginFromInput();
       return;
     }
-    if (pressed(0, 2)) pressedActions.add('light');
-    if (pressed(1, 3)) pressedActions.add('heavy');
-    if (pressed(4, 5)) pressedActions.add('special');
-    if (pressed(6)) pressedActions.add('dodge');
+    const actionSet = online.role === 'guest' ? online.localActions : pressedActions;
+    if (pressed(0, 2)) actionSet.add('light');     // Cross / Square
+    if (pressed(1, 3)) actionSet.add('heavy');     // Circle / Triangle
+    if (pressed(4, 5)) actionSet.add('special');   // L1 / R1
+    if (pressed(6, 7)) actionSet.add('dodge');     // L2 / R2
   }
 
-  function getGamepad() {
-    return navigator.getGamepads ? Array.from(navigator.getGamepads()).find((pad) => pad) : null;
+  function getGamepad(index = 0) {
+    return navigator.getGamepads ? (Array.from(navigator.getGamepads()).filter(Boolean)[index] || null) : null;
   }
 
-  function actionPressed(name) {
-    const pressed = pressedActions.has(name) || (heldActions.has(name) && !state[`last${name}`]);
-    state[`last${name}`] = heldActions.has(name);
+  function actionPressed(name, slot = 0) {
+    if (online.role === 'host' && slot === 1) {
+      const pressed = online.remoteInput.actions.has(name);
+      online.remoteInput.actions.delete(name);
+      return pressed;
+    }
+    const pressedSet = pressedActionsByPlayer[slot], heldSet = heldActionsByPlayer[slot];
+    const key = `${slot}:${name}`;
+    const pressed = pressedSet.has(name) || (heldSet.has(name) && !state[`last${key}`]);
+    state[`last${key}`] = heldSet.has(name);
+    pressedSet.delete(name);
     return pressed;
   }
 
-  function startAttack(type) {
-    const player = state.player;
+  function tryPickupWeapon(player) {
+    const pickup = state.weaponPickups.find(item => item.available && Math.abs(item.x - player.x) < 96 && Math.abs(item.y - player.y) < 54);
+    if (!pickup) return false;
+    const weapon = WEAPONS.find(item => item.id === pickup.weaponId);
+    if (!weapon) return false;
+    player.weapon = { ...weapon };
+    pickup.available = false;
+    state.message = `${weapon.name} EQUIPPED`;
+    state.messageTimer = 1.1;
+    state.effects.push({ type: 'weapon-pickup', x: player.x, y: player.y - 120, time: .75, max: .75, color: weapon.color, label: weapon.name });
+    audio.play('select');
+    return true;
+  }
+
+  function startAttack(type, player = state.player) {
     if (!player || player.hurtTimer > 0 || player.state === 'defeat') return;
     if (type === 'special') {
       if (player.meter < 100 || player.action) return;
@@ -567,8 +676,7 @@
     if (type === 'heavy') audio.play('heavy');
   }
 
-  function startDodge() {
-    const player = state.player;
+  function startDodge(player = state.player, slot = 0) {
     if (!player || player.action || player.dodgeTime > 0 || player.dodgeCooldown > 0 || player.hurtTimer > 0 || player.state === 'defeat') return;
     player.dodgeTime = .32;
     player.dodgeCooldown = .62;
@@ -590,7 +698,8 @@
 
   function attackRange(player) {
     const special = player.action === 'special';
-    return { x: player.x + player.facing * (special ? 160 : player.action === 'heavy' ? 88 : 68), y: player.y - 88, radius: special ? 190 : player.action === 'heavy' ? 85 : 67 };
+    const weaponReach = special ? 0 : player.weapon?.reach || 0;
+    return { x: player.x + player.facing * ((special ? 160 : player.action === 'heavy' ? 88 : 68) + weaponReach * .45), y: player.y - 88, radius: (special ? 190 : player.action === 'heavy' ? 85 : 67) + weaponReach * .55 };
   }
 
   function addImpact(x, y, kind, color) {
@@ -606,7 +715,7 @@
     burst(x, y, color, profile.count, kind);
   }
 
-  function hitEnemy(enemy, damage, knockback, attackKind = 'light') {
+  function hitEnemy(enemy, damage, knockback, attackKind = 'light', attacker = state.player) {
     const special = attackKind === 'special';
     enemy.health -= damage;
     enemy.hurtTimer = special ? .42 : .25;
@@ -620,21 +729,21 @@
       enemy.dead = true;
       enemy.deathTimer = 1.1;
       state.score += enemy.boss ? 1500 : special ? 450 : 100 + state.wave * 25;
-      state.player.meter = clamp(state.player.meter + (special ? 4 : 10), 0, 100);
-      state.message = enemy.boss ? 'BOSS DOWN!' : special ? `${state.player.hero.specialName}!` : 'ROUGH HIT!';
+      attacker.meter = clamp(attacker.meter + (special ? 4 : 10), 0, 100);
+      state.message = enemy.boss ? 'BOSS DOWN!' : special ? `${attacker.hero.specialName}!` : 'ROUGH HIT!';
       state.messageTimer = .36;
-      if (enemy.boss) state.bossDefeated = true;
+      if (enemy.boss) { state.bossDefeated = true; state.bossesDefeated += 1; }
       audio.play(enemy.boss ? 'boss-defeat' : 'enemy-defeat');
     } else {
-      state.player.meter = clamp(state.player.meter + 5, 0, 100);
+      attacker.meter = clamp(attacker.meter + 5, 0, 100);
     }
     state.shake = special ? .22 : attackKind === 'heavy' ? .16 : .1;
     addImpact(enemy.x, enemy.y - 100, attackKind, special ? '#ffd764' : attackKind === 'heavy' ? '#ff9f43' : '#ff68d3');
     if (!special) audio.play('hit');
   }
 
-  function damagePlayer(amount, source) {
-    const player = state.player;
+  function damagePlayer(amount, source, player = state.player) {
+    if (!player) return;
     if (player.invuln > 0 || player.hurtTimer > 0 || state.mode !== 'play') return;
     player.health = clamp(player.health - amount, 0, player.maxHealth);
     player.hurtTimer = .42;
@@ -654,8 +763,7 @@
     }
   }
 
-  function updatePlayer(dt) {
-    const player = state.player;
+  function updatePlayer(dt, player = state.player, slot = 0) {
     if (!player) return;
     player.anim += dt * (player.state === 'walk' ? 10 : player.state === 'idle' ? 2.8 : 6);
     player.invuln = Math.max(0, player.invuln - dt);
@@ -675,7 +783,8 @@
       player.vx *= .9;
       return;
     }
-    if (actionPressed('dodge')) startDodge();
+    if (actionPressed('dodge', slot)) startDodge(player, slot);
+    if (actionPressed('pickup', slot)) tryPickupWeapon(player);
     if (player.dodgeTime > 0) {
       player.dodgeTime -= dt;
       player.x = clamp(player.x + player.dodgeVx * dt, 45, WORLD_WIDTH - 90);
@@ -684,7 +793,7 @@
       if (player.dodgeTime <= 0) { player.state = 'idle'; player.dodgeVx = 0; }
       return;
     }
-    const axis = inputAxis();
+    const axis = inputAxis(slot);
     if (!player.action) {
       player.vx = axis.x * player.speed;
       player.vy = axis.y * player.speed * .78;
@@ -705,16 +814,27 @@
       if (!player.actionHit && attackWindow(player)) {
         player.actionHit = true;
         const range = attackRange(player);
+        let hitCount = 0;
         activeEnemies().forEach((enemy) => {
           const horizontal = (enemy.x - player.x) * player.facing;
           const reach = (range.x - player.x) * player.facing + range.radius;
           if (horizontal >= 0 && horizontal < reach && Math.abs(enemy.y - player.y) < 42 && enemy.invuln <= 0) {
             const baseDamage = player.action === 'special' ? 36 : player.action === 'heavy' ? 20 : 12 + player.combo * 2;
-            const damage = baseDamage * player.hero.damage;
+            const damage = baseDamage * player.hero.damage * (player.weapon && player.action !== 'special' ? player.weapon.damage : 1);
             const knockback = enemy.boss ? 75 : (player.action === 'special' ? 290 : player.action === 'heavy' ? 180 : 120);
-            hitEnemy(enemy, damage, player.facing * knockback, player.action);
+            hitEnemy(enemy, damage, player.facing * knockback, player.action, player);
+            hitCount += 1;
           }
         });
+        if (hitCount > 0 && player.weapon && player.action !== 'special') {
+          player.weapon.durability -= 1;
+          if (player.weapon.durability <= 0) {
+            state.message = `${player.weapon.name} BROKE`;
+            state.messageTimer = .9;
+            state.effects.push({ type: 'weapon-break', weaponId: player.weapon.id, x: player.x + player.facing * 52, y: player.y - 132, facing: player.facing, time: .8, max: .8 });
+            player.weapon = null;
+          }
+        }
       }
       if (player.actionTime >= player.actionTotal) {
         player.action = '';
@@ -722,9 +842,9 @@
         player.comboTimer = .65;
       }
     }
-    if (actionPressed('light')) startAttack('light');
-    if (actionPressed('heavy')) startAttack('heavy');
-    if (actionPressed('special')) startAttack('special');
+    if (actionPressed('light', slot)) startAttack('light', player);
+    if (actionPressed('heavy', slot)) startAttack('heavy', player);
+    if (actionPressed('special', slot)) startAttack('special', player);
   }
 
   function updateEnemy(enemy, dt) {
@@ -744,10 +864,11 @@
       return;
     }
     enemy.attackCooldown -= dt;
-    const player = state.player;
+    const player = players().filter(p => p.health > 0).sort((a, b) => Math.hypot(a.x - enemy.x, a.y - enemy.y) - Math.hypot(b.x - enemy.x, b.y - enemy.y))[0] || state.player;
+    if (!player) return;
     const dx = player.x - enemy.x;
     const dy = player.y - enemy.y;
-    const attack = ENEMY_ATTACKS[enemy.type];
+    const attack = attackFor(enemy);
     const ranged = enemy.type === 'thrower';
     const closeEnough = ranged
       ? Math.abs(dx) < attack.range && enemy.x > state.cameraX + 45 && enemy.x < state.cameraX + W - 45
@@ -766,7 +887,8 @@
       enemy.actionTime += dt;
       if (!enemy.actionHit && enemy.actionTime <= attack.active) {
         enemy.actionHit = true;
-        if (Math.abs(player.x - enemy.x) < attack.range && Math.abs(player.y - enemy.y) < 38) damagePlayer(attack.damage, enemy);
+        const target = players().filter(p => p.health > 0).sort((a, b) => Math.hypot(a.x - enemy.x, a.y - enemy.y) - Math.hypot(b.x - enemy.x, b.y - enemy.y))[0];
+        if (target && Math.abs(target.x - enemy.x) < attack.range && Math.abs(target.y - enemy.y) < 38) damagePlayer(attack.damage, enemy, target);
       }
       if (enemy.actionTime > attack.active + attack.recovery) {
         enemy.state = 'idle'; enemy.attackCooldown = ranged ? 2.1 : enemy.boss ? 1.35 : enemy.type === 'rusher' ? .7 : 1.1; enemy.actionTime = 0;
@@ -776,7 +898,7 @@
     if (closeEnough && enemy.attackCooldown <= 0) {
       enemy.state = 'windup'; enemy.actionTime = 0; enemy.actionHit = false; enemy.vx = 0;
       enemy.facing = dx < 0 ? -1 : 1;
-      if (ranged) enemy.target = { x: player.x, y: player.y };
+      if (ranged) enemy.target = { x: player.x, y: player.y, playerId: player.id };
       return;
     }
     // Slow retreat gives a ranged identity without endlessly kiting melee heroes.
@@ -790,7 +912,7 @@
   }
 
   function launchBottle(enemy) {
-    if (!enemy.target || state.player.health <= 0) return;
+    if (!enemy.target || !players().some(p => p.id === enemy.target.playerId && p.health > 0)) return;
     const startX = enemy.x + enemy.facing * 48;
     const duration = clamp(Math.hypot(enemy.target.x - startX, enemy.target.y - enemy.y) / 450, .65, 1.05);
     state.projectiles.push({ startX, startY: enemy.y, x: startX, y: enemy.y,
@@ -799,17 +921,17 @@
   }
 
   function updateProjectiles(dt) {
-    if (state.player.health <= 0) { state.projectiles = []; return; }
+    if (!players().some(p => p.health > 0)) { state.projectiles = []; return; }
     state.projectiles = state.projectiles.filter((bottle) => {
       bottle.elapsed += dt;
       const t = clamp(bottle.elapsed / bottle.duration, 0, 1);
       bottle.x = lerp(bottle.startX, bottle.target.x, t);
       bottle.y = lerp(bottle.startY, bottle.target.y, t);
       if (t < 1) return true;
-      const player = state.player;
+      const player = players().find(p => p.id === bottle.target.playerId) || state.player;
       const inRange = Math.abs(player.x - bottle.target.x) < 46 && Math.abs(player.y - bottle.target.y) < 26;
       const before = player.health;
-      if (inRange) damagePlayer(ENEMY_ATTACKS.thrower.damage, { x: bottle.startX });
+      if (inRange) damagePlayer(ENEMY_ATTACKS.thrower.damage, { x: bottle.startX }, player);
       const outcome = player.health < before ? 'hit' : inRange ? 'dodged' : 'miss';
       state.lastProjectileImpact = { ...bottle.target, outcome, time: state.time };
       addImpact(bottle.target.x, bottle.target.y - 12, 'bottle', '#b8ff83');
@@ -835,7 +957,9 @@
 
   function updateGame(dt) {
     pollGamepad();
-    if (state.mode === 'paused') return;
+    updateNetwork(dt);
+    if (online.role === 'guest') { updateParticles(dt); return; }
+    if (state.mode === 'paused') { if (online.role === 'host') sendSnapshot(dt); return; }
     if (state.hitStop > 0) {
       state.hitStop = Math.max(0, state.hitStop - dt);
       return;
@@ -846,26 +970,141 @@
     if (state.goTimer > 0) state.goTimer -= dt;
     state.spawnTimer = Math.max(0, state.spawnTimer - dt);
     if (state.mode !== 'play') { updateParticles(dt); return; }
-    updatePlayer(dt);
+    updatePlayer(dt, state.player, 0);
+    if (state.partner) updatePlayer(dt, state.partner, 1);
     state.enemies.forEach((enemy) => updateEnemy(enemy, dt));
     updateProjectiles(dt);
     state.enemies = state.enemies.filter((enemy) => !enemy.dead || enemy.deathTimer > 0);
     updateParticles(dt);
-    if (state.player.health <= 0) return;
+    if (players().every(player => player.health <= 0)) return;
     spawnQueuedEnemies();
     const living = activeEnemies().length;
-    if (living === 0 && state.spawnQueue.length === 0 && state.projectiles.length === 0 && state.wave < 4 && state.player.x > state.nextWaveAt - 780 && state.goTimer <= 0) spawnWave(state.wave);
-    if (living === 0 && state.spawnQueue.length === 0 && state.projectiles.length === 0 && state.wave === 4 && state.player.x > WORLD_WIDTH - 500 && state.goTimer <= 0) {
-      state.mode = 'victory'; state.message = 'STREET CLEARED'; state.messageTimer = 999; touchControls.hidden = true;
-      updateStatus('Street cleared. Press R or tap the screen to play again.'); audio.play('victory');
+    const frontPlayer = players().filter(p => p.health > 0).sort((a, b) => b.x - a.x)[0] || state.player;
+    if (living === 0 && state.spawnQueue.length === 0 && state.projectiles.length === 0 && state.wave < WAVES_PER_CAMPAIGN && frontPlayer.x > state.nextWaveAt - 780 && state.goTimer <= 0) spawnWave(state.wave);
+    if (living === 0 && state.spawnQueue.length === 0 && state.projectiles.length === 0 && state.wave === WAVES_PER_CAMPAIGN && frontPlayer.x > WORLD_WIDTH - 500 && state.goTimer <= 0) {
+      state.mode = 'victory'; state.message = 'CITY CLEARED'; state.messageTimer = 999; touchControls.hidden = true;
+      updateStatus('City cleared. Press R or tap the screen to play again.'); audio.play('victory');
     }
-    state.cameraX = clamp(lerp(state.cameraX, state.player.x - (portrait ? W * .32 : 370), .12), 0, WORLD_WIDTH - W);
+    const centerX = players().reduce((sum, p) => sum + p.x, 0) / Math.max(1, players().length);
+    state.cameraX = clamp(lerp(state.cameraX, centerX - (portrait ? W * .32 : 370), .12), 0, WORLD_WIDTH - W);
+    if (online.role === 'host') sendSnapshot(dt);
   }
 
-  function drawPlayer() {
-    const player = state.player;
+  function updateNetwork(dt) {
+    if (online.role === 'guest' && online.connection?.open) {
+      online.sendClock += dt;
+      if (online.sendClock >= 1 / 30) {
+        online.sendClock = 0;
+        const axis = inputAxis(1);
+        online.connection.send({ type: 'input', x: axis.x, y: axis.y, actions: [...online.localActions] });
+        online.localActions.clear();
+      }
+    }
+  }
+
+  function sendSnapshot(dt = 0) {
+    if (!online.connection?.open) return;
+    online.snapshotClock += dt;
+    if (online.snapshotClock < 1 / 20) return;
+    online.snapshotClock = 0;
+    const snapshot = {};
+    ['mode','player','partner','enemies','projectiles','weaponPickups','effects','particles','cameraX','score','wave','waveLabel','goTimer','nextWaveAt','spawnTimer','spawnQueue','spawnBatchSize','spawnIndex','waveSpawnX','shake','hitStop','lastImpact','lastProjectileImpact','message','messageTimer','time','bossDefeated','bossesDefeated','level','selectedHero'].forEach(key => { snapshot[key] = state[key]; });
+    online.connection.send({ type: 'snapshot', state: snapshot });
+  }
+
+  function applySnapshot(snapshot) {
+    if (!snapshot || online.role !== 'guest') return;
+    Object.assign(state, snapshot);
+    touchControls.hidden = !isTouchCapable() || state.mode !== 'play';
+    syncPortraitUi();
+  }
+
+  function setOnlineStatus(text) {
+    onlineStatus.textContent = text;
+  }
+
+  function resetOnline() {
+    online.connection?.close(); online.peer?.destroy();
+    online.connection = null; online.peer = null; online.role = ''; online.roomId = '';
+    online.remoteInput = { x: 0, y: 0, actions: new Set() }; online.localActions.clear();
+    document.getElementById('online-copy').hidden = true;
+    document.getElementById('online-leave').hidden = true;
+    setOnlineStatus('Play together from two devices. Use keyboard or a PS4 controller.');
+  }
+
+  function wireConnection(connection, role) {
+    online.connection = connection;
+    connection.on('open', () => {
+      if (role === 'guest') connection.send({ type: 'hello', hero: Number(onlineHero.value) || 0 });
+      canvas.focus({ preventScroll: true });
+      document.getElementById('online-leave').hidden = false;
+      setOnlineStatus(role === 'host' ? 'Player 2 joined. Fight together!' : 'Connected. The host is starting the fight…');
+    });
+    connection.on('data', data => {
+      if (data?.type === 'hello' && role === 'host') {
+        online.partnerHero = clamp(Number(data.hero) || 0, 0, HEROES.length - 1);
+        beginRun();
+        setOnlineStatus('Player 2 joined. Use arrows + J/K/L; your partner uses WASD + J/K/L.');
+      } else if (data?.type === 'input' && role === 'host') {
+        online.remoteInput = { x: clamp(Number(data.x) || 0, -1, 1), y: clamp(Number(data.y) || 0, -1, 1), actions: new Set(data.actions || []) };
+      } else if (data?.type === 'pause' && role === 'host') {
+        setPaused(state.mode !== 'paused');
+      } else if (data?.type === 'snapshot' && role === 'guest') applySnapshot(data.state);
+    });
+    connection.on('close', () => { if (online.connection === connection) { online.connection = null; setOnlineStatus('Partner disconnected. You can host or join again.'); } });
+    connection.on('error', error => setOnlineStatus(`Connection error: ${error.message || 'try reconnecting'}`));
+  }
+
+  function makePeer() {
+    if (!window.Peer) { setOnlineStatus('Online connection library failed to load.'); return null; }
+    const peer = new Peer(undefined, { debug: 1 });
+    online.peer = peer;
+    peer.on('error', error => setOnlineStatus(`Connection error: ${error.type || error.message}`));
+    return peer;
+  }
+
+  HEROES.forEach((hero, index) => {
+    const option = document.createElement('option'); option.value = String(index); option.textContent = hero.name; onlineHero.append(option);
+  });
+  onlineToggle.addEventListener('click', () => {
+    onlinePanel.hidden = !onlinePanel.hidden;
+    onlineToggle.setAttribute('aria-expanded', String(!onlinePanel.hidden));
+  });
+  document.getElementById('online-host').addEventListener('click', () => {
+    resetOnline();
+    const peer = makePeer(); if (!peer) return;
+    online.role = 'host';
+    setOnlineStatus('Creating a room… keep this page open.');
+    peer.on('open', id => {
+      online.roomId = id;
+      onlinePanel.querySelector('#online-room').value = id;
+      document.getElementById('online-copy').hidden = false;
+      setOnlineStatus(`Room ready. Share code ${id} with your partner.`);
+    });
+    peer.on('connection', connection => wireConnection(connection, 'host'));
+  });
+  document.getElementById('online-join').addEventListener('click', () => {
+    resetOnline();
+    const room = onlineRoom.value.trim();
+    if (!room) { setOnlineStatus('Enter the room code from the host.'); return; }
+    const peer = makePeer(); if (!peer) return;
+    online.role = 'guest';
+    state.selectedHero = Number(onlineHero.value) || 0;
+    setOnlineStatus('Connecting to the signaling service…');
+    peer.on('open', () => {
+      setOnlineStatus('Joining room…');
+      wireConnection(peer.connect(room, { reliable: true }), 'guest');
+    });
+  });
+  document.getElementById('online-copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(online.roomId); setOnlineStatus('Room code copied. Send it to your partner.'); }
+    catch { onlineRoom.select(); setOnlineStatus('Copy failed. Select and copy the room code above.'); }
+  });
+  document.getElementById('online-leave').addEventListener('click', () => { resetOnline(); beginRun(); });
+
+  function drawPlayer(player) {
     if (!player) return;
-    const hero = HEROES[state.selectedHero];
+    const hero = player.hero || HEROES[player.heroIndex ?? state.selectedHero];
     const animationState = player.state === 'light' ? 'punch' : player.state === 'heavy' ? 'kick' : player.state === 'dodge' ? 'walk' : player.state;
     let frames = heroFrames[animationState] || heroFrames.idle;
     let sheet = image(hero.base);
@@ -876,6 +1115,17 @@
     ctx.save();
     if (player.flashTimer > 0) { ctx.filter = 'brightness(3.6) saturate(0)'; ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 18; }
     drawAnimatedSprite(sheet, frames, progress, player.x - state.cameraX, player.y + 12 * 245 / 256, 245, player.facing, alpha, !action);
+    if (player.weapon && ['light', 'heavy'].includes(player.state)) {
+      const weaponImage = image(WEAPON_SHEET);
+      if (weaponImage) {
+        const swing = clamp(player.actionTime / Math.max(.01, player.actionTotal), 0, 1);
+        ctx.translate(player.x - state.cameraX + player.facing * 31, player.y - 105);
+        ctx.scale(player.facing, 1);
+        ctx.rotate(-.95 + swing * 1.8);
+        ctx.globalAlpha = alpha;
+        drawWeaponSprite(weaponImage, player.weapon.frame, -66, -18, 132, 44);
+      }
+    }
     ctx.restore();
   }
 
@@ -888,7 +1138,7 @@
     ctx.globalAlpha = alpha;
     const height = enemy.boss ? 290 : enemy.type === 'bruiser' || ranged ? 235 : 205;
     if (enemy.state === 'windup') {
-      const attack = ENEMY_ATTACKS[enemy.type];
+      const attack = attackFor(enemy);
       const charge = clamp(enemy.actionTime / attack.windup, 0, 1);
       const screenX = enemy.x - state.cameraX;
       ctx.save();
@@ -911,11 +1161,11 @@
     if (enemy.boss) {
       ctx.save();
       ctx.globalAlpha = .22 + Math.sin(state.time * 5) * .08;
-      ctx.fillStyle = '#ff315f';
+      ctx.fillStyle = BOSS_ATTACKS[enemy.bossLevel].color;
       ctx.beginPath(); ctx.arc(enemy.x - state.cameraX, enemy.y - 125, 78, 0, Math.PI * 2); ctx.fill();
       ctx.restore();
     }
-    const attackTotal = ENEMY_ATTACKS[enemy.type].active + ENEMY_ATTACKS[enemy.type].recovery;
+      const attackTotal = attackFor(enemy).active + attackFor(enemy).recovery;
     const progress = enemy.dead ? (1 - enemy.deathTimer) * (frameSet.length - .001) : enemy.state === 'attack' ? (enemy.actionTime / attackTotal) * (frameSet.length - .001) : ranged && enemy.state === 'windup' ? enemy.actionTime / ENEMY_ATTACKS.thrower.windup * (frameSet.length - .001) : enemy.anim;
     if (enemy.flashTimer > 0) { ctx.filter = 'brightness(4) saturate(0)'; ctx.shadowColor = '#ffffff'; ctx.shadowBlur = 20; }
     if (ranged) {
@@ -925,13 +1175,13 @@
     } else {
       drawAnimatedSprite(image(enemy.sheet), frameSet, progress, enemy.x - state.cameraX, enemy.y, height, enemy.facing, 1, !enemy.dead && enemy.state !== 'attack');
     }
-    if (!enemy.dead && enemy.boss) drawText('STREET BOSS', enemy.x - state.cameraX, enemy.y - 320, 17, '#ff6a87', 'center');
+    if (!enemy.dead && enemy.boss) drawText(LEVELS[enemy.bossLevel].boss, enemy.x - state.cameraX, enemy.y - 320, 17, BOSS_ATTACKS[enemy.bossLevel].color, 'center');
     ctx.restore();
     if (!enemy.dead && enemy.health < enemy.maxHealth) {
       const barW = enemy.boss ? 150 : enemy.type === 'bruiser' ? 74 : 58;
       const barY = enemy.boss ? enemy.y - 302 : enemy.y - 218;
       ctx.fillStyle = 'rgba(0,0,0,.65)'; ctx.fillRect(enemy.x - state.cameraX - barW / 2, barY, barW, enemy.boss ? 10 : 7);
-      ctx.fillStyle = enemy.boss ? '#ff3e68' : enemy.type === 'bruiser' ? '#ffbf3c' : '#ff5d7d'; ctx.fillRect(enemy.x - state.cameraX - barW / 2, barY, barW * clamp(enemy.health / enemy.maxHealth, 0, 1), enemy.boss ? 10 : 7);
+      ctx.fillStyle = enemy.boss ? BOSS_ATTACKS[enemy.bossLevel].color : enemy.type === 'bruiser' ? '#ffbf3c' : '#ff5d7d'; ctx.fillRect(enemy.x - state.cameraX - barW / 2, barY, barW * clamp(enemy.health / enemy.maxHealth, 0, 1), enemy.boss ? 10 : 7);
     }
   }
 
@@ -987,8 +1237,20 @@
     ctx.fillStyle = '#ffc82f'; ctx.fillRect(138, 74, 206 * clamp(player.meter / player.maxMeter, 0, 1), 6);
     drawPanel(1038, 18, 220, 84, '#a8afc5', 'rgba(7,7,21,.82)');
     drawText(state.waveLabel, 1054, 39, 15, '#ff71da');
+    drawText(player.weapon ? `${player.weapon.name} · ${player.weapon.durability}` : 'NO WEAPON', 1054, 57, 12, player.weapon?.color || '#aaa4c0');
     drawText(String(state.score).padStart(6, '0'), 1242, 71, 25, '#fff', 'right');
     drawText('SCORE', 1054, 74, 12, '#b6b4ca');
+    if (state.partner) {
+      const partner = state.partner;
+      const secondHero = partner.hero || HEROES[partner.heroIndex];
+      drawPanel(22, 110, 355, 68, '#8d81b7', 'rgba(7,7,21,.78)');
+      drawText('P2', 40, 133, 13, '#d6b7ff');
+      drawText(secondHero.name, 76, 137, 18, secondHero.color);
+      drawText('HP', 76, 160, 12, '#b6b4ca');
+      drawPanel(102, 148, 248, 16, '#798196', 'rgba(0,0,0,.75)');
+      ctx.fillStyle = partner.health > 35 ? '#42e56a' : '#ff3d49'; ctx.fillRect(108, 153, 236 * clamp(partner.health / partner.maxHealth, 0, 1), 6);
+      if (online.role === 'host') drawText('REMOTE PLAYER', 390, 36, 12, '#d6b7ff');
+    }
     if (player.combo > 1 && player.comboTimer > 0) drawText(`${player.combo} HIT COMBO`, 640, 136, 21, '#ffd455', 'center');
   }
 
@@ -1009,11 +1271,12 @@
 
   function drawStage() {
     drawBackground();
-    const things = [...activeEnemies(), ...state.enemies.filter((enemy) => enemy.dead), { ...state.player, isPlayer: true }].filter(Boolean).sort((a, b) => a.y - b.y);
+    state.weaponPickups.filter(pickup => pickup.available).forEach(drawWeaponPickup);
+    const things = [...activeEnemies(), ...state.enemies.filter((enemy) => enemy.dead), ...players().map(player => ({ ...player, isPlayer: true, playerRef: player }))].filter(Boolean).sort((a, b) => a.y - b.y);
     things.forEach((thing) => {
       ctx.fillStyle = 'rgba(0,0,0,.32)';
       ctx.beginPath(); ctx.ellipse(thing.x - state.cameraX, thing.y + 3, thing.isPlayer ? 35 : 31, 9, 0, 0, Math.PI * 2); ctx.fill();
-      if (thing.isPlayer) drawPlayer(); else drawEnemy(thing);
+      if (thing.isPlayer) drawPlayer(thing.playerRef); else drawEnemy(thing);
     });
     drawProjectiles();
     state.effects.forEach((effect) => {
@@ -1021,6 +1284,25 @@
         ctx.save(); ctx.globalAlpha = effect.time / effect.max;
         drawText(effect.outcome === 'hit' ? 'BOTTLE HIT!' : effect.outcome === 'dodged' ? 'DODGED!' : 'GLASS BREAK', effect.x - state.cameraX, effect.y - (1 - effect.time / effect.max) * 20, 22, effect.outcome === 'hit' ? '#ff727a' : '#b8ff83', 'center');
         ctx.restore(); return;
+      }
+      if (effect.type === 'weapon-pickup') {
+        ctx.save(); ctx.globalAlpha = clamp(effect.time / effect.max, 0, 1);
+        drawText(effect.label, effect.x - state.cameraX, effect.y - (1 - effect.time / effect.max) * 30, 20, effect.color, 'center');
+        ctx.restore(); return;
+      }
+      if (effect.type === 'weapon-break') {
+        const weapon = WEAPONS.find(item => item.id === effect.weaponId);
+        const sprite = image(BROKEN_WEAPON_SHEET);
+        const progress = 1 - effect.time / effect.max;
+        if (weapon && sprite) {
+          ctx.save(); ctx.globalAlpha = effect.time / effect.max;
+          ctx.translate(effect.x - state.cameraX, effect.y - progress * 34);
+          ctx.scale(effect.facing, 1);
+          ctx.rotate(progress * .34);
+          drawWeaponSprite(sprite, weapon.frame, -62, -16, 124, 32);
+          ctx.restore();
+        }
+        return;
       }
       if (effect.type === 'impact') {
         const progress = 1 - effect.time / effect.max;
@@ -1060,6 +1342,28 @@
     }
   }
 
+  function drawWeaponPickup(pickup) {
+    const weapon = WEAPONS.find(item => item.id === pickup.weaponId);
+    const sprite = image(WEAPON_SHEET);
+    if (!weapon || !sprite) return;
+    const x = pickup.x - state.cameraX;
+    const pulse = .75 + Math.sin(state.time * 5 + pickup.x) * .12;
+    ctx.save();
+    ctx.globalAlpha = pulse;
+    ctx.fillStyle = `${weapon.color}22`;
+    ctx.strokeStyle = weapon.color;
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.ellipse(x, pickup.y + 1, 45, 13, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.shadowColor = weapon.color; ctx.shadowBlur = 18;
+    drawWeaponSprite(sprite, weapon.frame, x - 42, pickup.y - 46, 84, 28);
+    ctx.shadowBlur = 0;
+    drawText(weapon.name, x, pickup.y - 60, 12, weapon.color, 'center');
+    if (state.player && Math.abs(state.player.x - pickup.x) < 96 && Math.abs(state.player.y - pickup.y) < 54) {
+      drawText('E / TAP TO PICK UP', x, pickup.y - 80, 13, '#fff', 'center');
+    }
+    ctx.restore();
+  }
+
   function drawSelect() {
     drawBackground();
     ctx.fillStyle = 'rgba(8,4,24,.83)'; ctx.fillRect(0, 0, W, H);
@@ -1080,7 +1384,7 @@
     });
     drawText('CHOOSE YOUR ROUGH ONE', W / 2, 545, 14, '#a8a2bf', 'center');
     drawText('← → / A D TO CHOOSE    ENTER / SPACE TO START', W / 2, 594, 17, '#fff', 'center');
-    drawText('J / X HIT     K / C KICK     L / V SPECIAL     SHIFT DODGE     F FULLSCREEN', W / 2, 625, 12, '#bcb5d7', 'center');
+    drawText('J / X HIT     K / C KICK     E PICK UP WEAPON     L / V SPECIAL     SHIFT DODGE     F FULLSCREEN', W / 2, 625, 12, '#bcb5d7', 'center');
     drawText('GAMEPAD: A/X HIT · B/Y KICK · LB/RB SPECIAL · LT DODGE · START PAUSE · BACK RESTART', W / 2, 667, 12, '#ff65d8', 'center');
   }
 
@@ -1094,6 +1398,7 @@
   }
 
   function render() {
+    animationViewerLink.hidden = state.mode !== 'select';
     syncPortraitUi();
     ctx.save();
     if (state.shake > 0) ctx.translate((Math.random() - .5) * 12 * state.shake / .2, (Math.random() - .5) * 8 * state.shake / .2);
@@ -1105,7 +1410,7 @@
       drawStage();
       if (state.mode === 'paused' && !portrait) drawOverlay('PAUSED', 'The street waits.', '#62e8ff');
     } else if (state.mode === 'victory') {
-      drawStage(); if (!portrait) drawOverlay('STREET CLEARED', 'You made it through the rough side of town.', '#ffd65b');
+      drawStage(); if (!portrait) drawOverlay('CITY CLEARED', `${LEVELS.length} districts. ${LEVELS.length} bosses. The streets are yours.`, '#ffd65b');
     }
     ctx.restore();
   }
@@ -1118,7 +1423,8 @@
     keys.clear();
     heldActions.clear();
     pressedActions.clear();
-    for (const action of ['light', 'heavy', 'special', 'dodge']) state[`last${action}`] = false;
+    pressedActionsByPlayer[1].clear(); heldActionsByPlayer[1].clear();
+    for (let slot = 0; slot < 2; slot += 1) for (const action of ['light', 'heavy', 'special', 'dodge', 'pickup']) state[`last${slot}:${action}`] = false;
     touchControls.querySelectorAll('.is-held').forEach((button) => button.classList.remove('is-held'));
   }
 
@@ -1150,13 +1456,14 @@
   function handleKeyDown(event) {
     if (inputSuspended || document.hidden || isInteractiveTarget(event.target)) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'Enter'].includes(event.key) || ['w', 'a', 's', 'd', 'j', 'x', 'k', 'c', 'l', 'v', 'b', 'p', 'r', 'f'].includes(key)) event.preventDefault();
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'Enter'].includes(event.key) || ['w', 'a', 's', 'd', 'j', 'x', 'k', 'c', 'l', 'v', 'b', 'e', 'p', 'r', 'f'].includes(key)) event.preventDefault();
     if (event.repeat && ['f', 'r', 'p', 'Enter', ' '].includes(key)) return;
     if (key === 'f') { toggleFullscreen(); return; }
     if (key === 'Escape' && document.fullscreenElement) { document.exitFullscreen(); return; }
     if (key === 'r') { restartFromInput(); return; }
     if (key === 'p' && (state.mode === 'play' || state.mode === 'paused')) {
-      setPaused(state.mode !== 'paused');
+      if (online.role === 'guest') online.connection?.send({ type: 'pause' });
+      else setPaused(state.mode !== 'paused');
       return;
     }
     if (state.mode === 'select' && (key === 'ArrowLeft' || key === 'a' || key === 'ArrowRight' || key === 'd')) {
@@ -1165,22 +1472,24 @@
     }
     if (state.mode === 'select' && (key === 'Enter' || key === ' ')) { beginRun(); return; }
     if ((state.mode === 'victory' || (state.mode === 'play' && state.player?.health <= 0)) && (key === 'Enter' || key === ' ')) { beginRun(); return; }
-    if (key === 'j' || key === 'x') pressedActions.add('light');
-    if (key === 'k' || key === 'c') pressedActions.add('heavy');
-    if (key === 'l' || key === 'v') pressedActions.add('special');
-    if (key === 'b') pressedActions.add('dodge');
-    if (key === 'Shift') pressedActions.add('dodge');
+    const actions = online.role === 'guest' ? online.localActions : pressedActions;
+    if (key === 'e') actions.add('pickup');
+    if (key === 'j' || key === 'x') actions.add('light');
+    if (key === 'k' || key === 'c') actions.add('heavy');
+    if (key === 'l' || key === 'v') actions.add('special');
+    if (key === 'b' || key === 'Shift') actions.add('dodge');
     keys.add(key);
   }
 
   function handleKeyUp(event) {
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     keys.delete(key);
-    if (key === 'j' || key === 'x') pressedActions.delete('light');
-    if (key === 'k' || key === 'c') pressedActions.delete('heavy');
-    if (key === 'l' || key === 'v') pressedActions.delete('special');
-    if (key === 'b') pressedActions.delete('dodge');
-    if (key === 'Shift') pressedActions.delete('dodge');
+    const actions = online.role === 'guest' ? online.localActions : pressedActions;
+    if (key === 'e') actions.delete('pickup');
+    if (key === 'j' || key === 'x') actions.delete('light');
+    if (key === 'k' || key === 'c') actions.delete('heavy');
+    if (key === 'l' || key === 'v') actions.delete('special');
+    if (key === 'b' || key === 'Shift') actions.delete('dodge');
   }
 
   function toggleFullscreen() {
@@ -1195,7 +1504,7 @@
       if (state.mode === 'paused') return;
       canvas.focus({ preventScroll: true });
       button.classList.add('is-held'); heldActions.add(action);
-      if (['light', 'heavy', 'special'].includes(action)) pressedActions.add(action);
+      if (['light', 'heavy', 'special', 'pickup'].includes(action)) pressedActions.add(action);
       if (state.mode === 'select' || state.mode === 'victory' || state.player?.health <= 0) beginFromInput();
     };
     const up = (event) => {
@@ -1210,6 +1519,7 @@
   function handleCanvasPointer(event) {
     if (event.type === 'pointerdown') {
       canvas.focus({ preventScroll: true });
+      if (state.mode === 'play' && state.player && tryPickupWeapon(state.player)) return;
       if (state.mode === 'select') {
         const rect = canvas.getBoundingClientRect();
         const x = (event.clientX - rect.left) * W / rect.width;
@@ -1240,7 +1550,7 @@
     const button = document.createElement('button');
     button.type = 'button'; button.dataset.hero = index;
     const picture = document.createElement('img');
-    picture.src = `${PATH}runtime/player_${hero.name.toLowerCase()}-portrait.png`; picture.alt = '';
+    picture.src = `${PATH}runtime/player_${hero.name.toLowerCase()}-portrait.png?v=20261126-detailed-portraits`; picture.alt = '';
     const details = document.createElement('span');
     const name = document.createElement('strong'); name.textContent = hero.name;
     const role = document.createElement('span'); role.textContent = hero.role;
@@ -1268,7 +1578,7 @@
     portraitRoster.querySelectorAll('button').forEach((button, i) => { button.setAttribute('aria-pressed', String(i === state.selectedHero)); });
     if (!portrait || !player) return;
     const setText = (id, value) => { const node = document.getElementById(id); if (node.textContent !== value) node.textContent = value; };
-    setText('portrait-hero', player.hero.name);
+    setText('portrait-hero', player.weapon ? `${player.hero.name} · ${player.weapon.name} ${player.weapon.durability}` : player.hero.name);
     setText('portrait-wave', `${state.waveLabel} · ${String(state.score).padStart(6, '0')}`);
     setText('portrait-health-text', `HP ${Math.ceil(player.health)}/${player.maxHealth}`);
     setText('portrait-meter-text', `SP ${Math.floor(player.meter)}/100`);
@@ -1277,8 +1587,8 @@
     const paused = state.mode === 'paused';
     document.getElementById('portrait-pause').disabled = state.mode !== 'play' || dead;
     document.getElementById('portrait-resume').hidden = !paused;
-    setText('portrait-overlay-title', paused ? 'PAUSED' : dead ? 'DOWN FOR THE COUNT' : 'STREET CLEARED');
-    setText('portrait-overlay-copy', paused ? 'Tap RESUME or the street to continue.' : dead ? 'Choose RESTART for another run.' : 'You made it through the rough side of town.');
+    setText('portrait-overlay-title', paused ? 'PAUSED' : dead ? 'DOWN FOR THE COUNT' : 'CITY CLEARED');
+    setText('portrait-overlay-copy', paused ? 'Tap RESUME or the street to continue.' : dead ? 'Choose RESTART for another run.' : `${LEVELS.length} districts. ${LEVELS.length} bosses. The streets are yours.`);
     setText('portrait-overlay-score', `SCORE ${String(state.score).padStart(6, '0')}`);
     portraitOverlay.style.setProperty('--overlay-accent', paused ? '#62e8ff' : dead ? '#ff727a' : '#ffd447');
   }
@@ -1290,11 +1600,16 @@
       mode: state.mode,
       view: { portrait, width: W, height: H },
       selectedHero: HEROES[state.selectedHero]?.name || null,
-      player: player ? { x: Math.round(player.x), y: Math.round(player.y), health: Math.round(player.health), meter: Math.round(player.meter), state: player.state, action: player.action || null, dodgeCooldown: Number(player.dodgeCooldown.toFixed(2)) } : null,
-      enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, state: enemy.state, tell: enemy.state === 'windup' ? { label: ENEMY_ATTACKS[enemy.type].label, target: enemy.target, remaining: Number(Math.max(0, ENEMY_ATTACKS[enemy.type].windup - enemy.actionTime).toFixed(2)) } : null })),
+      player: player ? { x: Math.round(player.x), y: Math.round(player.y), health: Math.round(player.health), meter: Math.round(player.meter), state: player.state, action: player.action || null, weapon: player.weapon ? { id: player.weapon.id, name: player.weapon.name, durability: player.weapon.durability } : null, dodgeCooldown: Number(player.dodgeCooldown.toFixed(2)) } : null,
+      partner: state.partner ? { hero: state.partner.hero?.name || HEROES[state.partner.heroIndex]?.name, x: Math.round(state.partner.x), y: Math.round(state.partner.y), health: Math.round(state.partner.health), meter: Math.round(state.partner.meter), state: state.partner.state, action: state.partner.action || null } : null,
+      online: { role: online.role, connected: Boolean(online.connection?.open) },
+      enemies: activeEnemies().map((enemy) => ({ id: enemy.id, x: Math.round(enemy.x), y: Math.round(enemy.y), health: Math.round(enemy.health), type: enemy.type, boss: enemy.boss, bossName: enemy.boss ? LEVELS[enemy.bossLevel].boss : null, state: enemy.state, tell: enemy.state === 'windup' ? { label: attackFor(enemy).label, target: enemy.target, remaining: Number(Math.max(0, attackFor(enemy).windup - enemy.actionTime).toFixed(2)) } : null })),
       projectiles: state.projectiles.map(bottle => ({ type: 'bottle', x: Math.round(bottle.x), y: Math.round(bottle.y), target: bottle.target, remaining: Number(Math.max(0, bottle.duration - bottle.elapsed).toFixed(2)), hitRadius: { x: 46, y: 26 } })),
+      weaponPickups: state.weaponPickups.filter(pickup => pickup.available).map(pickup => ({ id: pickup.id, weapon: pickup.weaponId, x: Math.round(pickup.x), y: Math.round(pickup.y) })),
       lastProjectileImpact: state.lastProjectileImpact,
       wave: state.wave,
+      level: LEVELS[state.level]?.name || LEVELS[0].name,
+      bossesDefeated: state.bossesDefeated,
       queuedEnemies: state.spawnQueue.length,
       spawnCap: state.spawnBatchSize,
       score: state.score,

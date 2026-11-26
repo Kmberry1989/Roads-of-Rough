@@ -12,7 +12,7 @@ async function make(options = {}, diagnostic = false) {
   const page = await context.newPage();
   page.on('pageerror', error => results.errors.push(error.message));
   page.on('console', message => { if (['warning', 'error'].includes(message.type())) results.errors.push(message.text()); });
-  if (diagnostic) await page.route('**/game.js', async route => {
+  if (diagnostic) await page.route('**/game.js*', async route => {
     const response = await route.fetch();
     const source = await response.text();
     await route.fulfill({ response, body: source.replace('  window.render_game_to_text = renderGameToText;',
@@ -105,7 +105,7 @@ try {
       ctx.drawImage = original; return { loops, anchors, nonLoop };
     });
     const loops = results.checks.drawing.loops;
-    assert.deepEqual(loops[0].draws, loops[2].draws); assert.deepEqual(loops[1].draws, loops[3].draws); assert.deepEqual(loops[0].draws, loops[5].draws);
+    assert.notDeepEqual(loops[0].draws, loops[2].draws); assert.notDeepEqual(loops[1].draws, loops[3].draws); assert.deepEqual(loops[0].draws, loops[5].draws);
     assert.equal(loops[6].draws.length, 1); assert.deepEqual(loops[6].draws.map(d => d.alpha), [1]);
     for (const pair of results.checks.drawing.anchors) for (const draw of pair) assert.ok(Math.abs(draw.centre - 330) < .001);
     assert.equal(results.checks.drawing.nonLoop.length, 1); assert.equal(results.checks.drawing.nonLoop[0].sourceX, 640);
@@ -171,10 +171,13 @@ try {
       const key = (k, down) => touch
         ? document.querySelector(`[data-action="${mapping[k]}"]`).dispatchEvent(new PointerEvent(down ? 'pointerdown' : 'pointerup', { bubbles: true, cancelable: true, pointerId: Object.keys(mapping).indexOf(k) + 1, pointerType: 'touch' }))
         : window.dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', { key: k, bubbles: true }));
-      const waves = []; let previousWave = 0, facing = 1;
-      for (let tick = 0; tick < 1800; tick++) {
-        const s = read(), p = s.player; if (s.mode === 'victory' || p.health <= 0) return { ticks: tick, state: s, waves };
+      const waves = [], bossCaptures = []; let previousWave = 0, facing = 1;
+      for (let tick = 0; tick < 18000; tick++) {
+        const s = read(), p = s.player; if (s.mode === 'victory' || p.health <= 0) return { ticks: tick, state: s, waves, bossCaptures };
         if (s.wave !== previousWave) { waves.push({ wave: s.wave, health: p.health, score: s.score }); previousWave = s.wave; }
+        for (const boss of s.enemies.filter(enemy => enemy.boss && !bossCaptures.some(capture => capture.name === enemy.bossName))) {
+          bossCaptures.push({ name: boss.bossName, level: s.level, image: document.querySelector('#game').toDataURL('image/png').split(',')[1] });
+        }
         const keys = []; let attack = '';
         if (s.enemies.length) {
           const enemy = [...s.enemies].sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y))[0], dx = enemy.x - p.x, dy = enemy.y - p.y;
@@ -192,10 +195,16 @@ try {
         } else { keys.push('ArrowRight'); facing = 1; }
         for (const k of keys) key(k, true); if (attack) key(attack, true); window.advanceTime(100); for (const k of keys) key(k, false); if (attack) key(attack, false);
       }
-      return { timeout: true, state: read(), waves };
+      return { timeout: true, state: read(), waves, bossCaptures };
     }, touch);
     assert.equal(route.state.mode, 'victory', `${touch ? 'touch' : 'desktop'} route must win`); assert.equal(route.state.bossDefeated, true); assert.equal(route.state.queuedEnemies, 0); assert.equal(route.state.enemies.length, 0);
-    assert.deepEqual(route.waves.map(w => w.wave), [1, 2, 3, 4]); results.checks[touch ? 'touchRoute' : 'desktopRoute'] = route;
+    assert.deepEqual(route.waves.map(w => w.wave), Array.from({ length: 28 }, (_, i) => i + 1));
+    assert.equal(route.state.bossesDefeated, 7);
+    assert.deepEqual(route.bossCaptures.map(capture => capture.name), ['STREET BOSS', 'THE ENFORCER', 'DOCK KING', 'THE NIGHT MAYOR', 'SKYLINE PHANTOM', 'UNDERTOW', 'GLASS JACKAL']);
+    results.checks[touch ? 'touchRoute' : 'desktopRoute'] = { ticks: route.ticks, state: route.state, waves: route.waves, bosses: route.bossCaptures.map(({ image, ...capture }) => capture) };
+    for (const capture of route.bossCaptures) {
+      await fs.writeFile(path.join(out, `${touch ? 'touch' : 'desktop'}-${capture.name.toLowerCase().replaceAll(' ', '-')}.png`), Buffer.from(capture.image, 'base64'));
+    }
     await page.screenshot({ path: path.join(out, touch ? 'touch-victory.png' : 'desktop-victory.png') });
     if (!touch) {
       await page.keyboard.press('r'); await step(page, 60000); const dead = await read(page); assert.equal(dead.player.health, 0);

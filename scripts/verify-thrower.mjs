@@ -13,7 +13,7 @@ try {
     page.on('pageerror', e => results.errors.push(e.message));
     page.on('console', e => { if (['error', 'warning'].includes(e.type())) results.errors.push(e.text()); });
     // Private diagnostic access exists only in this intercepted test response.
-    await page.route('**/game.js', async route => {
+    await page.route('**/game.js*', async route => {
       const response = await route.fetch(), body = await response.text();
       await route.fulfill({ response, body: body.replace('  window.render_game_to_text = renderGameToText;', '  window.__qa = { state, createEnemy, beginRun, hitEnemy, spawnWave, image, throwerFrames, launchBottle, updateProjectiles, updateEnemy };\n  window.render_game_to_text = renderGameToText;') });
     });

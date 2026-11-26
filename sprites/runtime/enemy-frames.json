@@ -1,0 +1,6940 @@
+{
+  "cell": {
+    "w": 640,
+    "h": 320,
+    "anchorX": 320,
+    "baseline": 315
+  },
+  "enemies": {
+    "baddy1": {
+      "source": "sprites/workbench/baddy1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy1.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 253.8,
+            "y": 0,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 507.6,
+            "y": 0,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 761.4000000000001,
+            "y": 0,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 1015.2,
+            "y": 0,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 248,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 253.8,
+            "y": 248,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 507.6,
+            "y": 248,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 761.4000000000001,
+            "y": 248,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 1015.2,
+            "y": 248,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 496,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 253.8,
+            "y": 496,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 507.6,
+            "y": 496,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 761.4000000000001,
+            "y": 496,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 1015.2,
+            "y": 496,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 744,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 253.8,
+            "y": 744,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 507.6,
+            "y": 744,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 761.4000000000001,
+            "y": 744,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 1015.2,
+            "y": 744,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 992,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 253.8,
+            "y": 992,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 507.6,
+            "y": 992,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 761.4000000000001,
+            "y": 992,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy1-expanded-poses.png",
+          "source": {
+            "x": 1015.2,
+            "y": 992,
+            "w": 253.8,
+            "h": 248
+          },
+          "anchorX": 126.9,
+          "sourceBaseline": 248,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy2": {
+      "source": "sprites/workbench/baddy2.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy2.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy2-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy3": {
+      "source": "sprites/workbench/baddy3.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy3.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy3-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy4": {
+      "source": "sprites/workbench/baddy4.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy4.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy4-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy5": {
+      "source": "sprites/workbench/baddy5.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy5.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy5-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy6": {
+      "source": "sprites/workbench/baddy6.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy6.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy6-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy7": {
+      "source": "sprites/workbench/baddy7.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy7.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy7-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy8": {
+      "source": "sprites/workbench/baddy8.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy8.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy8-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy9": {
+      "source": "sprites/workbench/baddy9.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 287,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 417,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 559,
+            "y": 24,
+            "w": 246,
+            "h": 334
+          },
+          "anchorX": 682,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 817,
+            "y": 374,
+            "w": 300,
+            "h": 330
+          },
+          "anchorX": 967,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 1122,
+            "y": 374,
+            "w": 270,
+            "h": 330
+          },
+          "anchorX": 1257,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy9.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 1087,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 0,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 249.4,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 498.8,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 748.2,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 252.2,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 504.4,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 756.5999999999999,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy9-expanded-poses.png",
+          "source": {
+            "x": 1008.8,
+            "y": 997.6,
+            "w": 252.2,
+            "h": 249.4
+          },
+          "anchorX": 126.1,
+          "sourceBaseline": 249.4,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    },
+    "baddy10": {
+      "source": "sprites/workbench/baddy10.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "frames": {
+        "idle0": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 25,
+            "y": 24,
+            "w": 260,
+            "h": 334
+          },
+          "anchorX": 155,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle1": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 282,
+            "y": 24,
+            "w": 254,
+            "h": 334
+          },
+          "anchorX": 409,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "idle2": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 542,
+            "y": 24,
+            "w": 264,
+            "h": 334
+          },
+          "anchorX": 674,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack0": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 812,
+            "y": 24,
+            "w": 348,
+            "h": 334
+          },
+          "anchorX": 986,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "attack1": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 1167,
+            "y": 24,
+            "w": 330,
+            "h": 334
+          },
+          "anchorX": 1332,
+          "sourceBaseline": 334,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 0,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk0": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 24,
+            "y": 374,
+            "w": 254,
+            "h": 330
+          },
+          "anchorX": 151,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk1": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 282,
+            "y": 374,
+            "w": 276,
+            "h": 330
+          },
+          "anchorX": 420,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk2": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 562,
+            "y": 374,
+            "w": 250,
+            "h": 330
+          },
+          "anchorX": 687,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "walk3": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 812,
+            "y": 374,
+            "w": 190,
+            "h": 330
+          },
+          "anchorX": 907,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "hurt": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 1082,
+            "y": 374,
+            "w": 245,
+            "h": 330
+          },
+          "anchorX": 1204.5,
+          "sourceBaseline": 684,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 320,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat0": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 24,
+            "y": 724,
+            "w": 426,
+            "h": 280
+          },
+          "anchorX": 237,
+          "sourceBaseline": 1034,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat1": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 458,
+            "y": 724,
+            "w": 410,
+            "h": 280
+          },
+          "anchorX": 663,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "defeat2": {
+          "sheetSource": "sprites/workbench/baddy10.png",
+          "source": {
+            "x": 874,
+            "y": 724,
+            "w": 252,
+            "h": 280
+          },
+          "anchorX": 1000,
+          "sourceBaseline": 989,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle0": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle1": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 640,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle2": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle3": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-idle4": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 0,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack0": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack1": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 960,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack2": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack3": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-attack4": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 249.2,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk0": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk1": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1280,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk2": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk3": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-walk4": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 498.4,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt0": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt1": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1600,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt2": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt3": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-hurt4": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 747.5999999999999,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat0": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 0,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1920,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat1": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 252.4,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 2560,
+            "y": 1920,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat2": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 504.8,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 0,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat3": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 757.2,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 640,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        },
+        "expanded-defeat4": {
+          "sheetSource": "sprites/workbench/baddy10-expanded-poses.png",
+          "source": {
+            "x": 1009.6,
+            "y": 996.8,
+            "w": 252.4,
+            "h": 249.2
+          },
+          "anchorX": 126.2,
+          "sourceBaseline": 249.2,
+          "baseline": 315,
+          "runtime": {
+            "x": 1280,
+            "y": 2240,
+            "w": 640,
+            "h": 320
+          }
+        }
+      }
+    }
+  }
+}
